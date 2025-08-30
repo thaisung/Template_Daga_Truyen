@@ -37,9 +37,58 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body class="bg-black flex items-center justify-center min-h-screen relative">
+  <div class="flex flex-col justify-center items-center gap-6">
+      <span class="text-[30px] font-bold text-yellow-500 uppercase">
+        ĐÁ GÀ Live
+      </span>
 
-  <span style="color: aliceblue; font-size: 30px;">
-    ĐÁ GÀ ONILE
-  </span>
+      <!-- Các nút chọn kênh -->
+      <div class="flex items-center gap-6">
+        <button data-src="http://dagaxyz.online/hls/kenh1.m3u8" class="p-3 rounded bg-red-500 font-bold uppercase hover:scale-125">Live 1</button>
+        <button data-src="http://dagaxyz.online/hls/kenh2.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 2</button>
+        <button data-src="http://dagaxyz.online/hls/kenh3.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 3</button>
+        <button data-src="http://dagaxyz.online/hls/kenh4.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 4</button>
+      </div>
+
+      <!-- Khung video -->
+      <div class="flex justify-center items-center w-full lg:w-[800px] h-[300px] lg:h-[600px] bg-stone-700 rounded-md">
+        <video id="video" controls autoplay playsinline style="width:90%;max-width:960px;border-radius:12px;outline:none;background:#000;"></video>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('video');
+    let hls;
+
+    function playStream(url) {
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari/iOS
+        video.src = url;
+        video.play();
+      } else if (Hls.isSupported()) {
+        if (hls) {
+          hls.destroy(); // reset nếu đang phát stream cũ
+        }
+        hls = new Hls({ maxBufferLength: 10 });
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+      } else {
+        video.outerHTML = '<p style="color:#fff">Trình duyệt không hỗ trợ HLS.</p>';
+      }
+    }
+
+    // Gắn sự kiện cho các nút
+    document.querySelectorAll("button[data-src]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const url = btn.getAttribute("data-src");
+        playStream(url);
+      });
+    });
+
+    // Mặc định load kênh 1
+    playStream("http://dagaxyz.online/hls/kenh1.m3u8");
+  </script>
 </body>
 </html>

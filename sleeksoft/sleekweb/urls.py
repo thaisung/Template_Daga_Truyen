@@ -68,6 +68,7 @@ urlpatterns = [
     path('set-language/<str:lang_code>/', set_language, name='set_language'),
 
     path('',home,name='home'),
+    path("live/", live_view, name="live_view"),
 
     path('about',about,name='about'),
     path('booking',booking,name='booking'),

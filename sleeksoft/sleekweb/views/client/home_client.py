@@ -70,6 +70,10 @@ def set_language(request, lang_code):
     response = redirect(request.META.get('HTTP_REFERER', '/'))  # quay lại trang vừa bấm
     response.set_cookie('language', lang_code, max_age=60*60*24*30)  # 30 ngày
     return response
+
+def live_view(request):
+    hls_url = "http://your-domain-or-ip/hls/kenh1.m3u8"  # đổi thành domain/https nếu có reverse proxy
+    return render(request, "live.html", {"hls_url": hls_url})
     
 def home(request):
     if request.method == 'GET':
