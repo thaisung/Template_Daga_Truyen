@@ -1,0 +1,128 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="vi">
+    {% load static %}
+<head>
+    {% tailwind_css %}
+    <!-- 1. Thẻ charset, viewport, title -->
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>Đăng nhập ADMIN</title>
+
+    <!-- 2. Thẻ SEO cơ bản -->
+    <meta name="description" content="">
+    <meta name="keywords" content="Đăng nhập tài khoản" />
+    <link rel="canonical" href="{{domain}}/admin/login" />
+
+    <meta name='revisit-after' content='1 days' />
+    <meta name="robots" content="noodp,index,follow" />
+
+    <!-- 3. Favicon -->
+    <!-- <link rel="shortcut icon" href="{{domain}}/upload/website/logo.png" type="image/x-icon" /> -->
+
+    <!-- 4. Open Graph tags (Facebook, Zalo...) -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Đăng nhập tài khoản">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="{{domain}}/upload/website/logo.png">
+    <meta property="og:image:secure_url" content="{{domain}}/upload/website/logo.png">
+    <meta property="og:url" content="{{domain}}/admin/login">
+
+    <meta property="og:site_name" content="Hydrinity">
+
+    <!-- 5. Phần còn lại -->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+
+    <link rel="stylesheet" href="/static/css/dist/styles.css?v=1743858420">
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'UTM Aptima';
+            src: url('static/fonts/00022-UTM-Aptima.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'UTM Aptima';
+            src: url('static/fonts/00024-UTM-AptimaBoldItalic.ttf') format('truetype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'UTM Bebas';
+            src: url('static/fonts/00041-UTM-Bebas.ttf') format('truetype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        body {
+            font-family: 'UTM Aptima', sans-serif !important;
+        }
+    </style>
+
+</head>
+
+<body class="w-full min-h-screen flex  items-center justify-center bg-red-500 p-3" style="background: url('/upload/website/background.png') no-repeat center center/cover;">
+    <div class="flex flex-col bg-white w-[500px] p-6 rounded-md gap-3">
+        <!-- <div class="flex justify-center items-center mb-3">
+            <img src="/upload/website/logo.png" />
+        </div> -->
+        <div class="uppercase text-center bg-[#11284A] text-white p-3 font-bold rounded-md">
+            Đăng nhập trang quản trị
+        </div>
+        <form id="Login_Form" action="" class="flex flex-col gap-2">
+            {% csrf_token %}
+            <input name="username" placeholder="Tên tài khoản" class="rounded-md border-[1px] border-[#11284A]" />
+            <input name="password" type="password" placeholder="Mật khẩu" class="rounded-md border-[1px] border-[#11284A]" />
+            <button type="submit" class=" text-[#11284A] rounded-md py-2 font-bold border-[1px] border-[#11284A] ">Đăng nhập</button>
+        </form>
+        <script>
+            $(document).ready(function() {
+                $('#Login_Form').on('submit', function(event) {
+                    event.preventDefault();
+                    // $('#loader_login').show()
+                    // $('#Login_Form').hide()
+                
+                    var formData = new FormData(this);  // Tạo FormData từ form hiện tại
+                
+                    $.ajax({
+                        url: '{% url 'login_view' %}',
+                        method: 'POST',
+                        // headers: {
+                        //     'X-CSRFToken': '{{ csrf_token }}'
+                        // },
+                        processData: false,  // Không xử lý dữ liệu (cần thiết khi sử dụng FormData)
+                        contentType: false,  // Không đặt kiểu content (cần thiết khi sử dụng FormData)
+                        data: formData,
+                        success: function(response) {
+                            if (response.success) {
+                                window.location.href = response.redirect_url;
+                            } else {
+                                // $('#loader_login').hide()
+                                // $('#Login_Form').show()
+                                alert(response.message);
+                            }
+                        },
+                        error: function(response) {
+                            console.log('Đăng nhập thất bại', response);
+                        }
+                    });
+                });
+                
+            });
+        </script>
+    </div>
+</body>
+
+</html>

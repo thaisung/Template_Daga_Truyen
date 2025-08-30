@@ -1,0 +1,90 @@
+{% extends './base.html' %}
+{% block title %}Quản lý Sản phẩm{% endblock %}
+{% block content %}
+<div class="w-full flex-col ">
+    <div class="flex flex-col lg:flex-row items-center  lg:justify-between border-b-[1px] border-[#0e203c] lg:max-h-[50px] px-3 py-2 font-bold">
+        <span class="uppercase w-full flex justify-center lg:justify-start">
+            Trang ADS
+        </span>
+        <style>
+            input:focus {
+                outline: none !important;
+            }
+        </style>
+    </div>
+    <div class="flex flex-col gap-3 p-3">
+        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+            {% csrf_token %}
+            <label class="font-semibold">
+                1.Vị trí quảng cáo TRÊN
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" name="Script" value="{{Ads_1.Script}}" class="rounded-md w-full" required />
+                <input type="text" name="Count" value="1" class="hidden rounded-md w-full" required />
+                <button type="submit"
+                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
+
+            </div>
+        </form>
+        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+            {% csrf_token %}
+            <label class="font-semibold">
+                2.Vị trí quảng cáo DƯỚI
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" name="Script" value="{{Ads_2.Script}}" class="rounded-md w-full" required />
+                <input type="text" name="Count" value="2" class="hidden rounded-md w-full" required />
+                <button type="submit"
+                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
+
+            </div>
+        </form>
+        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+            {% csrf_token %}
+            <label class="font-semibold">
+                3.Vị trí quảng cáo TRÁI
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" name="Script" value="{{Ads_3.Script}}" class="rounded-md w-full" required />
+                <input type="text" name="Count" value="3" class="hidden rounded-md w-full" required />
+                <button type="submit"
+                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
+
+            </div>
+        </form>
+        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+            {% csrf_token %}
+            <label class="font-semibold">
+                4.Vị trí quảng cáo PHẢI
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" name="Script" value="{{Ads_4.Script}}" class="rounded-md w-full" required />
+                <input type="text" name="Count" value="4" class="hidden rounded-md w-full" required />
+                <button type="submit"
+                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
+
+            </div>
+        </form>
+        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+            {% csrf_token %}
+            <label class="font-semibold">
+                * Link quảng cáo khi bấm nút TIẾP TỤC XEM VIDEO *
+            </label>
+            <div class="flex items-center gap-2">
+                <input type="text" name="Script" value="{{Ads_100.Script}}" class="rounded-md w-full" required />
+                <input type="text" name="Count" value="100" class="hidden rounded-md w-full" required />
+                <button type="submit"
+                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('.open_input_Size').on('click', function() {
+            $('.input_Size').toggle(); // Bật nếu ẩn, ẩn nếu bật
+        });
+    });
+</script>
+{% endblock %}

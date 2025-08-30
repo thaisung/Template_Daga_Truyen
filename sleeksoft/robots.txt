@@ -1,0 +1,12 @@
+# Group 1 - Google
+User-Agent: Googlebot
+
+Disallow: /admin/
+
+
+# Group 2 - Bing
+User-Agent: Bingbot
+
+Disallow: /admin/
+
+Sitemap: https://milanauth.com.vn/sitemap.xml
