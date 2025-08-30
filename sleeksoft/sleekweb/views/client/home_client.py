@@ -71,7 +71,7 @@ def set_language(request, lang_code):
     response.set_cookie('language', lang_code, max_age=60*60*24*30)  # 30 ngày
     return response
     
-def home(request,slug):
+def home(request):
     if request.method == 'GET':
         context = {}
         context['domain'] = settings.DOMAIN
