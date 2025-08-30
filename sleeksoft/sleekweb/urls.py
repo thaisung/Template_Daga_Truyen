@@ -67,7 +67,7 @@ urlpatterns = [
 
     path('set-language/<str:lang_code>/', set_language, name='set_language'),
 
-    path('video/<str:slug>',home,name='home'),
+    path('',home,name='home'),
 
     path('about',about,name='about'),
     path('booking',booking,name='booking'),

@@ -76,28 +76,28 @@ def home(request,slug):
         context = {}
         context['domain'] = settings.DOMAIN
         context['lg'] = request.COOKIES.get('language') or 'VI'
-        context['Product'] = Product.objects.get(Slug=slug)
-        try:
-            context['Ads_1'] = Ads.objects.get(Count=1)
-        except:
-            context['Ads_1'] = {}
-        try:
-            context['Ads_2'] = Ads.objects.get(Count=2)
-        except:
-            context['Ads_2'] = {}
-        try:
-            context['Ads_3'] = Ads.objects.get(Count=3)
-        except:
-            context['Ads_3'] = {}
-        try:
-            context['Ads_4'] = Ads.objects.get(Count=4)
-        except:
-            context['Ads_4'] = {}
-        try:
-            context['Ads_100'] = Ads.objects.get(Count=100)
-        except:
-            context['Ads_100'] = {}
-        print('context:',context)
+        # context['Product'] = Product.objects.get(Slug=slug)
+        # try:
+        #     context['Ads_1'] = Ads.objects.get(Count=1)
+        # except:
+        #     context['Ads_1'] = {}
+        # try:
+        #     context['Ads_2'] = Ads.objects.get(Count=2)
+        # except:
+        #     context['Ads_2'] = {}
+        # try:
+        #     context['Ads_3'] = Ads.objects.get(Count=3)
+        # except:
+        #     context['Ads_3'] = {}
+        # try:
+        #     context['Ads_4'] = Ads.objects.get(Count=4)
+        # except:
+        #     context['Ads_4'] = {}
+        # try:
+        #     context['Ads_100'] = Ads.objects.get(Count=100)
+        # except:
+        #     context['Ads_100'] = {}
+        # print('context:',context)
         return render(request, 'sleekweb/client/home.html', context, status=200)
     
 def card_credit(request):
