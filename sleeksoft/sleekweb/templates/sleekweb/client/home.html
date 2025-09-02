@@ -1,7 +1,8 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="vi">
-  {% load static %}
+{% load static %}
+
 <head>
   {% tailwind_css %}
   <meta charset="utf-8" />
@@ -36,27 +37,220 @@
   <!-- Structured Data (tùy chọn, giúp SEO) -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body class="bg-black flex items-center justify-center min-h-screen relative">
-  <div class="flex flex-col justify-center items-center gap-6">
-      <span class="text-[30px] font-bold text-yellow-500 uppercase">
-        ĐÁ GÀ Live
-      </span>
 
-      <!-- Các nút chọn kênh -->
-      <div class="flex items-center gap-6">
-        <button data-src="https://dagaxyz.online/hls/myStream.m3u8" class="p-3 rounded bg-red-500 font-bold uppercase hover:scale-125">Live 1</button>
-        <button data-src="https://dagaxyz.online/hls/myStream.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 2</button>
-        <button data-src="https://dagaxyz.online/hls/myStream.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 3</button>
-        <button data-src="https://dagaxyz.online/hls/myStream.m3u8" class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 4</button>
+<body class="bg-stone-900 flex flex-col items-center min-h-screen relative">
+  <header class="flex items-center justify-center bg-stone-950 w-full border-b-[1px] border-stone-800 ">
+    <div class="flex items-center justify-between w-full lg:w-[1200px] h-[80px]">
+      <a href="/" class="flex justify-center items-center py-2 h-full">
+        <img class=" h-full w-auto" src="/upload/logo.png" />
+      </a>
+      <div class="hidden lg:flex items-center justify-center h-full" id="nav-daga">
+        <ul id="menu-menu" class="text-stone-50 flex items-center justify-center h-full text-[18px] font-bold">
+          <li id="menu-item-691"
+            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+            <a href="https://www.mojjo.io/" aria-current="page">Đá Gà Trực Tiếp</a>
+          </li>
+          <li id="menu-item-667"
+            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+            <a href="https://www.mojjo.io/lich-da-ga/">Lịch đá gà</a>
+          </li>
+          <li id="menu-item-693"
+            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+            <a href="https://www.mojjo.io/video-da-ga/">Xem video phát lại</a>
+          </li>
+          <li id="menu-item-692"
+            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+            <a href="https://www.mojjo.io/kien-thuc-da-ga/">Kiến thức đá gà</a>
+          </li>
+        </ul>
       </div>
+      <div class=" flex items-center justify-center gap-3 lg:gap-0 cursor-pointer px-3 lg:px-0">
+        <svg class="open_form_search w-[30px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #ffffff;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 2px;
+              }
+            </style>
+          </defs>
+          <title>21.search</title>
+          <g id="_21.search" data-name="21.search">
+            <circle class="cls-1" cx="9" cy="9" r="8"></circle>
+            <line class="cls-1" x1="15" y1="15" x2="23" y2="23"></line>
+          </g>
+        </svg>
+        <svg class="open_menu_mobile  w-[35px] stroke-stone-50 lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </div>
+    </div>
+  </header>
+  <main class="flex flex-col justify-center items-center gap-6 h-full w-full lg:w-[1200px] py-8">
+    <span class="text-[30px] font-bold text-yellow-500 uppercase">
+      ĐÁ GÀ Live
+    </span>
 
-      <!-- Khung video -->
-      <div class="flex justify-center items-center w-full lg:w-[800px] h-[300px] lg:h-[600px] bg-stone-700 rounded-md mt-5" style="">
-        <video id="video" controls autoplay playsinline style="width:90%;max-width:960px;border-radius:12px;outline:none;background:#000;"></video>
+    <!-- Các nút chọn kênh -->
+    <div class="flex items-center gap-6 text-stone-50">
+      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
+        class="p-3 rounded bg-red-600 font-bold uppercase hover:scale-125">Live 1</button>
+      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
+        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 2</button>
+      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
+        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 3</button>
+      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
+        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 4</button>
+    </div>
+
+    <!-- Khung video -->
+    <!-- CSS Video.js -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+    <!-- Video -->
+    <video
+      id="my-video"
+      class="video-js vjs-big-play-centered rounded-xl overflow-hidden"
+      controls
+      preload="auto"
+      autoplay
+      playsinline
+      data-setup="{}"
+      style="width:100%;max-width:800px;height:450px;"
+    >
+      <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL" />
+    </video>
+
+    <!-- JS Video.js -->
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+
+  </main>
+  <!-- #search  -->
+  <div class="form_search fixed flex justify-center items-center inset-0 bg-stone-950 bg-opacity-80 px-3 lg:px-0"
+    style="display: none;">
+    <form class=" flex flex-col justify-center items-center p-6 rounded w-full lg:w-[600px] bg-stone-800 gap-3">
+      <div class="flex justify-between items-center w-full">
+        <div class="flex items-center gap-2">
+          <svg class="w-[25px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: none;
+                  stroke: #ffffff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 2px;
+                }
+              </style>
+            </defs>
+            <title>21.search</title>
+            <g id="_21.search" data-name="21.search">
+              <circle class="cls-1" cx="9" cy="9" r="8"></circle>
+              <line class="cls-1" x1="15" y1="15" x2="23" y2="23"></line>
+            </g>
+          </svg>
+          <span class="font-bold text-stone-50 text-[20px]">
+            Tìm kiếm
+          </span>
+        </div>
+        <div class="close_form_search">
+          <svg class="w-[25px] fill-stone-50 cursor-pointer hover:fill-red-600" id="Layer_1" version="1.1"
+            viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path
+              d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z">
+            </path>
+          </svg>
+        </div>
       </div>
+      <input class="w-full mt-3 rounded h-[50px] bg-stone-700 text-[18px] text-white" placeholder="Nhập từ khoá" />
+      <button class="rounded w-full bg-red-600 hover:bg-red-700 font-bold text-[18px] text-white py-2" type="submit">Tìm
+        kiếm</button>
+    </form>
   </div>
+  <!-- #Menu mobile -->
+   <div class="menu_mobile fixed inset-0 flex flex-col  lg:hidden items-center justify-center h-full bg-stone-950 w-full" id="nav-daga">
+      <div class="flex items-center justify-between w-full pr-3">
+        <a href="/" class="flex justify-center items-center py-2">
+          <img class="w-[139px] h-auto" src="/upload/logo.png" />
+        </a>
+        <span class="uppercase text-yellow-500 font-bold text-[20px]">Xemgalive</span>
+        <div class="close_menu_mobile ">
+          <svg class="w-[30px] fill-stone-50 cursor-pointer hover:fill-red-600" id="Layer_1" version="1.1"
+            viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path
+              d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <ul id="menu-menu" class="text-stone-50 flex flex-col items-center justify-center w-full h-full text-[18px] font-bold">
+        <li id="menu-item-691"
+          class="flex items-center justify-center w-full h-full  hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+          <a href="https://www.mojjo.io/" aria-current="page">Đá Gà Trực Tiếp</a>
+        </li>
+        <li id="menu-item-667"
+          class="flex items-center justify-center w-full h-full  hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+          <a href="https://www.mojjo.io/lich-da-ga/">Lịch đá gà</a>
+        </li>
+        <li id="menu-item-693"
+          class="flex items-center justify-center w-full h-full  hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+          <a href="https://www.mojjo.io/video-da-ga/">Xem video phát lại</a>
+        </li>
+        <li id="menu-item-692"
+          class="flex items-center justify-center w-full h-full  hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-900 cursor-pointer">
+          <a href="https://www.mojjo.io/kien-thuc-da-ga/">Kiến thức đá gà</a>
+        </li>
+      </ul>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <footer class="flex flex-col items-center justify-center w-full bg-stone-950">
+    <div class="flex flex-col lg:flex-row w-full lg:w-[1200px] gap-8 py-6 px-6 lg:px-0">
+      <div class="flex flex-col items-start">
+        <a href="/" class="flex justify-center items-center">
+          <img class=" h-auto w-[200px]" src="/upload/logo.png" />
+        </a>
+        <div class="flex flex-col text-stone-50 gap-3">
+          <span>
+            www.mojjo.io là trang web phát đá gà trực tiếp thomo campuchia có bình luận tốt nhất hiện nay với đầy đủ
+            loại hình: cựa dao, cựa sắt, cpc1, cpc2, cpc3, cpc4, cpc5 với âm thanh sống động và hình ảnh sắc nét chân
+            thực. Đảm bảo sẽ cho anh em đam mê đá gà giây phút trải nghiệm đáng giá nhất!
+          </span>
+          <span>Địa chỉ: 36 Đội Cấn, Ba Đình, Hà Nội</span>
+          <span>Website: <a href="/">https://www.mojjo.io/</a></span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3 text-stone-50">
+        <span class="uppercase whitespace-nowrap font-bold">Về chúng tôi</span>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Giới thiệu Đá Gà TV</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Chính sách bảo mật</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Điều khoản sử dụng</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Miễn trừ trách nhiệm</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Liên hệ</a>
+        <span class="whitespace-nowrap">Telegram QC: @lana191919</span>
+      </div>
+      <div class="flex flex-col gap-3 text-stone-50">
+        <span class="uppercase font-bold whitespace-nowrap">Danh mục chính</span>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Lịch trực tiếp đá gà</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Xem lại clip đá gà</a>
+        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Tin tức đá gà</a>
+      </div>
+    </div>
+    <span class=" py-6 text-red-700">
+      © 2023 Đá Gà TV. All rights reserved.
+    </span>
+  </footer>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
     let hls;
@@ -88,7 +282,35 @@
     });
 
     // Mặc định load kênh 1
-    playStream("http://dagaxyz.online/hls/kenh1.m3u8");
+    playStream("https://dagaxyz.online/hls/myStream.m3u8");
+  </script> -->
+  <script>
+    $(document).ready(function () {
+      // Nút bật
+      $(".open_form_search").click(function () {
+        $(".form_search").fadeIn(300);   // hiện form mượt
+      });
+
+      // Nút tắt
+      $(".close_form_search").click(function () {
+        $(".form_search").fadeOut(300);     // ẩn form mượt
+      });
+    });
   </script>
+  <script>
+    $(document).ready(function () {
+      // Nút bật
+      $(".open_menu_mobile").click(function () {
+        $(".menu_mobile").fadeIn(300);   // hiện form mượt
+      });
+
+      // Nút tắt
+      $(".close_menu_mobile").click(function () {
+        $(".menu_mobile").fadeOut(300);     // ẩn form mượt
+      });
+    });
+  </script>
+
 </body>
+
 </html>
