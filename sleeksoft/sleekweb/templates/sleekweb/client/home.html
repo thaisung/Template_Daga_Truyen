@@ -99,36 +99,58 @@
 
     <!-- Các nút chọn kênh -->
     <div class="flex items-center gap-6 text-stone-50">
-      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
-        class="p-3 rounded bg-red-600 font-bold uppercase hover:scale-125">Live 1</button>
-      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
-        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 2</button>
-      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
-        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 3</button>
-      <button data-src="https://dagaxyz.online/hls/myStream.m3u8"
-        class="p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 4</button>
+      <button data-src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+        class="channel-btn p-3 rounded bg-red-600 font-bold uppercase hover:scale-125">Live 1</button>
+      <button data-src="https://dagaxyz.online/hls/myStream2.m3u8"
+        class="channel-btn p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 2</button>
+      <button data-src="https://dagaxyz.online/hls/myStream3.m3u8"
+        class="channel-btn p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 3</button>
+      <button data-src="https://dagaxyz.online/hls/myStream4.m3u8"
+        class="channel-btn p-3 rounded bg-green-500 font-bold uppercase hover:scale-125">Live 4</button>
     </div>
 
-    <!-- Khung video -->
     <!-- CSS Video.js -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
     <!-- Video -->
     <video
       id="my-video"
-      class="video-js vjs-big-play-centered rounded-xl overflow-hidden"
+      class="video-js vjs-big-play-centered "
       controls
       preload="auto"
       autoplay
       playsinline
-      data-setup="{}"
       style="width:100%;max-width:800px;height:450px;"
     >
       <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL" />
     </video>
 
-    <!-- JS Video.js -->
+    <!-- JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        var player = videojs('my-video');
+
+        $(".channel-btn").on("click", function () {
+          var newSrc = $(this).data("src");
+
+          // Đổi kênh video
+          player.src({
+            src: newSrc,
+            type: "application/x-mpegURL"
+          });
+          player.play();
+
+          // Reset màu tất cả nút về xanh
+          $(".channel-btn").removeClass("bg-red-600").addClass("bg-green-500");
+
+          // Nút đang chọn thành đỏ
+          $(this).removeClass("bg-green-500").addClass("bg-red-600");
+        });
+      });
+    </script>
 
 
   </main>
@@ -288,15 +310,28 @@
     $(document).ready(function () {
       // Nút bật
       $(".open_form_search").click(function () {
-        $(".form_search").fadeIn(300);   // hiện form mượt
+        $(".form_search").fadeIn(300);
+
+        // giữ chỗ scrollbar
+        var scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        $("body").css({
+          "overflow": "hidden",
+          "padding-right": scrollBarWidth + "px"
+        });
       });
 
       // Nút tắt
       $(".close_form_search").click(function () {
-        $(".form_search").fadeOut(300);     // ẩn form mượt
+        $(".form_search").fadeOut(300);
+        $("body").css({
+          "overflow": "auto",
+          "padding-right": "0"
+        });
       });
     });
   </script>
+
+
   <script>
     $(document).ready(function () {
       // Nút bật
