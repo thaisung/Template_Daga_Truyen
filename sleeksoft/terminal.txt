@@ -1,4 +1,10 @@
-103.179.172.75 |O0Kfp4j6788Nm9Eh
+74.222.7.74:22 / root / e!Z7PHo&1i
+74.81.45.176:22 / root / 570Roq~@Vh
+dig -x 74.222.7.74
+nslookup 74.81.45.176
+
+rtmp://74.222.7.74:1935/live/myStream1
+
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
 py -0p
