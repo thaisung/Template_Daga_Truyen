@@ -90,9 +90,9 @@
       </div>
     </div>
   </header> -->
-  <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3">
-    <div class="flex items-center justify-between w-full lg:w-[1200px] h-[80px]">
-      <div class="flex flex-col items-center justify-between">
+  <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 px-3 lg:px-0">
+    <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] h-auto lg:h-[80px]">
+      <!-- <div class="flex flex-col items-center justify-between">
         <div class="flex items-center justify-center border-[3px] border-stone-950 font-bold w-[32px] h-[32px] mt-2">
           1
         </div>
@@ -103,76 +103,158 @@
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-      </div>
+      </div> -->
       <a href="/" class="flex flex-col justify-center items-center py-2 h-full">
         <img class=" h-full w-auto" src="/upload/logo.png" />
         <span class="uppercase font-bold ">Xemlivedaga.com</span>
       </a>
-      <a href="/" class="flex flex-col justify-center items-center py-2 h-full">
+      <a href="/" class="hidden lg:flex flex-col justify-center items-center py-2 h-full">
         <img class=" h-full w-auto" src="/upload/huy_hieu.png" />
       </a>
-      <div class="flex items-center justify-center gap-3">
-        <svg class="fill-stone-950 w-[40px] " enable-background="new 0 0 32 32" id="Слой_1" version="1.1" viewBox="0 0 32 32" xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <path clip-rule="evenodd"
-            d="M31.705,15.284L31.705,15.284L31.705,15.284  l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976C20.008,11.002,20.004,11,20,11H1c-0.55,0-1,0.45-1,1v8c0,0.55,0.45,1,1,1  h19c0.004,0,0.008-0.002,0.012-0.002v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999  C32.098,16.318,32.098,15.678,31.705,15.284z M22.017,23.564V19H22h-1h-0.988v0.002C20.008,19.002,20.004,19,20,19h-1H2v-6h17h1  c0.004,0,0.008-0.002,0.012-0.002V13H21h1h0.017V8.432l7.55,7.566L22.017,23.564z"
-            fill="" fill-rule="evenodd" id="Arrow_Right"></path>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
+      <div class="live-banner">
+        <!-- Mũi tên trái (➡) -->
+        <svg class="icon" viewBox="0 0 32 32">
+          <path
+            d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+              c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+              M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z"
+          />
         </svg>
-        <span class="uppercase font-bold ">Xem Live Về gà</span>
-        <svg class="fill-stone-950 w-[40px] transform -scale-x-100" enable-background="new 0 0 32 32" id="Слой_1" version="1.1" viewBox="0 0 32 32" xml:space="preserve"
-          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <path clip-rule="evenodd"
-            d="M31.705,15.284L31.705,15.284L31.705,15.284  l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976C20.008,11.002,20.004,11,20,11H1c-0.55,0-1,0.45-1,1v8c0,0.55,0.45,1,1,1  h19c0.004,0,0.008-0.002,0.012-0.002v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999  C32.098,16.318,32.098,15.678,31.705,15.284z M22.017,23.564V19H22h-1h-0.988v0.002C20.008,19.002,20.004,19,20,19h-1H2v-6h17h1  c0.004,0,0.008-0.002,0.012-0.002V13H21h1h0.017V8.432l7.55,7.566L22.017,23.564z"
-            fill="" fill-rule="evenodd" id="Arrow_Right"></path>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
-          <g></g>
-        </svg>
+
+        <span class="title">Xem Live Về gà</span>
+
+        <!-- Mũi tên phải (⬅, nhờ flip div) -->
+        <div class="flip">
+          <svg class="icon" viewBox="0 0 32 32">
+            <path
+              d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z"
+            />
+          </svg>
+        </div>
       </div>
+
+      <style>
+        .live-banner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          padding: 12px 20px;
+          border-radius: 14px;
+          background: rgba(26, 25, 25, 0.55);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          /* backdrop-filter: blur(6px); */
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .icon {
+          width: 40px;
+          fill: #ffd166;
+          filter: drop-shadow(0 0 6px #ff4d6d) drop-shadow(0 0 14px #ffd166);
+          animation: pulse 1.6s ease-in-out infinite;
+        }
+
+        /* lật mũi tên phải */
+        .flip {
+          transform: scaleX(-1);
+          display: flex;
+          align-items: center;
+        }
+
+        .title {
+          font-size: clamp(20px, 3vw, 32px);
+          font-weight: 900;
+          text-transform: uppercase;
+          background: linear-gradient(90deg, #ff4d6d, #ffd166, #7cf7ff, #ff4d6d);
+          background-size: 300% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: slide 3s ease-in-out infinite;
+          text-shadow: 0 0 12px rgba(255, 209, 102, 0.6);
+        }
+
+        @keyframes slide {
+          0%,100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+          0%,100% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.2); opacity: 1; }
+        }
+      </style>
+
     </div>
   </header>
   <main class="flex flex-col justify-center items-center gap-6 h-full w-full lg:w-[1200px] py-8">
-    <span class="text-[30px] font-bold text-yellow-500 uppercase">
+    <span class="text-[30px] font-bold text-yellow-500 uppercase text-center">
       Live trực tiếp đá gà Thomo gà cho fuisan
     </span>
 
     <!-- Các nút chọn kênh -->
-    <div class="flex items-center gap-6 text-stone-50">
+    <div class="grid grid-cols-3 lg:grid-cols-8 items-center gap-6 text-stone-50">
       <button data-src="https://dagaxyz.online/hls/myStream1.m3u8"
-        class="channel-btn p-3 flex justify-center items-center rounded-full w-[50px] h-[50px] bg-red-600 font-bold uppercase hover:scale-125">1</button>
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-red-600 font-bold uppercase hover:scale-125">C1-C2</button>
       <button data-src="https://dagaxyz.online/hls/myStream2.m3u8"
-        class="channel-btn p-3 flex justify-center items-center rounded-full w-[50px] h-[50px] bg-green-500 font-bold uppercase hover:scale-125">2</button>
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">CPC4</button>
       <button data-src="https://dagaxyz.online/hls/myStream3.m3u8"
-        class="channel-btn p-3 flex justify-center items-center rounded-full w-[50px] h-[50px] bg-green-500 font-bold uppercase hover:scale-125">3</button>
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">CPC5</button>
       <button data-src="https://dagaxyz.online/hls/myStream4.m3u8"
-        class="channel-btn p-3 flex justify-center items-center rounded-full w-[50px] h-[50px] bg-green-500 font-bold uppercase hover:scale-125">4</button>
-      <button data-src="https://dagaxyz.online/hls/myStream4.m3u8"
-        class="channel-btn p-3 flex justify-center items-center rounded-full w-[50px] h-[50px] bg-green-500 font-bold uppercase hover:scale-125">5</button>
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">TONHON</button>
+      <button data-src="https://dagaxyz.online/hls/myStream5.m3u8"
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">PC1/PC2</button>
+      <button data-src="https://dagaxyz.online/hls/myStream6.m3u8"
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">FG1/Cj1</button>
+      <button data-src="https://dagaxyz.online/hls/myStream7.m3u8"
+        class="channel-btn p-3 flex justify-center items-center rounded-lg bg-green-500 font-bold uppercase hover:scale-125">Gà Dao</button>
+      <button data-src="https://dagaxyz.online/hls/myStream8.m3u8"
+        class="channel-btn p-3 flex justify-center items-center rounded-lg  bg-green-500 font-bold uppercase hover:scale-125">TH7abc</button>
     </div>
 
-    <!-- CSS Video.js -->
-    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <!-- Import Mediaelement CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelementplayer.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement-plugins@latest/dist/quality/quality.min.css">
+    
+    <!-- Import Mediaelement JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelement-and-player.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mediaelement-plugins@latest/dist/quality/quality.min.js"></script>
 
-    <!-- Video -->
-    <video id="my-video" class="video-js vjs-big-play-centered " controls preload="auto" autoplay playsinline
-      style="width:100%;max-width:800px;height:450px;">
-      <source src="https://dagaxyz.online/hls/myStream1.m3u8" type="application/x-mpegURL" />
-    </video>
-    <!-- <div style="flex:1; border:1px solid #ccc;">
-      <iframe src="https://tlk.io/ten-phong-cua-ban" 
-              frameborder="0" width="100%" height="450"></iframe>
-    </div> -->
+    <div class="player">
+        <video id="player-demo" width="640" height="360" preload="none" style="max-width: 100%" controls="" poster="images/big_buck_bunny.jpg">
+            <!-- Add multiple <source>-tags and set text per `data-quality`-attribute -->
+            <source type="video/mp4" src="https://download.samplelib.com/mp4/sample-15s.mp4" data-quality="HD">
+            <source type="video/mp4" src="https://download.samplelib.com/mp4/sample-10s.mp4" data-quality="SD">
+            <source type="video/mp4" src="https://download.samplelib.com/mp4/sample-5s.mp4" data-quality="LD">
+            <!-- Just add multiple <track> files, they get integrated automatically -->
+            <track src="dist/mediaelement.vtt" srclang="en" label="English" kind="captions" type="text/vtt">
+            <track src="dist/mediaelement_german.vtt" srclang="de" label="Deutsch" kind="subtitles" type="text/vtt">
+        </video>
+    </div>
 
-    <div class="flex flex-col w-full mt-3">
+    <script>
+        // You can use either a string for the player ID (i.e., `player`), 
+        // or `document.querySelector()` for any selector
+        const playerQuality = new MediaElementPlayer('player', {
+            iconSprite: '/images/mejs-controls.svg', // path to svg-spritemap for all icons
+            features: ['playpause', 'current', 'progress', 'duration', 'volume', 'tracks', 'quality', 'fullscreen'], // add 'quality' feature
+        });
+    </script>
+
+    <div class="w-full px-3 lg:px-0 lg:w-[800px]">
+      <iframe 
+        src="https://www5.cbox.ws/box/?boxid=943077&boxtag=ScaPAS"
+        width="100%" 
+        height="500" 
+        frameborder="0" 
+        scrolling="auto">
+      </iframe>
+    </div>
+
+
+    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
       <span class="uppercase font-bold">Video đá gà mới nhất hôm nay</span>
       <div class="w-full flex flex-col items-center justify-center">
         <div class="grid grid-cols-3 gap-5">
@@ -185,7 +267,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col w-full mt-3">
+    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
       <span class="uppercase font-bold">Video đá gà mới nhất hôm qua</span>
       <div class="w-full flex flex-col items-center justify-center">
         <div class="grid grid-cols-3 gap-5">
@@ -198,7 +280,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col w-full mt-3">
+    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
       <span class="uppercase font-bold">Bài viết giới thiệu</span>
       <div class="w-full flex flex-col items-center justify-center">
         .................
@@ -206,7 +288,7 @@
     </div>
     <div class="flex flex-col w-full mt-3">
       <div class="w-full flex flex-col items-center justify-center">
-        <div class="grid grid-cols-2 gap-5 p-[100px]">
+        <div class="grid grid-cols-2 gap-3 lg:gap-5 p-3 lg:p-[100px]">
           <img class=" h-full w-auto rounded-2xl" src="/upload/bg.jpg" />
           <img class=" h-full w-auto rounded-2xl" src="/upload/bg.jpg" />
           <img class=" h-full w-auto rounded-2xl" src="/upload/bg.jpg" />
