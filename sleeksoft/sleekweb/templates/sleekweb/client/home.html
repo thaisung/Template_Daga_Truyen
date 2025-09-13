@@ -36,81 +36,21 @@
 
   <!-- Structured Data (tùy chọn, giúp SEO) -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
-  <!-- <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 ">
-    <div class="flex items-center justify-between w-full lg:w-[1200px] h-[80px]">
-      <a href="/" class="flex justify-center items-center py-2 h-full">
-        <img class=" h-full w-auto" src="/upload/logo.png" />
-      </a>
-      <div class="hidden lg:flex items-center justify-center h-full" id="nav-daga">
-        <ul id="menu-menu" class="text-stone-50 flex items-center justify-center h-full text-[18px] font-bold">
-          <li id="menu-item-691"
-            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-100 cursor-pointer">
-            <a href="https://www.mojjo.io/" aria-current="page"><span class="font-bold">đá gà trực tiếp</span></a>
-          </li>
-          <li id="menu-item-667"
-            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-100 cursor-pointer">
-            <a href="https://www.mojjo.io/lich-da-ga/">Lịch đá gà</a>
-          </li>
-          <li id="menu-item-693"
-            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-100 cursor-pointer">
-            <a href="https://www.mojjo.io/video-da-ga/">Xem video phát lại</a>
-          </li>
-          <li id="menu-item-692"
-            class="flex items-center justify-center h-full px-3 hover:text-red-600 hover:border-b-[3px] hover:border-red-600 hover:bg-stone-100 cursor-pointer">
-            <a href="https://www.mojjo.io/kien-thuc-da-ga/">Kiến thức đá gà</a>
-          </li>
-        </ul>
-      </div>
-      <div class=" flex items-center justify-center gap-3 lg:gap-0 cursor-pointer px-3 lg:px-0">
-        <svg class="open_form_search" width="30px" height="30px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>search</title>
-          <desc>Created with Sketch.</desc>
-          <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Rounded" transform="translate(-545.000000, -421.000000)">
-                  <g id="Action" transform="translate(100.000000, 100.000000)">
-                      <g id="-Round-/-Action-/-search" transform="translate(442.000000, 318.000000)">
-                          <g>
-                              <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-                              <path d="M15.5,14 L14.71,14 L14.43,13.73 C15.63,12.33 16.25,10.42 15.91,8.39 C15.44,5.61 13.12,3.39 10.32,3.05 C6.09,2.53 2.53,6.09 3.05,10.32 C3.39,13.12 5.61,15.44 8.39,15.91 C10.42,16.25 12.33,15.63 13.73,14.43 L14,14.71 L14,15.5 L18.25,19.75 C18.66,20.16 19.33,20.16 19.74,19.75 C20.15,19.34 20.15,18.67 19.74,18.26 L15.5,14 Z M9.5,14 C7.01,14 5,11.99 5,9.5 C5,7.01 7.01,5 9.5,5 C11.99,5 14,7.01 14,9.5 C14,11.99 11.99,14 9.5,14 Z" id="🔹Icon-Color" fill="#1D1D1D"></path>
-                          </g>
-                      </g>
-                  </g>
-              </g>
-          </g>
-        </svg>
-        <svg class="open_menu_mobile  w-[35px] stroke-stone-950 lg:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </div>
-    </div>
-  </header> -->
-  <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-6 px-3 lg:px-0">
+  <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0">
     <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
-      <!-- <div class="flex flex-col items-center justify-between">
-        <div class="flex items-center justify-center border-[3px] border-stone-950 font-bold w-[32px] h-[32px] mt-2">
-          1
-        </div>
-        <svg class="cursor-pointer w-[35px] stroke-stone-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-          fill="none" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-          class="feather feather-menu">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </div> -->
-      <a href="/" class="lg:w-[11%] w-[150px] flex flex-col justify-center items-center py-2 h-full gap-2">
+      <a href="/" class=" lg:w-[11%] w-[100px] flex flex-col justify-center items-center py-2 h-full gap-2">
         <img class=" w-full h-auto" src="/upload/logo.png" />
         <img class=" w-full h-auto" src="/upload/domain.png" />
       </a>
-      <div class="lg:w-[89%] w-full h-full flex flex-col  bg-[url('/upload/banner.png')] bg-cover bg-center rounded-lg overflow-hidden">
+      <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-[url('/upload/banner.png')] bg-cover bg-center rounded-lg overflow-hidden">
         <div class="live-banner min-h-[61px]">
-          <!-- Mũi tên trái -->
           <svg class="icon" viewBox="0 0 32 32">
             <path
               d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
@@ -118,8 +58,6 @@
                 M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z"
             />
           </svg>
-
-          <!-- Chữ chạy liên tục -->
           <div class="scrolling-text">
             <div class="scrolling-inner">
               <span>
@@ -132,8 +70,6 @@
               </span>
             </div>
           </div>
-
-          <!-- Mũi tên phải -->
           <div class="flip">
             <svg class="icon" viewBox="0 0 32 32">
               <path
@@ -144,11 +80,7 @@
             </svg>
           </div>
         </div>
-        <!-- <img class="w-ful" src="/upload/banner.png" /> -->
       </div>
-      <!-- <a href="/" class="min-w-[150px] hidden lg:flex flex-col justify-center items-center py-2 h-full">
-        <img class=" w-full h-auto" src="/upload/huy_hieu.png" />
-      </a> -->
 
       <style>
       .live-banner {
@@ -214,13 +146,47 @@
 
     </div>
   </header>
-  <main class="flex flex-col justify-center items-center gap-6 h-full w-full lg:w-[1200px] py-8">
-    <h1 class="text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center p-3 lg:p-0">
+  <main class="flex flex-col justify-center items-center gap-3 lg:gap-6 h-full w-full lg:w-[1200px] py-3 lg:py-8 px-3 lg:p-0">
+    <h1 class="text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
       LIVE TỔNG HỘP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI
     </h1>
 
+    <!-- Chu chay mobile -->
+    <div class=" lg:hidden lg:w-[89%] w-full h-full flex flex-col  bg-[url('/upload/banner.png')] bg-cover bg-center rounded-lg overflow-hidden">
+        <div class="live-banner min-h-[61px]">
+          <svg class="icon" viewBox="0 0 32 32">
+            <path
+              d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z"
+            />
+          </svg>
+          <div class="scrolling-text">
+            <div class="scrolling-inner">
+              <span>
+                => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp Full sân 
+                Gà-cam Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉
+              </span>
+              <span>
+                => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp Full sân 
+                Gà-cam Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉
+              </span>
+            </div>
+          </div>
+          <div class="flip">
+            <svg class="icon" viewBox="0 0 32 32">
+              <path
+                d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                  c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                  M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z"
+              />
+            </svg>
+          </div>
+        </div>
+    </div>
+
     <!-- Các nút chọn kênh -->
-    <div class="w-full p-3 lg:p-0 grid grid-cols-3 lg:grid-cols-8 items-center gap-3 lg:gap-6 text-stone-50">
+    <div class="w-full py-3 lg:py-3 grid grid-cols-3 lg:grid-cols-8 items-center gap-3 lg:gap-6 text-stone-50">
       <div class="inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">C1-C2</span>
@@ -254,7 +220,6 @@
         <span class="text-stone-50 font-semibold text-sm">TH7abc</span>
       </div>
     </div>
-
 
 
     <!-- Video.js CSS -->
@@ -332,14 +297,14 @@
 
 
     <!-- Chat box -->
-    <div class="w-full px-3 lg:px-0 lg:w-[800px]">
+    <div class="w-full  lg:w-[800px]">
       <iframe src="https://www5.cbox.ws/box/?boxid=958562&boxtag=BdXGl7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
     </div>
 
     <!-- Danh mục các sân -->
      <div class="w-full flex flex-col items-center justify-center gap-3">
-        <span class="w-full text-center font-bold text-[17px] lg:text-[20px] uppercase">Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái</span>
-        <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3 px-3 lg:px-0 text-[14px] lg:text-[16px]">
+        <span class="w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5">Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái</span>
+        <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3  text-[14px] lg:text-[16px]">
           <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2 ">CPC1</a>
           <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV1</a>
           <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV2</a>
@@ -360,8 +325,51 @@
         </div>
      </div>
 
+     <!-- Slider -->
+    <div class="swiper mySwiper w-full lg:w-[600px] max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] mt-3 lg:mt-5">
+      <div class="swiper-wrapper w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]">
+        <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+          <img src="/upload/lich1.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+        </div>
+        <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+          <img src="/upload/lich2.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+        </div>
+        <div class="swiper-slide flex-shrink-0 w-full  max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+          <img src="/upload/lich3.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+        </div>
+        <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+          <img src="/upload/lich4.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+        </div>
+      </div>
+    </div>
+    <script>
+      const swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        coverflowEffect: {
+          rotate: 20,
+          stretch: 80,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+        loop: true,
+        speed: 800, // tốc độ chuyển slide
+        autoplay: {
+          delay: 1000,               // 1 giây đổi slide
+          disableOnInteraction: false,
+          reverseDirection: true,    // 🔄 chạy ngược
+        },
+      });
+    </script>
 
-    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
+
+
+    <!-- Video đá gà mới nhất hôm nay -->
+    <div class="flex flex-col w-full mt-3  gap-2">
       <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center ">Video đá gà mới nhất hôm nay</span>
       <div class="w-full flex flex-col items-center justify-center">
         <div class="grid grid-cols-3 gap-5">
@@ -375,7 +383,8 @@
       </div>
     </div>
 
-    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
+    <!-- Video đá gà mới nhất hôm qua -->
+    <div class="flex flex-col w-full mt-3  gap-2">
       <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center ">Video đá gà mới nhất hôm qua</span>
       <div class="w-full flex flex-col items-center justify-center">
         <div class="grid grid-cols-3 gap-5">
@@ -390,7 +399,7 @@
     </div>
 
     <!-- About us -->
-    <div class="flex flex-col w-full mt-3 px-3 lg:px-0 gap-2">
+    <div class="flex flex-col w-full mt-3  gap-2">
       <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center ">Bài viết giới thiệu</span>
       <div class="w-full flex flex-col items-center justify-center mt-5 text-[13px] lg:text-[16px]">
         <div class="w-full flex flex-col  justify-center">
@@ -610,6 +619,7 @@
       </div>
     </div>
 
+    <!-- Lich da ga  -->
     <div class="flex flex-col w-full mt-3">
       <div class="w-full flex flex-col items-center justify-center">
         <div class=" w-full grid grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
