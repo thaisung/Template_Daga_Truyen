@@ -1497,6 +1497,10 @@ select {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\'\/upload\/banner\.webp\'\)\] {
+  background-image: url('/upload/banner.webp');
+}
+
 .from-sky-600 {
   --tw-gradient-from: #0284c7 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(2 132 199 / 0) var(--tw-gradient-to-position);
