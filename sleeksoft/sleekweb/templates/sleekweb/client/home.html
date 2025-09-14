@@ -40,6 +40,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+  <link href="https://vjs.zencdn.net/8.23.3/video-js.css" rel="stylesheet" />
+
 </head>
 
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
@@ -49,7 +51,7 @@
         <img class=" w-full h-auto" src="/upload/logo.png" />
         <img class=" w-full h-auto" src="/upload/domain.png" />
       </a>
-      <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-[url('/upload/banner.webp')] bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('/upload/banner.webp');">
+      <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('/upload/banner.webp');">
         <div class="live-banner min-h-[61px]">
           <svg class="icon" viewBox="0 0 32 32">
             <path
@@ -221,85 +223,58 @@
       </div>
     </div>
 
+    <!-- Video & Chatbox -->
+    <div class="w-full flex flex-col items-center justify-center gap-4">
+      <!-- Player + Info -->
+      <div class="w-full bg-white rounded-2xl shadow p-2">
+      <div class="relative">
+        <!-- Player -->
+        <video
+          id="my-video"
+          class="video-js vjs-big-play-centered vjs-fluid rounded-2xl overflow-hidden"
+          controls
+          autoplay
+          playsinline
+          preload="auto"
+          data-setup="{}"
+        >
+          <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL" />
+        </video>
 
-    <!-- Video.js CSS -->
-    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+        <!-- Logo -->
+        <!-- <div class="absolute top-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+          MyChannel
+        </div> -->
 
-    <style>
-    /* Container */
-    .video-container {
-      position: relative;
-      display: inline-block;
-      max-width: 640px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
+        <!-- LIVE badge -->
+        <div class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
+          🔴 LIVE
+        </div>
+      </div>
 
-    /* LIVE badge */
-    .live-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: red;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-      z-index: 10;
-    }
+      <!-- Video info -->
+      <div class="p-3">
+          <h2 class="text-lg font-semibold">Trực tiếp Đá Gà - Giải đấu hôm nay</h2>
+          <p class="text-gray-600 text-sm mt-1">👁️ 3,245 người đang xem</p>
+        </div>
+      </div>
 
-    /* Tuỳ chỉnh style control bar giống JW Player */
-    .video-js .vjs-control-bar {
-      background: rgba(0,0,0,0.6);
-      font-family: Arial, sans-serif;
-    }
-
-    .video-js .vjs-play-control .vjs-icon-placeholder:before {
-      content: "\f04b"; /* icon play */
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900;
-    }
-
-    .video-js .vjs-progress-holder {
-      background-color: rgba(255,255,255,0.3);
-    }
-
-    .video-js .vjs-play-progress {
-      background-color: #ff0000;
-    }
-    </style>
-
-    <!-- Player -->
-    <div class="video-container">
-      <div class="live-badge">● LIVE</div>
-      <video
-        id="my-video"
-        class="video-js vjs-big-play-centered"
-        controls
-        autoplay
-        playsinline
-        preload="auto"
-        width="640"
-        height="360"
-        data-setup='{}'
-      >
-        <source src="" type="application/x-mpegURL" />
-      </video>
-      <!-- https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8 -->
+      <!-- Chat box -->
+      <div class="w-full bg-white rounded-2xl shadow flex flex-col">
+        <div class="flex items-center justify-between p-3 border-b font-semibold">
+          <span>Live Chat</span>
+          
+        </div>
+        <div class="flex-1 overflow-y-auto p-3 space-y-2 text-sm">
+          <div class="w-full">
+            <iframe src="https://www5.cbox.ws/box/?boxid=958562&boxtag=BdXGl7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Video.js JS -->
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-
-
-    <!-- Chat box -->
-    <div class="w-full  lg:w-[800px]">
-      <iframe src="https://www5.cbox.ws/box/?boxid=958562&boxtag=BdXGl7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
-    </div>
+    <!-- JS Video.js -->
+    <script src="https://vjs.zencdn.net/8.23.3/video.min.js"></script>
 
     <!-- Danh mục các sân -->
      <div class="w-full flex flex-col items-center justify-center gap-3">
