@@ -1085,6 +1085,10 @@ select {
   height: 100vh;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .max-h-\[500px\] {
   max-height: 500px;
 }
@@ -1163,6 +1167,10 @@ select {
 
 .w-full {
   width: 100%;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .max-w-6xl {
@@ -1273,6 +1281,10 @@ select {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1496,6 +1508,15 @@ select {
 .bg-red-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-80 {
@@ -1848,6 +1869,11 @@ select {
   color: rgb(66 32 6 / var(--tw-text-opacity, 1));
 }
 
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -1873,6 +1899,12 @@ select {
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1929,6 +1961,10 @@ select {
   background-color: rgb(245 245 244 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-black\/60:hover {
+  background-color: rgb(0 0 0 / 0.6);
+}
+
 .hover\:from-sky-700:hover {
   --tw-gradient-from: #0369a1 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(3 105 161 / 0) var(--tw-gradient-to-position);
@@ -1948,6 +1984,10 @@ select {
   color: rgb(220 38 38 / var(--tw-text-opacity, 1));
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1962,6 +2002,12 @@ select {
 .focus\:ring-red-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity, 1));
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 768px) {
@@ -2065,6 +2111,10 @@ select {
 
   .lg\:grid-cols-9 {
     grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
