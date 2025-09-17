@@ -42,6 +42,8 @@
 
   <link href="https://vjs.zencdn.net/8.23.3/video-js.css" rel="stylesheet" />
 
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
 </head>
 
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
@@ -240,6 +242,26 @@
         >
           <source src="https://dagaxyz.online/live/myStream1.m3u8" type="application/x-mpegURL" />
         </video>
+
+        <script>
+          const video = document.getElementById('my-video');
+          const videoSrc = 'https://dagaxyz.online/live/myStream1.m3u8';
+
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+              video.play();
+            });
+          } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // Safari
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', () => {
+              video.play();
+            });
+          }
+        </script>
 
         <!-- Logo -->
         <!-- <div class="absolute top-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
