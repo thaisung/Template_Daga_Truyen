@@ -5,6 +5,7 @@ Tt@112233445
 456456abc
 
 rtmp://158.220.102.27:1935/live/C1C2
+https://dagaxyz.online/hls/C1C2.m3u8
 
 74.222.7.74:22 / root / e!Z7PHo&1i
 74.81.45.176:22 / root / 570Roq~@Vh
