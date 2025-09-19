@@ -50,7 +50,17 @@
   <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
     <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
       <a href="/" class=" lg:w-[11%] w-[100px] flex flex-col justify-center items-center py-2 h-full gap-2">
-        <img class=" w-full h-auto" src="/upload/logo.png" />
+        <img id="logo" class="spin w-full h-auto " src="/upload/logo.png" />
+        <script>
+          const logo = document.getElementById("logo");
+          let angle = 0;
+
+          setInterval(() => {
+            angle += 360;
+            logo.style.transition = "transform 0.9s linear"; // xoay trong 0.5s
+            logo.style.transform = `rotateY(${angle}deg)`;
+          }, 5000); // cứ 3s xoay 1 vòng
+        </script>
         <img class=" w-full h-auto" src="/upload/domain.png" />
       </a>
       <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('/upload/banner.webp');">
@@ -228,12 +238,12 @@
     <!-- Video & Chatbox -->
     <div class="w-full flex flex-col items-center justify-center gap-4">
       <!-- Player + Info -->
-      <div class="w-full bg-white rounded-2xl shadow p-2">
+      <div class="w-full bg-white rounded-2xl shadow ">
       <div class="relative">
         <!-- Player -->
         <video
           id="my-video"
-          class="video-js vjs-big-play-centered vjs-fluid rounded-2xl overflow-hidden w-full h-[600px]"
+          class="video-js vjs-big-play-centered vjs-fluid rounded-xl lg:rounded-2xl  overflow-hidden w-full h-[600px]"
           controls
           autoplay
           muted
@@ -241,24 +251,40 @@
           preload="auto"
           data-setup="{}"
         >
-          <source src="https://dagaxyz.online/hls/GADAO.m3u8" type="application/x-mpegURL" />
+          <source src="https://dagaxyz.online/hls/C1C2.m3u8" type="application/x-mpegURL" />
         </video>
+
+        <script>
+          const video = document.getElementById("my-video");
+
+          // URL fallback (ví dụ video mp4)
+          const fallbackSrc = "/upload/video/cpc4_1.mp4";
+
+          video.addEventListener("error", function () {
+            console.log("Nguồn chính bị lỗi, chuyển sang video thay thế...");
+            video.src = fallbackSrc;
+            video.play().catch(err => console.log("Không autoplay được fallback:", err));
+          });
+        </script>
 
         <style>
           /* Ẩn nút play to */
           .vjs-big-play-button {
-            display: none !important;
+                      display: none !important;
+                    }
+                    .vjs-fullscreen-control {
+            display: block !important;
           }
         </style>
 
 
-        <div id="video-error" class="hidden absolute inset-0 flex items-center justify-center bg-black/50 text-white font-semibold text-lg">
+        <!-- <div id="video-error" class="hidden absolute inset-0 flex items-center justify-center bg-black/50 text-white font-semibold text-lg">
           Kênh hiện chưa có luồng video
-        </div>
+        </div> -->
 
         <script>
           $(function () {
-            let video = $("#my-video")[0];
+            let player = videojs("my-video"); // lấy player Video.js
             let errorBox = $("#video-error");
 
             $(".channel").click(function () {
@@ -270,19 +296,18 @@
               // dot của kênh đang chọn thành xanh
               $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
 
-              // đổi src video
-              $("#my-video source").attr("src", src);
-              video.load();
-              video.play().catch(() => console.log("Video chưa sẵn sàng"));
+              // đổi source qua API Video.js
+              player.src({ src: src, type: "application/x-mpegURL" });
+              player.play();
 
               // ẩn thông báo lỗi khi đổi kênh mới
               errorBox.addClass("hidden");
             });
 
-            // Khi video lỗi (link không tồn tại)
-            video.addEventListener("error", function () {
+            // Khi video lỗi
+            player.on("error", function () {
               console.warn("Không phát được video từ link này.");
-              errorBox.removeClass("hidden"); // hiện thông báo trong player
+              errorBox.removeClass("hidden");
             });
           });
         </script>
@@ -294,9 +319,44 @@
       </div>
 
       <!-- Video info -->
-      <div class="p-3">
+      <div class="p-1 lg:p-3">
           <h2 class="text-lg font-semibold">Trực tiếp Đá Gà - Giải đấu hôm nay</h2>
-          <p class="text-gray-600 text-sm mt-1">👁️ 3,245 người đang xem</p>
+          <!-- <p id="viewer-count" class="text-gray-600 text-sm mt-1">
+            👁️ <span id="count">3.0</span>k người đang xem
+          </p> -->
+          <div class="flex items-center  text-gray-500 gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                class="w-5 h- text-gray-500 mt-1" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <span><span id="count">3.2</span>k người đang xem</span>
+          </div>
+          <script>
+              // giá trị khởi tạo
+              let count = 3.0; 
+
+              function updateViewers() {
+                // random dao động ±0.2
+                let change = (Math.random() * 0.4 - 0.2).toFixed(1);
+                count = (3.0 + parseFloat(change)).toFixed(1);
+
+                // đảm bảo không nhỏ hơn 2.5k và không lớn hơn 3.5k
+                if (count < 2.5) count = 2.5;
+                if (count > 3.5) count = 3.5;
+
+                document.getElementById("count").textContent = count;
+              }
+
+              // cứ 2–5 giây sẽ random 1 lần
+              setInterval(updateViewers, Math.floor(Math.random() * 3000) + 2000);
+            </script>
         </div>
       </div>
 
@@ -404,12 +464,18 @@
 
     <!-- Video đá gà mới nhất hôm nay -->
     <div class="flex flex-col w-full mt-3  gap-6">
-      <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-blue-100 rounded-lg p-3 text-center text-blue-600">Video đá gà mới nhất hôm nay</span>
+      <div class="relative flex items-center justify-center w-full h-[80px] rounded-lg overflow-hidden">
+        <div class="w-[50%] bg-red-600 h-full"></div>
+        <div class="w-[50%] bg-blue-600 h-full"></div>
+        <span class="lg:hidden absolute inset-0 flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video đá gà mới nhất 
+          <br>hôm nay</span>
+        <span class="hidden lg:flex absolute inset-0  items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video đá gà mới nhất hôm nay</span>
+      </div>
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/thumb1.jpg">
-              <source src="/upload/daga1.mp4" type="video/mp4">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_1.png">
+              <source src="/upload/video/cpc4_1.mp4" type="video/mp4">
             </video>
             <button
               class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
@@ -419,14 +485,11 @@
               </svg>
             </button>
           </div>
-          <a href="#" class="mt-3 text-stone-950 font-semibold hover:underline text-center">
-            XEM ĐÁ GÀ PHÁT LẠI  HÔM NAY NGÀY 13/09/2025
-          </a>
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/thumb2.jpg">
-              <source src="/upload/daga2.mp4" type="video/mp4">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_2.png">
+              <source src="/upload/video/cpc4_2.mp4" type="video/mp4">
             </video>
             <button
               class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
@@ -436,13 +499,176 @@
               </svg>
             </button>
           </div>
-          <a href="#" class="mt-3 text-stone-950 font-semibold hover:underline text-center">
-            XEM ĐÁ GÀ PHÁT LẠI  HÔM NAY NGÀY 12/09/2025
-          </a>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_3.png">
+              <source src="/upload/video/cpc4_3.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_4.png">
+              <source src="/upload/video/cpc4_4.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_5.png">
+              <source src="/upload/video/cpc4_5.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
+    </div>
 
-      <script>
+    <!-- Video đá gà dao mới nhất hôm nay -->
+    <div class="flex flex-col w-full mt-3  gap-6">
+      <div class="relative flex items-center justify-center w-full h-[80px] rounded-lg overflow-hidden">
+        <div class="w-[50%] bg-red-600 h-full"></div>
+        <div class="w-[50%] bg-blue-600 h-full"></div>
+        <span class="absolute inset-0 flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video đá gà Dao mới nhất hôm nay</span>
+      </div>
+      <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_1.png">
+              <source src="/upload/video/gadao_1.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_2.png">
+              <source src="/upload/video/gadao_2.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_3.png">
+              <source src="/upload/video/gadao_3.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_4.png">
+              <source src="/upload/video/gadao_4.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_5.png">
+              <source src="/upload/video/gadao_5.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_6.png">
+              <source src="/upload/video/gadao_6.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_7.png">
+              <source src="/upload/video/gadao_7.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_8.png">
+              <source src="/upload/video/gadao_8.mp4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
         // xử lý tất cả nút play
         document.querySelectorAll(".playBtn").forEach(btn => {
           const video = btn.previousElementSibling; // video liền trước
@@ -451,54 +677,11 @@
             video.play();
           });
         });
-      </script>
-    </div>
-
-    <!-- Video đá gà mới nhất hôm qua -->
-    <div class="flex flex-col w-full mt-3  gap-6">
-      <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-blue-100 text-blue-600 rounded-lg p-3 text-center ">Video đá gà Dao mới nhất hôm nay</span>
-      <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <div class="flex flex-col items-center justify-center">
-            <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-              <video class="w-full h-auto" controls poster="/upload/thumb1.jpg">
-                <source src="/upload/daga1.mp4" type="video/mp4">
-              </video>
-              <button
-                class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-            </div>
-            <a href="#" class="mt-3 text-stone-950 font-semibold hover:underline text-center">
-              XEM ĐÁ GÀ PHÁT LẠI  HÔM NAY NGÀY 13/09/2025
-            </a>
-          </div>
-          <div class="flex flex-col items-center justify-center">
-            <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-              <video class="w-full h-auto" controls poster="/upload/thumb2.jpg">
-                <source src="/upload/daga2.mp4" type="video/mp4">
-              </video>
-              <button
-                class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-            </div>
-            <a href="#" class="mt-3 text-stone-950 font-semibold hover:underline text-center">
-              XEM ĐÁ GÀ PHÁT LẠI  HÔM NAY NGÀY 12/09/2025
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </script>
 
     <!-- About us -->
     <div class="flex flex-col w-full mt-3  gap-2">
-      <span class="uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center ">Bài viết giới thiệu</span>
+      <span class="flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center h-[60px] lg:h-[80px]">Bài viết giới thiệu</span>
       <div class="w-full flex flex-col items-center justify-center mt-5 text-[13px] lg:text-[16px]">
         <div class="w-full flex flex-col  justify-center">
           <h2 class="uppercase font-bold text-[18px] lg:text-[22px]">
