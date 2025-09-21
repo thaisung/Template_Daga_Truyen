@@ -13,7 +13,7 @@
   <link rel="canonical" href="https://xemlivega.com/" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="/upload/logo.webp" type="image/x-icon" />
 
   <!-- Open Graph (Facebook, Instagram, Zalo, …) -->
   <meta property="og:type" content="website" />
@@ -21,7 +21,7 @@
   <meta property="og:description" content="LIVE TỔNG HỘP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
   <meta property="og:url" content="https://xemlivega.com/" />
   <meta property="og:site_name" content="viewfullmedian" />
-  <meta property="og:image" content="/upload/logo.png" />
+  <meta property="og:image" content="/upload/logo.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Tùy chọn: nếu có nhiều ảnh, có thể thêm nhiều og:image -->
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="XEMLIVEGA" />
   <meta name="twitter:description" content="LIVE TỔNG HỘP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
-  <meta name="twitter:image" content="/upload/logo.png" />
+  <meta name="twitter:image" content="/upload/logo.webp" />
   <!-- Tuỳ chọn: @username nếu có -->
   <!-- <meta name="twitter:site" content="@youraccount" /> -->
 
@@ -50,7 +50,7 @@
   <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
     <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
       <a href="/" class=" lg:w-[11%] w-[100px] flex flex-col justify-center items-center py-2 h-full gap-2">
-        <img id="logo" class="spin w-full h-auto " src="/upload/logo.png" />
+        <img id="logo" class="spin w-full h-auto " src="/upload/logo.webp" />
         <script>
           const logo = document.getElementById("logo");
           let angle = 0;
@@ -61,7 +61,7 @@
             logo.style.transform = `rotateY(${angle}deg)`;
           }, 5000); // cứ 3s xoay 1 vòng
         </script>
-        <img class=" w-full h-auto" src="/upload/domain.png" />
+        <img class=" w-full h-auto" src="/upload/domain.webp" />
       </a>
       <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('/upload/banner.webp');">
         <div class="live-banner min-h-[61px]">
@@ -242,47 +242,47 @@
       <div class="relative">
         <!-- Player -->
         <video
-  id="my-video"
-  class="video-js vjs-big-play-centered vjs-fluid rounded-xl lg:rounded-2xl overflow-hidden w-full h-[600px]"
-  controls
-  autoplay
-  muted
-  playsinline
-  preload="auto"
-></video>
+          id="my-video"
+          class="video-js vjs-big-play-centered vjs-fluid rounded-xl lg:rounded-2xl overflow-hidden w-full h-[600px]"
+          controls
+          autoplay
+          muted
+          playsinline
+          preload="auto"
+        ></video>
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-  const video = document.getElementById("my-video");
-  const hlsSrc = "https://dagaxyz.online/hls/C1C2.m3u8";
-  const fallbackSrc = "/upload/video/cpc4_1.mp4";
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        <script>
+          const video = document.getElementById("my-video");
+          const hlsSrc = "https://dagaxyz.online/hls/C1C2.m3u8";
+          const fallbackSrc = "/upload/video/cpc4_1.mp4";
 
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(hlsSrc);
-    hls.attachMedia(video);
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(hlsSrc);
+            hls.attachMedia(video);
 
-    hls.on(Hls.Events.ERROR, function (event, data) {
-      console.warn("HLS error:", data);
-      if (data.fatal) {
-        console.log("HLS lỗi nghiêm trọng → fallback sang MP4");
-        video.src = fallbackSrc;
-        video.play().catch(err => console.log("Không autoplay được fallback:", err));
-      }
-    });
-  } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-    // Safari iOS native support
-    video.src = hlsSrc;
-    video.addEventListener("error", function () {
-      console.log("Safari không load được HLS → fallback sang MP4");
-      video.src = fallbackSrc;
-      video.play().catch(err => console.log("Không autoplay được fallback:", err));
-    });
-  } else {
-    // Không hỗ trợ HLS → fallback luôn
-    video.src = fallbackSrc;
-  }
-</script>
+            hls.on(Hls.Events.ERROR, function (event, data) {
+              console.warn("HLS error:", data);
+              if (data.fatal) {
+                console.log("HLS lỗi nghiêm trọng → fallback sang MP4");
+                video.src = fallbackSrc;
+                video.play().catch(err => console.log("Không autoplay được fallback:", err));
+              }
+            });
+          } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            // Safari iOS native support
+            video.src = hlsSrc;
+            video.addEventListener("error", function () {
+              console.log("Safari không load được HLS → fallback sang MP4");
+              video.src = fallbackSrc;
+              video.play().catch(err => console.log("Không autoplay được fallback:", err));
+            });
+          } else {
+            // Không hỗ trợ HLS → fallback luôn
+            video.src = fallbackSrc;
+          }
+        </script>
 
 
         <style>
@@ -465,34 +465,34 @@
     <div class="swiper mySwiper w-full lg:w-[600px] max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] mt-3 lg:mt-5">
       <div class="swiper-wrapper w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]">
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/lich1.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/lich1.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/lich2.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/lich2.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full  max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/lich3.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/lich3.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/lich4.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/lich4.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide1.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide1.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide2.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide2.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide3.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide3.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide4.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide4.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide5.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide5.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img src="/upload/slide6.jpg" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+          <img src="/upload/slide6.webp" class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
         </div>
       </div>
     </div>
@@ -534,7 +534,7 @@
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/cpc4_1.png">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_1.webp">
               <source src="/upload/video/cpc4_1.mp4" type="video/mp4">
             </video>
             <button
@@ -548,7 +548,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/cpc4_2.png">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_2.webp">
               <source src="/upload/video/cpc4_2.mp4" type="video/mp4">
             </video>
             <button
@@ -562,7 +562,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/cpc4_3.png">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_3.webp">
               <source src="/upload/video/cpc4_3.mp4" type="video/mp4">
             </video>
             <button
@@ -576,7 +576,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/cpc4_4.png">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_4.webp">
               <source src="/upload/video/cpc4_4.mp4" type="video/mp4">
             </video>
             <button
@@ -590,7 +590,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/cpc4_5.png">
+            <video class="w-full h-auto" controls poster="/upload/video/cpc4_5.webp">
               <source src="/upload/video/cpc4_5.mp4" type="video/mp4">
             </video>
             <button
@@ -615,7 +615,7 @@
       <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_1.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_1.webp">
               <source src="/upload/video/gadao_1.MP4" type="video/mp4">
             </video>
             <button
@@ -629,7 +629,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_2.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_2.webp">
               <source src="/upload/video/gadao_2.MP4" type="video/mp4">
             </video>
             <button
@@ -643,7 +643,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_3.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_3.webp">
               <source src="/upload/video/gadao_3.MP4" type="video/mp4">
             </video>
             <button
@@ -657,7 +657,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_4.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_4.webp">
               <source src="/upload/video/gadao_4.MP4" type="video/mp4">
             </video>
             <button
@@ -671,7 +671,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_5.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_5.webp">
               <source src="/upload/video/gadao_5.MP4" type="video/mp4">
             </video>
             <button
@@ -685,7 +685,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_6.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_6.webp">
               <source src="/upload/video/gadao_6.MP4" type="video/mp4">
             </video>
             <button
@@ -699,7 +699,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_7.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_7.webp">
               <source src="/upload/video/gadao_7.MP4" type="video/mp4">
             </video>
             <button
@@ -713,7 +713,7 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_8.png">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_8.webp">
               <source src="/upload/video/gadao_8.MP4" type="video/mp4">
             </video>
             <button
@@ -755,7 +755,7 @@
             Với chất lượng hình ảnh sắc nét, đường truyền ổn định, đội ngũ bình luận viên chuyên nghiệp và lịch thi đấu cập nhật liên tục, XemLiveGa không chỉ là một trang web xem <span class="font-bold">đá gà trực tiếp</span> mà còn là nơi hội tụ cộng đồng đam mê gà chọi. Hãy cùng khám phá lý do vì sao XemLiveGa trở thành lựa chọn hàng đầu cho người yêu thích <span class="font-bold">đá gà trực tiếp</span>!
           </p>
           <br>
-          <img class="w-full" src="/upload/bv1.jpg" />
+          <img class="w-full" src="/upload/bv1.webp" />
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -814,7 +814,7 @@
             <p class="text-[18px]">Mỗi ngày, XemLiveGa công bố lịch thi đấu từ CPC1 đến CPC5 ngay từ sáng sớm. Người xem có thể dễ dàng chọn trường gà, loại trận đấu (đá gà cựa dao, cựa tròn, gà tre, gà nòi) và đặt lịch nhắc nhở để không bỏ lỡ trận đấu yêu thích.</p>
           </div>
           <br>
-          <img class="w-full" src="/upload/bv2.jpg" />
+          <img class="w-full" src="/upload/bv2.webp" />
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -866,7 +866,7 @@
             <p class="text-[18px]">CPC5 là nơi quy tụ các tay chơi gà từ Việt Nam, Thái Lan và Campuchia. Các trận đấu tại đây thường có giá trị lớn, với những chiến kê trị giá hàng chục, thậm chí hàng trăm triệu đồng, mang đến trải nghiệm <span class="font-bold">đá gà trực tiếp</span> đẳng cấp.</p>
           </div>
           <br>
-          <img class="w-full" src="/upload/bv3.jpg" />
+          <img class="w-full" src="/upload/bv3.webp" />
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -965,28 +965,28 @@
       <div class="w-full flex flex-col items-center justify-center">
         <div class=" w-full grid grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich1.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich1.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich2.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich2.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich3.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich3.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich4.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich4.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich5.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich5.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich6.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich6.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich7.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich7.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich8.jpg" />
+            <img class=" w-full h-full object-fill" src="/upload/lich8.webp" />
           </div>
         </div>
       </div>
@@ -1072,7 +1072,7 @@
     id="nav-daga" style="z-index: 999; display: none;">
     <div class="flex items-center justify-between w-full pr-3">
       <a href="/" class="flex justify-center items-center py-2">
-        <img class="w-[139px] h-auto" src="/upload/logo.png" />
+        <img class="w-[139px] h-auto" src="/upload/logo.webp" />
       </a>
       <span class="uppercase text-yellow-500 font-bold text-[20px]">Xemgalive</span>
       <div class="close_menu_mobile ">
@@ -1111,7 +1111,7 @@
     <!-- <div class="flex flex-col lg:flex-row w-full lg:w-[1200px] gap-8 py-6 px-6 lg:px-0">
       <div class="flex flex-col items-start">
         <a href="/" class="flex justify-center items-center">
-          <img class=" h-auto w-[200px]" src="/upload/logo.png" />
+          <img class=" h-auto w-[200px]" src="/upload/logo.webp" />
         </a>
         <div class="flex flex-col text-stone-950 gap-3">
           <span>
