@@ -282,7 +282,7 @@
           Kênh hiện chưa có luồng video
         </div> -->
 
-        <script>
+        <!-- <script>
           $(function () {
             let player = videojs("my-video"); // lấy player Video.js
             let errorBox = $("#video-error");
@@ -310,7 +310,49 @@
               errorBox.removeClass("hidden");
             });
           });
+        </script> -->
+
+        <script>
+          $(function () {
+            let player = videojs("my-video"); // lấy player Video.js
+            let errorBox = $("#video-error");
+
+            // Fallback video
+            const fallbackSrc = "/upload/video/cpc4_1.mp4";
+
+            $(".channel").click(function () {
+              let src = $(this).data("src");
+
+              // reset tất cả dot về đỏ
+              $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
+
+              // dot của kênh đang chọn thành xanh
+              $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
+
+              // đổi source qua API Video.js
+              player.src({ src: src, type: "application/x-mpegURL" });
+              player.play();
+
+              // ẩn thông báo lỗi khi đổi kênh mới
+              errorBox.addClass("hidden");
+            });
+
+            // Khi video lỗi
+            player.on("error", function () {
+              console.warn("Không phát được video từ link này → fallback sang MP4");
+
+              // đổi sang fallback
+              player.src({ src: fallbackSrc, type: "video/mp4" });
+              player.play().catch(err =>
+                console.log("Không autoplay được fallback:", err)
+              );
+
+              // Hiển thị thông báo (nếu bạn vẫn muốn)
+              // errorBox.removeClass("hidden");
+            });
+          });
         </script>
+
 
         <!-- LIVE badge -->
         <div class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
