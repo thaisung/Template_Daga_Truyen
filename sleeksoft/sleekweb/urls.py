@@ -59,7 +59,7 @@ from .views.admin.ads_admin import *
 
 
 sitemaps_dict = {
-    'static': VideoSitemap,
+    'static': StaticViewSitemap,
 }
 
 urlpatterns = [

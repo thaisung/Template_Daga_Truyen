@@ -9,15 +9,17 @@ from .views.client.home_client import *
 
 protocol = 'https'
 
-class VideoSitemap(Sitemap):
+class StaticViewSitemap(Sitemap):
     priority = 0.5
-    changefreq = "weekly"
+    changefreq = 'weekly'
 
     def items(self):
-        return Product.objects.all()  # trả về list Product
+        return [
+            'home',
+        ]
 
-    def location(self, obj):
-        return reverse('home', kwargs={'slug': obj.Slug})
+    def location(self, item):
+        return reverse(item)
 
     
 
