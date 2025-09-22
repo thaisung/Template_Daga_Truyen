@@ -44,6 +44,12 @@
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+    />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
 </head>
 
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
@@ -206,35 +212,35 @@
 
     <!-- Các nút chọn kênh -->
     <div class="w-full py-3 lg:py-3 grid grid-cols-3 lg:grid-cols-8 items-center gap-3 lg:gap-6 text-stone-50">
-      <div data-src="https://dagaxyz.online/hls/C1C2.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/C1C2.m3u8" data-img="/upload/error_C1C2.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">C1-C2</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/CPC4.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/CPC4.m3u8" data-img="/upload/error_CPC4.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">CPC4</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/CPC5.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/CPC5.m3u8" data-img="/upload/error_CPC4.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">CPC5</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/TONHON.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/TONHON.m3u8" data-img="/upload/error_TONHON.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">TONHON</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/PC1PC2.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/PC1PC2.m3u8" data-img="/upload/error_GADAO.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">PC1/PC2</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/FG1CJ1.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/FG1CJ1.m3u8" data-img="/upload/error_GADAO.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">FG1/Cj1</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/GADAO.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/GADAO.m3u8" data-img="/upload/error_GADAO.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">Gà Dao</span>
       </div>
-      <div data-src="https://dagaxyz.online/hls/TH7ABC.m3u8" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+      <div data-src="https://dagaxyz.online/hls/TH7ABC.m3u8" data-img="/upload/error_TH7ABC.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">TH7abc</span>
       </div>
@@ -255,128 +261,78 @@
           playsinline
           preload="auto"
           src="https://dagaxyz.online/hls/C1C2.m3u8"
+          poster="/upload/error_C1C2.webp"
         ></video>
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-        <script>
-          const video = document.getElementById("my-video");
-          const hlsSrc = "https://dagaxyz.online/hls/C1C2.m3u8";
-          const fallbackSrc = "/upload/video/cpc4_1.mp4";
-
-          if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(hlsSrc);
-            hls.attachMedia(video);
-
-            hls.on(Hls.Events.ERROR, function (event, data) {
-              console.warn("HLS error:", data);
-              if (data.fatal) {
-                console.log("HLS lỗi nghiêm trọng → fallback sang MP4");
-                video.src = fallbackSrc;
-                video.play().catch(err => console.log("Không autoplay được fallback:", err));
-              }
-            });
-          } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-            // Safari iOS native support
-            video.src = hlsSrc;
-            video.addEventListener("error", function () {
-              console.log("Safari không load được HLS → fallback sang MP4");
-              video.src = fallbackSrc;
-              video.play().catch(err => console.log("Không autoplay được fallback:", err));
-            });
-          } else {
-            // Không hỗ trợ HLS → fallback luôn
-            video.src = fallbackSrc;
+      
+        <style>
+          .vjs-error-display{
+            display: none !important;
           }
-        </script> -->
+        </style>
 
 
         <style>
           /* Ẩn nút play to */
           .vjs-big-play-button {
-                      display: none !important;
-                    }
-                    .vjs-fullscreen-control {
+              display: none !important;
+            }
+            .vjs-fullscreen-control {
             display: block !important;
           }
         </style>
 
-
-        <!-- <div id="video-error" class="hidden absolute inset-0 flex items-center justify-center bg-black/50 text-white font-semibold text-lg">
-          Kênh hiện chưa có luồng video
-        </div> -->
-
-        <!-- <script>
-          $(function () {
-            let player = videojs("my-video"); // lấy player Video.js
-            let errorBox = $("#video-error");
-
-            $(".channel").click(function () {
-              let src = $(this).data("src");
-
-              // reset tất cả dot về đỏ
-              $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
-
-              // dot của kênh đang chọn thành xanh
-              $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
-
-              // đổi source qua API Video.js
-              player.src({ src: src, type: "application/x-mpegURL" });
-              player.play();
-
-              // ẩn thông báo lỗi khi đổi kênh mới
-              errorBox.addClass("hidden");
-            });
-
-            // Khi video lỗi
-            player.on("error", function () {
-              console.warn("Không phát được video từ link này.");
-              errorBox.removeClass("hidden");
-            });
-          });
-        </script> -->
+        
 
         <script>
           $(function () {
-            let player = videojs("my-video"); // lấy player Video.js
+            let player = videojs("my-video", {
+              autoplay: "muted",
+              controls: true,
+              preload: "auto",
+              muted: true,
+              fluid: true
+            });
+
             let errorBox = $("#video-error");
 
-            // Fallback video
-            const fallbackSrc = "/upload/video/cpc4_1.mp4";
+            // 👇 Set source mặc định ban đầu
+            player.src({
+              src: "https://dagaxyz.online/hls/C1C2.m3u8",
+              type: "application/x-mpegURL"
+            });
+
+            // 👇 Đảm bảo play khi vào trang
+            player.ready(function () {
+              player.play().catch(err => {
+                console.warn("Autoplay bị chặn:", err);
+              });
+            });
 
             $(".channel").click(function () {
               let src = $(this).data("src");
+              let img = $(this).data("img");
 
-              // reset tất cả dot về đỏ
               $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
-
-              // dot của kênh đang chọn thành xanh
               $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
 
-              // đổi source qua API Video.js
+              player.poster(img);
               player.src({ src: src, type: "application/x-mpegURL" });
               player.play();
 
-              // ẩn thông báo lỗi khi đổi kênh mới
               errorBox.addClass("hidden");
             });
 
-            // Khi video lỗi
             player.on("error", function () {
-              console.warn("Không phát được video từ link này → fallback sang MP4");
-
-              // đổi sang fallback
-              player.src({ src: fallbackSrc, type: "video/mp4" });
-              player.play().catch(err =>
-                console.log("Không autoplay được fallback:", err)
-              );
-
-              // Hiển thị thông báo (nếu bạn vẫn muốn)
-              // errorBox.removeClass("hidden");
+              console.warn("Không phát được video từ link này.");
+              let currentPoster = player.poster();
+              if (currentPoster) {
+                player.poster(currentPoster);
+              }
+              errorBox.removeClass("hidden");
             });
           });
         </script>
-
 
         <!-- LIVE badge -->
         <div class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
@@ -594,6 +550,34 @@
             </button>
           </div>
         </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_5.webp">
+              <source src="/upload/video/gadao_5.MP4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="w-full h-auto" controls poster="/upload/video/gadao_6.webp">
+              <source src="/upload/video/gadao_6.MP4" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div> -->
     </div>
 
@@ -663,34 +647,6 @@
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_5.webp">
-              <source src="/upload/video/gadao_5.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="w-full h-auto" controls poster="/upload/video/gadao_6.webp">
-              <source src="/upload/video/gadao_6.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
             <video class="w-full h-auto" controls poster="/upload/video/gadao_7.webp">
               <source src="/upload/video/gadao_7.MP4" type="video/mp4">
             </video>
@@ -747,7 +703,7 @@
             Với chất lượng hình ảnh sắc nét, đường truyền ổn định, đội ngũ bình luận viên chuyên nghiệp và lịch thi đấu cập nhật liên tục, XemLiveGa không chỉ là một trang web xem <span class="font-bold">đá gà trực tiếp</span> mà còn là nơi hội tụ cộng đồng đam mê gà chọi. Hãy cùng khám phá lý do vì sao XemLiveGa trở thành lựa chọn hàng đầu cho người yêu thích <span class="font-bold">đá gà trực tiếp</span>!
           </p>
           <br>
-          <img class="w-full" src="/upload/bv1.webp" />
+          <img class="w-full cursor-pointer" src="/upload/bv1.webp" data-fancybox="channels1"/>
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -806,7 +762,7 @@
             <p class="text-[18px]">Mỗi ngày, XemLiveGa công bố lịch thi đấu từ CPC1 đến CPC5 ngay từ sáng sớm. Người xem có thể dễ dàng chọn trường gà, loại trận đấu (đá gà cựa dao, cựa tròn, gà tre, gà nòi) và đặt lịch nhắc nhở để không bỏ lỡ trận đấu yêu thích.</p>
           </div>
           <br>
-          <img class="w-full" src="/upload/bv2.webp" />
+          <img class="w-full cursor-pointer" src="/upload/bv2.webp" data-fancybox="channels1"/>
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -858,7 +814,7 @@
             <p class="text-[18px]">CPC5 là nơi quy tụ các tay chơi gà từ Việt Nam, Thái Lan và Campuchia. Các trận đấu tại đây thường có giá trị lớn, với những chiến kê trị giá hàng chục, thậm chí hàng trăm triệu đồng, mang đến trải nghiệm <span class="font-bold">đá gà trực tiếp</span> đẳng cấp.</p>
           </div>
           <br>
-          <img class="w-full" src="/upload/bv3.webp" />
+          <img class="w-full cursor-pointer" src="/upload/bv3.webp" data-fancybox="channels1"/>
         </div>
         <br>
         <div class="w-full flex flex-col  justify-center">
@@ -955,30 +911,30 @@
     <!-- Lich da ga  -->
     <div class="flex flex-col w-full mt-3">
       <div class="w-full flex flex-col items-center justify-center">
-        <div class=" w-full grid grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
+        <div class=" w-full grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich1.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich1.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich2.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich2.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich3.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich3.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich4.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich4.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich5.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich5.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich6.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich6.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich7.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich7.webp" />
           </div>
           <div class="w-full h-full rounded-xl overflow-hidden">
-            <img class=" w-full h-full object-fill" src="/upload/lich8.webp" />
+            <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich8.webp" />
           </div>
         </div>
       </div>
