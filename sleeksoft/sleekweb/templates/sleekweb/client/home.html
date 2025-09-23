@@ -1008,7 +1008,7 @@
 
     <!-- JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <!-- <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
     <script>
       $(document).ready(function () {
@@ -1031,7 +1031,7 @@
           $(this).removeClass("bg-green-500").addClass("bg-red-600");
         });
       });
-    </script>
+    </script> -->
 
 
   </main>
@@ -1121,76 +1121,11 @@
 
 
   <footer class="flex flex-col items-center justify-center w-full bg-stone-50">
-    <!-- <div class="flex flex-col lg:flex-row w-full lg:w-[1200px] gap-8 py-6 px-6 lg:px-0">
-      <div class="flex flex-col items-start">
-        <a href="/" class="flex justify-center items-center">
-          <img class=" h-auto w-[200px]" src="/upload/logo.png" />
-        </a>
-        <div class="flex flex-col text-stone-950 gap-3">
-          <span>
-            www.mojjo.io là trang web phát <span class="font-bold">đá gà trực tiếp</span> thomo campuchia có bình luận tốt nhất hiện nay với đầy đủ
-            loại hình: cựa dao, cựa sắt, cpc1, cpc2, cpc3, cpc4, cpc5 với âm thanh sống động và hình ảnh sắc nét chân
-            thực. Đảm bảo sẽ cho anh em đam mê đá gà giây phút trải nghiệm đáng giá nhất!
-          </span>
-          <span>Địa chỉ: 36 Đội Cấn, Ba Đình, Hà Nội</span>
-          <span>Website: <a href="/">https://www.mojjo.io/</a></span>
-        </div>
-      </div>
-      <div class="flex flex-col gap-3 text-stone-50">
-        <span class="uppercase whitespace-nowrap font-bold">Về chúng tôi</span>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Giới thiệu Đá Gà TV</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Chính sách bảo mật</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Điều khoản sử dụng</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Miễn trừ trách nhiệm</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Liên hệ</a>
-        <span class="whitespace-nowrap">Telegram QC: @lana191919</span>
-      </div>
-      <div class="flex flex-col gap-3 text-stone-50">
-        <span class="uppercase font-bold whitespace-nowrap">Danh mục chính</span>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Lịch trực tiếp đá gà</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Xem lại clip đá gà</a>
-        <a href="/" class="whitespace-nowrap text-yellow-500 underline">Tin tức đá gà</a>
-      </div>
-    </div> -->
     <span class=" py-6 text-stone-50 font-bold text-[17px] lg:text-[20px] bg-stone-950 w-full text-center uppercase px-2 lg:px-0">
       © 2025 Xemlivega. All rights reserved.
     </span>
   </footer>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <script>
-    const video = document.getElementById('video');
-    let hls;
-
-    function playStream(url) {
-      if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        // Safari/iOS
-        video.src = url;
-        video.play();
-      } else if (Hls.isSupported()) {
-        if (hls) {
-          hls.destroy(); // reset nếu đang phát stream cũ
-        }
-        hls = new Hls({ maxBufferLength: 10 });
-        hls.loadSource(url);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
-      } else {
-        video.outerHTML = '<p style="color:#fff">Trình duyệt không hỗ trợ HLS.</p>';
-      }
-    }
-
-    // Gắn sự kiện cho các nút
-    document.querySelectorAll("button[data-src]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const url = btn.getAttribute("data-src");
-        playStream(url);
-      });
-    });
-
-    // Mặc định load kênh 1
-    playStream("https://dagaxyz.online/hls/myStream.m3u8");
-  </script> -->
   <script>
     $(document).ready(function () {
       // Nút bật
