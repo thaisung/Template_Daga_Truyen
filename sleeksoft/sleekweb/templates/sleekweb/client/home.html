@@ -13,7 +13,7 @@
   <link rel="canonical" href="https://xemlivega.com/" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/upload/logo.webp" type="image/x-icon" />
+  <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon" />
 
   <!-- Open Graph (Facebook, Instagram, Zalo, …) -->
   <meta property="og:type" content="website" />
@@ -21,7 +21,7 @@
   <meta property="og:description" content="LIVE TỔNG HỘP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
   <meta property="og:url" content="https://xemlivega.com/" />
   <meta property="og:site_name" content="viewfullmedian" />
-  <meta property="og:image" content="/upload/logo.webp" />
+  <meta property="og:image" content="/upload/logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Tùy chọn: nếu có nhiều ảnh, có thể thêm nhiều og:image -->
@@ -30,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="XEMLIVEGA" />
   <meta name="twitter:description" content="LIVE TỔNG HỘP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
-  <meta name="twitter:image" content="/upload/logo.webp" />
+  <meta name="twitter:image" content="/upload/logo.png" />
   <!-- Tuỳ chọn: @username nếu có -->
   <!-- <meta name="twitter:site" content="@youraccount" /> -->
 
@@ -53,10 +53,24 @@
 </head>
 
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
-  <header class="flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
+  <header class="header-bg flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md" >
+    <style>
+      .header-bg {
+        background-image: url('/upload/ae/ae_bg.gif');
+        background-size: cover;
+        background-position: center;
+      }
+
+      @media (min-width: 1024px) {
+        .header-bg {
+          background-image: none;
+        }
+      }
+    </style>
+
     <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
       <a href="/" class=" lg:w-[11%] w-[100px] flex flex-col justify-center items-center py-2 h-full gap-2">
-        <img id="logo" class="spin w-full h-auto " src="/upload/logo.webp" />
+        <img id="logo" class="spin w-full h-auto " src="/upload/logo.png" />
         <script>
           const logo = document.getElementById("logo");
           let angle = 0;
@@ -400,30 +414,53 @@
     <script src="https://vjs.zencdn.net/8.23.3/video.min.js"></script>
 
     <!-- Danh mục các sân -->
-     <div class="w-full flex flex-col items-center justify-center gap-3">
-        <span class="w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5">Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái</span>
-        <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3  text-[14px] lg:text-[16px]">
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2 ">CPC1</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV1</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV2</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7a</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC2</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ1</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ2</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7b</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC3</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN2</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7c</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC4</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC1</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC2</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC5</a>
-          <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TONHON</a>
-        </div>
-     </div>
+    <div class="w-full flex flex-col items-center justify-center gap-3">
+      <span class="w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5">Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái</span>
+      <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3  text-[14px] lg:text-[16px]">
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2 ">CPC1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7a</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7b</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC3</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7c</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC4</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC5</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TONHON</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">Ta1</a>
+      </div>
+    </div>
 
-     <!-- Slider -->
+     <!-- ADS click link -->
+    <!-- <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3  text-[14px] lg:text-[16px]">
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2 ">CPC1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7a</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7b</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC3</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7c</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC4</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC1</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC2</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC5</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TONHON</a>
+        <a href="#" class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">Ta1</a>
+    </div> -->
+
+    <!-- Slider -->
     <div class="swiper mySwiper w-full lg:w-[600px] max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] mt-3 lg:mt-5">
       <div class="swiper-wrapper w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]">
         <div class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
@@ -913,29 +950,29 @@
     <!-- Lich da ga  -->
     <div class="flex flex-col w-full mt-3">
       <div class="w-full flex flex-col items-center justify-center">
-        <div class=" w-full grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
-          <div class="w-full h-full rounded-xl overflow-hidden">
+        <div class=" w-full grid grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich1.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich2.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich3.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich4.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich5.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich6.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich7.webp" />
           </div>
-          <div class="w-full h-full rounded-xl overflow-hidden">
+          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
             <img data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich8.webp" />
           </div>
         </div>
@@ -945,7 +982,7 @@
 
     <!-- JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <!-- <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script> -->
 
     <script>
       $(document).ready(function () {
@@ -1022,7 +1059,7 @@
     id="nav-daga" style="z-index: 999; display: none;">
     <div class="flex items-center justify-between w-full pr-3">
       <a href="/" class="flex justify-center items-center py-2">
-        <img class="w-[139px] h-auto" src="/upload/logo.webp" />
+        <img class="w-[139px] h-auto" src="/upload/logo.png" />
       </a>
       <span class="uppercase text-yellow-500 font-bold text-[20px]">Xemgalive</span>
       <div class="close_menu_mobile ">
@@ -1061,7 +1098,7 @@
     <!-- <div class="flex flex-col lg:flex-row w-full lg:w-[1200px] gap-8 py-6 px-6 lg:px-0">
       <div class="flex flex-col items-start">
         <a href="/" class="flex justify-center items-center">
-          <img class=" h-auto w-[200px]" src="/upload/logo.webp" />
+          <img class=" h-auto w-[200px]" src="/upload/logo.png" />
         </a>
         <div class="flex flex-col text-stone-950 gap-3">
           <span>

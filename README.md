@@ -75,6 +75,10 @@ Bây giờ chúng tôi đã tạo thành công cơ sở dữ liệu và người
 ## Phần 3: Tạo môi trường ảo Python
 Nâng cấp pip và cài đặt môi trường ảo Python.
 ```bash
+sudo apt update
+sudo apt install python3-pip
+sudo apt install python3-venv -y
+
 sudo -H pip3 install --upgrade pip
 sudo -H pip3 install virtualenv
 ```
@@ -93,6 +97,7 @@ cd sleekproject/
 Tạo môi trường ảo bên trong thư mục dự án. Tôi đặt tên môi trường virut là 'sleekenv' .
 ```bash
 virtualenv sleekenv
+python3 -m venv sleekenv
 ```
 
 Điều này sẽ tạo một thư mục có tên  ' sleekenv'  trong thư mục ' sleekproject'  . Bên trong, nó sẽ cài đặt phiên bản cục bộ của Python và phiên bản cục bộ của  pip. Chúng ta có thể sử dụng điều này để cài đặt và định cấu hình môi trường Python riêng biệt cho dự án của mình. Trước khi cài đặt các yêu cầu Python của dự án, chúng ta cần kích hoạt môi trường ảo.
@@ -311,7 +316,7 @@ Hướng dẫn Nginx về nơi tìm các tệp tĩnh mà chúng tôi đã thu th
 
 ```bash
 server {
-    server_name vinhvu.xyz;
+    server_name xemlivega.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
