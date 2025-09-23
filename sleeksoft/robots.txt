@@ -9,4 +9,4 @@ User-Agent: Bingbot
 
 Disallow: /admin/
 
-Sitemap: https://milanauth.com.vn/sitemap.xml
+Sitemap: https://xemlivega.com/sitemap.xml
