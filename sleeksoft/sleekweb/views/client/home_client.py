@@ -80,6 +80,7 @@ def home(request):
         context = {}
         context['domain'] = settings.DOMAIN
         context['lg'] = request.COOKIES.get('language') or 'VI'
+        context['list_Channel'] = Channel.objects.all()
         # context['Product'] = Product.objects.get(Slug=slug)
         # try:
         #     context['Ads_1'] = Ads.objects.get(Count=1)

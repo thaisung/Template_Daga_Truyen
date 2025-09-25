@@ -54,8 +54,9 @@ from sleekweb.sitemaps import *
 from django.contrib.sitemaps.views import sitemap
 
 from .views.admin.login_admin import *
-from .views.admin.product_admin import *
-from .views.admin.ads_admin import *
+from .views.admin.channel_admin import *
+# from .views.admin.product_admin import *
+# from .views.admin.ads_admin import *
 
 
 sitemaps_dict = {
@@ -68,6 +69,7 @@ urlpatterns = [
     path('set-language/<str:lang_code>/', set_language, name='set_language'),
 
     path('',home,name='home'),
+
     path("live/", live_view, name="live_view"),
 
     path('about',about,name='about'),
@@ -82,15 +84,21 @@ urlpatterns = [
     path('admin/login', login_admin,name='login_admin'),
     path('admin/logout', logout_admin,name='logout_admin'),
 
-    path('admin/product', product_admin,name='product_admin'),
-    path('admin/product/add', product_add_admin,name='product_add_admin'),
-    path('admin/product/edit/<int:pk>/', product_edit_admin,name='product_edit_admin'),
-    path('admin/product/remove/<int:pk>/', product_remove_admin,name='product_remove_admin'),
+    path('admin/channel', channel_admin,name='channel_admin'),
+    path('admin/channel/add', channel_add_admin,name='channel_add_admin'),
+    path('admin/channel/edit/<int:pk>/', channel_edit_admin,name='channel_edit_admin'),
+    path('admin/channel/remove/<int:pk>/', channel_remove_admin,name='channel_remove_admin'),
 
-    path('admin/ads', ads_admin,name='ads_admin'),
-    path('admin/ads/add', ads_add_admin,name='ads_add_admin'),
-    path('admin/ads/edit/', ads_edit_admin,name='ads_edit_admin'),
-    path('admin/ads/remove/<int:pk>/', ads_remove_admin,name='ads_remove_admin'),
+
+    # path('admin/product', product_admin,name='product_admin'),
+    # path('admin/product/add', product_add_admin,name='product_add_admin'),
+    # path('admin/product/edit/<int:pk>/', product_edit_admin,name='product_edit_admin'),
+    # path('admin/product/remove/<int:pk>/', product_remove_admin,name='product_remove_admin'),
+
+    # path('admin/ads', ads_admin,name='ads_admin'),
+    # path('admin/ads/add', ads_add_admin,name='ads_add_admin'),
+    # path('admin/ads/edit/', ads_edit_admin,name='ads_edit_admin'),
+    # path('admin/ads/remove/<int:pk>/', ads_remove_admin,name='ads_remove_admin'),
 
 
 

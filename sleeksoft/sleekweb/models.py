@@ -74,3 +74,15 @@ class Ads(models.Model):
     Count = models.IntegerField('Số',blank=True, null=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
+
+class Channel(models.Model):
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "Kênh Live"
+    
+    Name = models.CharField('Tên kênh', max_length=100,blank=True, null=True)
+    Key = models.CharField('Key live', max_length=200,blank=True, null=True)
+    Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
+    Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
+    Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
+

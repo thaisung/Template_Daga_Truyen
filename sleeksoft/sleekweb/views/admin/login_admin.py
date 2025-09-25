@@ -73,7 +73,7 @@ def login_admin(request):
         #     context['obj'] = {}
         # print('context:',context)
         if request.user.is_authenticated:
-            return redirect('product_admin')
+            return redirect('channel_admin')
         else:
             return render(request, 'sleekweb/admin/login_admin.html', context, status=200)
     elif request.method == 'POST':
@@ -89,7 +89,7 @@ def login_admin(request):
                 if user is not None:
                     if user.is_active:
                         login(request, user)
-                        return JsonResponse({'success': True, 'redirect_url': reverse('product_admin')})
+                        return JsonResponse({'success': True, 'redirect_url': reverse('channel_admin')})
                     else:
                         return JsonResponse({'success': False, 'message': 'Tài khoản của bạn đã ngừng hoạt động'})
                 else:
