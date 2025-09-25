@@ -101,7 +101,4 @@ urlpatterns = [
     # path('admin/ads/remove/<int:pk>/', ads_remove_admin,name='ads_remove_admin'),
 
 
-
-
-
 ]
