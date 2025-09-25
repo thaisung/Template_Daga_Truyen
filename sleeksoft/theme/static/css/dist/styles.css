@@ -1189,6 +1189,10 @@ select {
   width: 8rem;
 }
 
+.w-\[24px\] {
+  width: 24px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }

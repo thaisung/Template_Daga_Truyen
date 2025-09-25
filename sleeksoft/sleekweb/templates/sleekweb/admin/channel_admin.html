@@ -1,5 +1,5 @@
 {% extends './base.html' %}
-{% block title %}Quản lý Sản phẩm{% endblock %}
+{% block title %}Quản lý DagaLive{% endblock %}
 {% block content %}
 <div class="w-full flex-col ">
     <div class="flex flex-col lg:flex-row items-center  lg:justify-between border-b-[1px] border-[#0e203c] lg:max-h-[50px] px-3 py-2 font-bold">
@@ -79,20 +79,20 @@
         </style>
     </div>
     <div class="w-full flex flex-col items-center justify-center p-2 lg:p-3 gap-2" style="padding-bottom: 0px !important;">
-        <span class="w-full text-red-600">* Chú ý: "Key live" chỉ nên dùng chữ cái, chữ số và dấu gạch ngang (-) *</span>
+        <!-- <span class="w-full text-red-600">* Chú ý: "Key live" chỉ nên dùng chữ cái, chữ số và dấu gạch ngang (-) *</span>
         <form method="post" action="{% url 'channel_add_admin' %}" class="w-[100%] flex items-center  gap-3 h-full">
             {% csrf_token %}
             <input placeholder="Tên kênh" name="Name" class="w-[40%] rounded h-10" />
             <input placeholder="Key live" name="Key" class="w-[40%] rounded h-10" />
             <button type="submit" class="w-[20%] bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
-        </form>
+        </form> -->
     </div>
     <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
         <div class="w-full flex  items-center justify-between bg-stone-300">
             <span class="w-full p-2 font-bold">Tên kênh</span>
             <span class="w-full p-2 font-bold">Key live</span>
             <span class="w-full p-2 font-bold">Thứ tự</span>
-            <span class="w-full p-2 font-bold">Chức năng</span>
+            <!-- <span class="w-full p-2 font-bold">Chức năng</span> -->
         </div>
         {% for i in list_Channel %}
         <div class="w-full flex  items-center justify-between bg-stone-100">
@@ -108,12 +108,12 @@
                 {% csrf_token %}
                 <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count|default:''}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
             </form>
-            <div class="w-full flex p-2 font-medium">
+            <!-- <div class="w-full flex p-2 font-medium">
                 <form method="post" action="{% url 'channel_remove_admin' pk=i.id %}" class="w-full ">
                     {% csrf_token %}
                     <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
                 </form>
-            </div>
+            </div> -->
         </div>
         {% endfor %}
     </div>
