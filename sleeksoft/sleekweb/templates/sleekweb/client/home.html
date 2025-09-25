@@ -1164,10 +1164,39 @@
   </main>
 
   <!-- Footer -->
-  <footer class="flex flex-col items-center justify-center w-full bg-stone-50">
-    <span class=" py-6 text-stone-50 font-bold text-[17px] lg:text-[20px] bg-stone-950 w-full text-center uppercase px-2 lg:px-0">
+  <footer class="flex flex-col items-center justify-center w-full  bg-stone-950">
+    <span class=" py-6 text-stone-50 font-bold text-[17px] lg:text-[20px]  w-full text-center uppercase px-2 lg:px-0">
       © 2025 Xemlivega. All rights reserved.
     </span>
+    <img id="scrollTopImg"
+     class="w-[100px] lg:w-[150px] h-auto mb-5 rounded-md lg:rounded-lg cursor-pointer"
+     src="/upload/domain.webp" />
+
+    <script>
+      function smoothScrollToTop(duration = 1000) {
+          const start = window.scrollY;
+          const startTime = performance.now();
+
+          function scrollStep(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1); // từ 0 → 1
+              const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
+              window.scrollTo(0, start * (1 - ease));
+
+              if (progress < 1) {
+                  requestAnimationFrame(scrollStep);
+              }
+          }
+
+          requestAnimationFrame(scrollStep);
+      }
+
+      document.getElementById("scrollTopImg").addEventListener("click", () => {
+          smoothScrollToTop(1500); // 1500ms = 1.5 giây, chậm hơn mặc định
+      });
+    </script>
+
+
   </footer>
 
 </body>

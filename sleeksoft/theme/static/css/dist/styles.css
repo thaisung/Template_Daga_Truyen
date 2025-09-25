@@ -1193,6 +1193,14 @@ select {
   width: 24px;
 }
 
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[150px\] {
+  width: 150px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2133,6 +2141,10 @@ select {
 
   .lg\:w-\[89\%\] {
     width: 89%;
+  }
+
+  .lg\:w-\[150px\] {
+    width: 150px;
   }
 
   .lg\:min-w-\[200px\] {
