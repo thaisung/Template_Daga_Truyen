@@ -714,7 +714,24 @@
         <span class="hidden lg:flex absolute inset-0  items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video đá gà mới nhất hôm nay</span>
       </div>
       <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for i in list_Video_GaThuong %}
         <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="lazy-video w-full h-auto" controls data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
+              <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <span class="uppercase font-bold mt-2 text-blue-700">{{i.Title}}</span>
+        </div>
+        {% endfor %}
+        <!-- <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
             <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/cpc4_1.webp">
               <source data-src="/upload/video/cpc4_1.mp4" type="video/mp4">
@@ -797,7 +814,7 @@
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -811,7 +828,24 @@
         <span class="hidden lg:flex absolute inset-0  items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video đá gà Dao mới nhất hôm nay</span>
       </div>
       <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for i in list_Video_GaDao %}
         <div class="flex flex-col items-center justify-center">
+          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+            <video class="lazy-video w-full h-auto" controls data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
+              <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
+            </video>
+            <button
+              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <span class="uppercase font-bold mt-2 text-blue-700">{{i.Title}}</span>
+        </div>
+        {% endfor %}
+        <!-- <div class="flex flex-col items-center justify-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
             <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_1.webp">
               <source data-src="/upload/video/gadao_1.MP4" type="video/mp4">
@@ -894,7 +928,7 @@
               </svg>
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 

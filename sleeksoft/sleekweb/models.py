@@ -86,3 +86,16 @@ class Channel(models.Model):
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
+
+class Video(models.Model):
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "Video"
+    
+    Title = models.CharField('Tiêu đề', max_length=200,blank=True, null=True)
+    Avatar = models.ImageField(upload_to='Video_Daga', null=True,blank=True)
+    Video = models.FileField(upload_to='Video_Daga', null=True, blank=True)
+    Category = models.CharField('Danh mục', max_length=10,blank=True, null=True)
+    Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
+    Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
+

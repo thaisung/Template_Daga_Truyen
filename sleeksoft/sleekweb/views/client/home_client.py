@@ -80,7 +80,9 @@ def home(request):
         context = {}
         context['domain'] = settings.DOMAIN
         context['lg'] = request.COOKIES.get('language') or 'VI'
-        context['list_Channel'] = Channel.objects.all()
+        context['list_Channel'] = Channel.objects.all().order_by('Count')
+        context['list_Video_GaThuong'] = Video.objects.filter(Category='GaThuong').order_by('-id')
+        context['list_Video_GaDao'] = Video.objects.filter(Category='GaDao').order_by('-id')
         # context['Product'] = Product.objects.get(Slug=slug)
         # try:
         #     context['Ads_1'] = Ads.objects.get(Count=1)

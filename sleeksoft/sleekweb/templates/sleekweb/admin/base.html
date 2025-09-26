@@ -163,6 +163,12 @@
                     <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
                     {% endif %}
                 </a>
+                <a href="{% url 'video_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
+                     Video
+                    {% if request.resolver_match.url_name == 'video_admin' or 'admin/video/edit' in request.path or 'admin/video/add' in request.path %}
+                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
+                    {% endif %}
+                </a>
                 <div class="flex gap-2 justify-center items-center p-3">
                     <a href="{% url 'logout_admin' %}" class="px-2 py-1 bg-[#0e203c] text-white rounded-md">
                         <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z" fill="#ffffff"></path></svg>
