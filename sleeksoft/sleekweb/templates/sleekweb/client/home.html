@@ -108,7 +108,7 @@
     </style>
 
     <div class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
-      <a href="/" class=" lg:w-[11%] w-[100px] flex flex-col justify-center items-center py-2 h-full gap-2">
+      <a href="/" class=" hidden lg:w-[11%] w-[100px] lg:flex flex-col justify-center items-center py-2 h-full gap-2">
         <img id="logo" class="spin w-full h-auto " src="/upload/logo.png" />
         <script>
           const logo = document.getElementById("logo");
@@ -122,6 +122,26 @@
         </script>
         <img class=" w-full h-auto" src="/upload/domain.webp" />
       </a>
+      <div class=" lg:hidden flex  w-full items-center">
+        <a href="/" class=" min-w-[70px] max-w-[70px] flex flex-col justify-center items-center py-2 h-full gap-2">
+          <img id="logo1" class="spin w-full h-auto " src="/upload/logo.png" />
+          <script>
+            const logo1 = document.getElementById("logo1");
+            let angle1 = 0;
+
+            setInterval(() => {
+              angle1 += 360;
+              logo1.style.transition = "transform 0.9s linear"; // xoay trong 0.5s
+              logo1.style.transform = `rotateY(${angle1}deg)`;
+            }, 5000); // cứ 3s xoay 1 vòng
+          </script>
+          <img class=" w-full h-auto" src="/upload/domain.webp" />
+        </a>
+        <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
+          LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
+          <br>THOMO-GÀ DAO-GÀ THÁI
+        </h1>
+      </div>
       <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('/upload/banner.webp');">
         <div class="live-banner min-h-[61px]">
           <svg class="icon" viewBox="0 0 32 32">
@@ -224,10 +244,10 @@
       LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI
     </h1>
 
-    <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
+    <!-- <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
       LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
       <br>THOMO-GÀ DAO-GÀ THÁI
-    </h1>
+    </h1> -->
 
     <!-- Chu chay mobile -->
     <div class=" lg:hidden lg:w-[89%] w-full h-full flex flex-col  bg-[url('/upload/banner.webp')] bg-cover bg-center rounded-lg overflow-hidden">
