@@ -4,9 +4,14 @@ Tt@112233445
 158.220.102.27
 456456abc
 
+217.217.253.144
+456456abc
+
 sudo chown -R www-data:www-data /home/sleekproject/sleeksoft/upload
 sudo chmod -R 775 /home/sleekproject/sleeksoft/upload
 
+
+sudo certbot certonly --standalone -d dagaxyz.online
 
 rtmp://158.220.102.27:1935/live/C1C2
 https://dagaxyz.online/hls/C1C2.m3u8

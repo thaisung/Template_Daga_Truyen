@@ -325,6 +325,16 @@
       </div>
     </div>
 
+
+<!-- <div id="player-gxvyfjwj"></div>
+<script type="module">
+  import flowplayer from "https://embed.wowza.com/3442debb-d6ff-46a9-88bf-3b3d40a9deb5/gxvyfjwj.js";
+  flowplayer("#player-gxvyfjwj", {});
+</script> -->
+
+<!-- https://dagaxyz.online/hls/{{list_Channel.0.Key}}.m3u8 -->
+
+
     <!-- Video & Chatbox -->
     <div class="w-full flex flex-col items-center justify-center gap-4">
       <!-- Player + Info -->
@@ -339,7 +349,7 @@
           muted
           playsinline
           preload="auto"
-          src="https://dagaxyz.online/hls/{{list_Channel.0.Key}}.m3u8"
+          src="https://535e523164eb.entrypoint.cloud.wowza.com/app-12036S9p/ngrp:08f2fc63_all/playlist.m3u8"
           poster="/upload/error_C1C2.webp"
         ></video>
 
@@ -378,7 +388,7 @@
             // 👇 Set source mặc định ban đầu
             player.poster('/upload/error_C1C2.webp');
             player.src({
-              src: "https://dagaxyz.online/hls/{{list_Channel.0.Key}}.m3u8",
+              src: "https://535e523164eb.entrypoint.cloud.wowza.com/app-12036S9p/ngrp:08f2fc63_all/playlist.m3u8",
               type: "application/x-mpegURL"
             });
 

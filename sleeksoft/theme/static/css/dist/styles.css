@@ -1185,20 +1185,8 @@ select {
   width: 100%;
 }
 
-.min-w-\[100px\] {
-  min-width: 100px;
-}
-
-.min-w-\[80px\] {
-  min-width: 80px;
-}
-
 .min-w-\[70px\] {
   min-width: 70px;
-}
-
-.max-w-\[80px\] {
-  max-width: 80px;
 }
 
 .max-w-\[70px\] {

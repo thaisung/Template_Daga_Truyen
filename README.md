@@ -317,6 +317,7 @@ Hướng dẫn Nginx về nơi tìm các tệp tĩnh mà chúng tôi đã thu th
 ```bash
 server {
     server_name xemlivega.com;
+    client_max_body_size 10G;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
