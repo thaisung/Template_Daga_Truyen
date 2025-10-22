@@ -1583,6 +1583,11 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-stone-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 162 158 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[url\(\'\/upload\/banner\.webp\'\)\] {
   background-image: url('/upload/banner.webp');
 }
@@ -2136,6 +2141,10 @@ select {
 
   .lg\:w-\[89\%\] {
     width: 89%;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:min-w-\[200px\] {

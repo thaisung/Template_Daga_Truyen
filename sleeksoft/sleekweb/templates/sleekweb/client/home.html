@@ -285,6 +285,21 @@
 			<img  src="https://accentric.co.uk/wp-content/uploads/2025/09/signal-2025-07-31-200754.gif" class="w-full" alt="">						
 		</a> -->
 
+    <!-- ADS quang cao -->
+     <div class="w-full flex flex-col gap-2">
+        {% for i in list_Ads %}
+          {% if i.Script %}
+          <div>
+            {{ i.Script|safe }}
+          </div>
+          {% else %}
+          <a href="{{i.Link}}" target="_blank">
+            <img src="{% if i.Banner %}{{i.Banner.url}}{% endif %}"  />
+          </a>
+          {% endif %}
+        {% endfor %}
+     </div>
+
     <!-- Các nút chọn kênh -->
     <div class="w-full py-3 lg:py-3 grid grid-cols-3 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
       <div data-src="{{list_Channel.0.Key}}" data-img="/upload/error_C1C2.webp" class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
@@ -324,15 +339,6 @@
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
       </div>
     </div>
-
-
-<!-- <div id="player-gxvyfjwj"></div>
-<script type="module">
-  import flowplayer from "https://embed.wowza.com/3442debb-d6ff-46a9-88bf-3b3d40a9deb5/gxvyfjwj.js";
-  flowplayer("#player-gxvyfjwj", {});
-</script> -->
-
-<!-- https://dagaxyz.online/hls/{{list_Channel.0.Key}}.m3u8 -->
 
 
     <!-- Video & Chatbox -->

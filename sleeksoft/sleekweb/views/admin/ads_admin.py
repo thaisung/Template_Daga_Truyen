@@ -68,83 +68,59 @@ def ads_admin(request):
     if request.method == 'GET':
         context = {}
         context['domain'] = settings.DOMAIN
-        try:
-            context['Ads_1'] = Ads.objects.get(Count=1)
-        except:
-            context['Ads_1'] = {}
-        try:
-            context['Ads_2'] = Ads.objects.get(Count=2)
-        except:
-            context['Ads_2'] = {}
-        try:
-            context['Ads_3'] = Ads.objects.get(Count=3)
-        except:
-            context['Ads_3'] = {}
-        try:
-            context['Ads_4'] = Ads.objects.get(Count=4)
-        except:
-            context['Ads_4'] = {}
-        try:
-            context['Ads_100'] = Ads.objects.get(Count=100)
-        except:
-            context['Ads_100'] = {}
-        # s = request.GET.get('s')
-        # if s:
-        #     context['list_Ads'] = context['list_Ads'].filter(Q(Title__icontains=s)).order_by('-id')
-        #     context['s'] = s
-        # print('context:',context)
-        # if request.user.is_authenticated and request.user.is_superuser:
-        #     return render(request, 'sleekweb/admin/ads_admin.html', context, status=200)
-        # else:
-        #     return redirect('login_admin')
-
-        return render(request, 'sleekweb/admin/ads_admin.html', context, status=200)
-    else:
-        print('lỗi')
-        return redirect('login_admin')
-    
-    
-def ads_add_admin(request):
-    if request.method == 'GET':
-        context = {}
-        context['domain'] = settings.DOMAIN
+        context['list_Ads'] = Ads.objects.all().order_by('Count')
+        s = request.GET.get('s')
+        if s:
+            context['list_Ads'] = context['list_Ads'].filter(Q(Title__icontains=s)).order_by('-id')
+            context['s'] = s
         # print('context:',context)
         if request.user.is_authenticated and request.user.is_superuser:
-            return render(request, 'sleekweb/admin/ads_add_admin.html', context, status=200)
+            return render(request, 'sleekweb/admin/ads_admin.html', context, status=200)
         else:
             return redirect('login_admin')
         
+
+def ads_add_admin(request):
+    if request.method == 'GET':
+        return redirect('login_admin')
     elif request.method == 'POST':
         if request.user.is_authenticated and request.user.is_superuser:
             fields = {}
-            fields['Title'] = request.POST.get('Title')
-            fields['Description'] = request.POST.get('Description')
-            fields['Avatar']= request.FILES.get('Avatar')
+            fields['Note'] = request.POST.get('Note')
+            fields['Banner'] = request.FILES.get('Banner')
             fields['Link'] = request.POST.get('Link')
-            fields['Iframe'] = request.POST.get('Iframe')
-            fields['Video']= request.FILES.get('Video')
+            fields['Script'] = request.POST.get('Script')
             obj = Ads.objects.create(**fields)
             return redirect('ads_admin')
         else:
             return redirect('login_admin')
     
-def ads_edit_admin(request):
-    if request.method == 'POST':
+def ads_edit_admin(request,pk):
+    if request.method == 'GET':
+        return redirect('login_admin')
+    elif request.method == 'POST':
         if request.user.is_authenticated and request.user.is_superuser:
             fields = {}
-            fields['Count'] = request.POST.get('Count')
+            fields['Note'] = request.POST.get('Note')
+            fields['Banner'] = request.FILES.get('Banner')
+            fields['Link'] = request.POST.get('Link')
             fields['Script'] = request.POST.get('Script')
-            try:
-                obj = Ads.objects.get(Count=fields['Count'])
-                obj.Script = fields['Script']
-                obj.save()
-                print('1')
-            except:
-                Ads.objects.create(Count=fields['Count'],Script=fields['Script'])
-                print('2')
+
+            obj = Ads.objects.get(pk=pk)
+
+            if fields['Note']:
+                obj.Note = fields['Note']
+            if fields['Banner']:
+                obj.Banner.delete(save=False)
+                obj.Banner = fields['Banner']
+            if fields['Link']:
+                obj.Link = fields['Link']
+                
+            obj.Script = fields['Script']
+
+            obj.save()
             return redirect('ads_admin')
         else:
-            print('3')
             return redirect('login_admin')
     
 def ads_remove_admin(request,pk):
@@ -152,11 +128,6 @@ def ads_remove_admin(request,pk):
         if request.method == 'POST':
             try:
                 obj = Ads.objects.get(pk=pk)
-                # Xoá Avatar file nếu tồn tại
-                if obj.Avatar:   # nếu đã có file cũ
-                    obj.Avatar.delete(save=False)  # xoá file cũ trong media
-                if obj.Video:
-                    obj.Video.delete(save=False)
                 obj.delete()
             except:
                 print('not')

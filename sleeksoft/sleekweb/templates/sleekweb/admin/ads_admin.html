@@ -1,90 +1,162 @@
 {% extends './base.html' %}
-{% block title %}Quản lý Sản phẩm{% endblock %}
+{% block title %}Quản lý DagaLive{% endblock %}
 {% block content %}
 <div class="w-full flex-col ">
     <div class="flex flex-col lg:flex-row items-center  lg:justify-between border-b-[1px] border-[#0e203c] lg:max-h-[50px] px-3 py-2 font-bold">
         <span class="uppercase w-full flex justify-center lg:justify-start">
-            Trang ADS
+            Trang Thay đổi quảng cáo
         </span>
+        <div class="flex items-center gap-3 max-h-[60px] lg:max-h-none">
+            <form  class=" relative flex items-center justify-center">
+                <input value="{{s}}" name="s" class="font-medium text-sm rounded-full border-[1px] border-[#0e203c] px-4" placeholder="Tìm kiếm"
+                    style="background: transparent;" />
+                <button type="submit" class="absolute right-2">
+                    <svg class="w-[25px]" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                    <g>
+                        <path
+                            d="M51.6,96.7c11,0,21-3.9,28.8-10.5l35,35c0.8,0.8,1.8,1.2,2.9,1.2s2.1-0.4,2.9-1.2c1.6-1.6,1.6-4.2,0-5.8l-35-35   c6.5-7.8,10.5-17.9,10.5-28.8c0-24.9-20.2-45.1-45.1-45.1C26.8,6.5,6.5,26.8,6.5,51.6C6.5,76.5,26.8,96.7,51.6,96.7z M51.6,14.7   c20.4,0,36.9,16.6,36.9,36.9C88.5,72,72,88.5,51.6,88.5c-20.4,0-36.9-16.6-36.9-36.9C14.7,31.3,31.3,14.7,51.6,14.7z">
+                        </path>
+                    </g>
+                </svg>
+                </button>
+            </form>
+            <!-- <a href="">
+                <svg class="w-[35px] fill-[#0e203c]" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="438.533px" height="438.533px"
+                    viewBox="0 0 438.533 438.533" style="enable-background:new 0 0 438.533 438.533;"
+                    xml:space="preserve">
+                    <g>
+                        <path d="M409.133,109.203c-19.608-33.592-46.205-60.189-79.798-79.796C295.736,9.801,259.058,0,219.273,0
+                            c-39.781,0-76.47,9.801-110.063,29.407c-33.595,19.604-60.192,46.201-79.8,79.796C9.801,142.8,0,179.489,0,219.267
+                            c0,39.78,9.804,76.463,29.407,110.062c19.607,33.592,46.204,60.189,79.799,79.798c33.597,19.605,70.283,29.407,110.063,29.407
+                            s76.47-9.802,110.065-29.407c33.593-19.602,60.189-46.206,79.795-79.798c19.603-33.596,29.403-70.284,29.403-110.062
+                            C438.533,179.485,428.732,142.795,409.133,109.203z M347.179,237.539c0,4.948-1.811,9.236-5.428,12.847
+                            c-3.62,3.614-7.901,5.428-12.847,5.428h-73.091v73.084c0,4.948-1.813,9.232-5.428,12.854c-3.613,3.613-7.897,5.421-12.847,5.421
+                            h-36.543c-4.948,0-9.231-1.808-12.847-5.421c-3.617-3.621-5.426-7.905-5.426-12.854v-73.084h-73.089
+                            c-4.948,0-9.229-1.813-12.847-5.428c-3.616-3.61-5.424-7.898-5.424-12.847v-36.547c0-4.948,1.809-9.231,5.424-12.847
+                            c3.617-3.617,7.898-5.426,12.847-5.426h73.092v-73.089c0-4.949,1.809-9.229,5.426-12.847c3.616-3.616,7.898-5.424,12.847-5.424
+                            h36.547c4.948,0,9.233,1.809,12.847,5.424c3.614,3.617,5.428,7.898,5.428,12.847v73.089h73.084c4.948,0,9.232,1.809,12.847,5.426
+                            c3.617,3.615,5.428,7.898,5.428,12.847V237.539z"></path>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                </svg>
+            </a> -->
+        </div>
         <style>
             input:focus {
                 outline: none !important;
             }
         </style>
     </div>
-    <div class="flex flex-col gap-3 p-3">
-        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
+    <div class="w-full flex flex-col items-center justify-center p-2 lg:p-3 gap-2" style="padding-bottom: 0px !important;">
+        <form method="post" action="{% url 'ads_add_admin' %}" enctype="multipart/form-data" class="w-[100%] flex flex-col lg:flex-row items-center  gap-3 h-full">
             {% csrf_token %}
-            <label class="font-semibold">
-                1.Vị trí quảng cáo TRÊN
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="text" name="Script" value="{{Ads_1.Script}}" class="rounded-md w-full" required />
-                <input type="text" name="Count" value="1" class="hidden rounded-md w-full" required />
-                <button type="submit"
-                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
-
+            <input placeholder="Ghi chú" name="Note" class="lg:w-[20%] w-full rounded h-10" />
+            <div class="lg:w-[20%] w-full flex flex-col">
+                <label class="text-[12px]">Banner QC</label>
+                <input placeholder="Banner QC" name="Banner" type="file" accept="image/webp" class="w-full rounded h-10" />
             </div>
-        </form>
-        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
-            {% csrf_token %}
-            <label class="font-semibold">
-                2.Vị trí quảng cáo DƯỚI
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="text" name="Script" value="{{Ads_2.Script}}" class="rounded-md w-full" required />
-                <input type="text" name="Count" value="2" class="hidden rounded-md w-full" required />
-                <button type="submit"
-                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
-
-            </div>
-        </form>
-        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
-            {% csrf_token %}
-            <label class="font-semibold">
-                3.Vị trí quảng cáo TRÁI
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="text" name="Script" value="{{Ads_3.Script}}" class="rounded-md w-full" required />
-                <input type="text" name="Count" value="3" class="hidden rounded-md w-full" required />
-                <button type="submit"
-                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
-
-            </div>
-        </form>
-        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
-            {% csrf_token %}
-            <label class="font-semibold">
-                4.Vị trí quảng cáo PHẢI
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="text" name="Script" value="{{Ads_4.Script}}" class="rounded-md w-full" required />
-                <input type="text" name="Count" value="4" class="hidden rounded-md w-full" required />
-                <button type="submit"
-                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
-
-            </div>
-        </form>
-        <form action="{% url 'ads_edit_admin' %}" method="post" class="flex flex-col gap-1">
-            {% csrf_token %}
-            <label class="font-semibold">
-                * Link quảng cáo khi bấm nút TIẾP TỤC XEM VIDEO *
-            </label>
-            <div class="flex items-center gap-2">
-                <input type="text" name="Script" value="{{Ads_100.Script}}" class="rounded-md w-full" required />
-                <input type="text" name="Count" value="100" class="hidden rounded-md w-full" required />
-                <button type="submit"
-                    class="p-2 rounded-md bg-green-500 font-semibold text-sm hover:cursor-pointer w-[100px]">Cập nhật</button>
-
-            </div>
+            <input placeholder="URL QC" name="Link" class="lg:w-[20%] w-full rounded h-10" />
+            <input placeholder="Mã QC" name="Script" class="lg:w-[20%] w-full rounded h-10" />
+            <button type="submit" class="lg:w-[20%] w-full bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
         </form>
     </div>
+    <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
+        <div class="w-full flex  items-center justify-between bg-stone-300">
+            <span class="w-full p-2 font-bold">Ghi chú</span>
+            <span class="w-full p-2 font-bold">Banner QC</span>
+            <span class="w-full p-2 font-bold">URL QC</span>
+            <span class="w-full p-2 font-bold">Mã QC</span>
+            <span class="w-full p-2 font-bold">Chức năng</span>
+        </div>
+        {% for i in list_Ads %}
+        <div class="w-full flex  items-center justify-between bg-stone-100">
+            <form method="post" action="{% url 'ads_edit_admin' pk=i.id %}" class="w-full p-2">
+                {% csrf_token %}
+                <input placeholder="Ghi chú" name="Note" value="{{i.Note}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <form method="post" action="{% url 'ads_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full p-2 gap-2">
+                {% csrf_token %}
+                {% if i.Banner %}
+                <img src="{% if i.Banner %}{{i.Banner.url}}{% endif %}" class="w-[150px] rounded-md border-[2px] border-stone-950" />
+                {% endif %}
+                <input placeholder="Ảnh Banner" name="Banner" type="file" accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <form method="post" action="{% url 'ads_edit_admin' pk=i.id %}" class="w-full p-2">
+                {% csrf_token %}
+                <input placeholder="URL QC" name="Link" value="{{i.Link}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <form method="post" action="{% url 'ads_edit_admin' pk=i.id %}" class="w-full p-2">
+                {% csrf_token %}
+                <input  placeholder="Mã QC" name="Script" value="{{i.Script}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <div class="w-full flex p-2 font-medium">
+                <form method="post" action="{% url 'ads_remove_admin' pk=i.id %}" class="w-full ">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+<script>
+function copyHref(element) {
+    const link = element.getAttribute("href"); // lấy href
+    const fullUrl = window.location.origin + link; // ghép domain hiện tại
+    navigator.clipboard.writeText(fullUrl).then(() => {
+        alert("✅ Link đã copy: " + fullUrl);
+    }).catch(err => {
+        console.error("Lỗi copy link:", err);
+    });
+}
+</script>
 <script>
     $(document).ready(function() {
         $('.open_input_Size').on('click', function() {
             $('.input_Size').toggle(); // Bật nếu ẩn, ẩn nếu bật
         });
     });
+</script>
+<script>
+function copyHref(element) {
+    const link = element.getAttribute("href"); // lấy href
+    const fullUrl = window.location.origin + link; // ghép domain hiện tại
+    navigator.clipboard.writeText(fullUrl).then(() => {
+        alert("✅ Link đã copy: " + fullUrl);
+    }).catch(err => {
+        console.error("Lỗi copy link:", err);
+    });
+}
 </script>
 {% endblock %}

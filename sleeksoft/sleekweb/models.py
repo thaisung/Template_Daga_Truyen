@@ -69,7 +69,9 @@ class Ads(models.Model):
     class Meta:
         ordering = ["id"]
         verbose_name_plural = "Quảng cáo"
-    
+    Note = models.CharField('Ghi chú quảng cáo', max_length=1000,blank=True, null=True)
+    Banner = models.ImageField(upload_to='ADS_Daga', null=True,blank=True)
+    Link = models.CharField('Link quảng cáo', max_length=1000,blank=True, null=True)
     Script = models.CharField('Script', max_length=1000,blank=True, null=True)
     Count = models.IntegerField('Số',blank=True, null=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
