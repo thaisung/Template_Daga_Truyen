@@ -765,7 +765,7 @@
       </div>
       <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
         {% for i in list_Video_GaThuong %}
-        <div class="flex flex-col  justify-center">
+        <div class="flex flex-col items-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
             <video class="lazy-video w-full h-auto" controls data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
               <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
@@ -879,7 +879,7 @@
       </div>
       <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
         {% for i in list_Video_GaDao %}
-        <div class="flex flex-col  justify-center">
+        <div class="flex flex-col items-center">
           <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
             <video class="lazy-video w-full h-auto" controls data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
               <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
