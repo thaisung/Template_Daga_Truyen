@@ -101,3 +101,22 @@ class Video(models.Model):
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
+class Odds(models.Model):
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "Video"
+    
+    Category = models.CharField('Danh mục', max_length=200,blank=True, null=True)
+    Describe = models.CharField('Mô tả', max_length=1000,blank=True, null=True)
+    Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
+    Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
+
+class Odds_Image(models.Model):
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "Video"
+    
+    Image = models.ImageField(upload_to='Odds_Image', null=True,blank=True)
+    Link_image = models.ForeignKey(Odds, on_delete=models.CASCADE, null=True, blank=True,related_name='images')
+    Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
+    Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)

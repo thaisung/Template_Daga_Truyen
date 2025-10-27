@@ -55,6 +55,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from .views.admin.login_admin import *
 from .views.admin.channel_admin import *
+from .views.admin.odds_admin import *
 from .views.admin.ads_admin import *
 from .views.admin.video_admin import *
 # from .views.admin.product_admin import *
@@ -91,10 +92,16 @@ urlpatterns = [
     path('admin/channel/edit/<int:pk>/', channel_edit_admin,name='channel_edit_admin'),
     path('admin/channel/remove/<int:pk>/', channel_remove_admin,name='channel_remove_admin'),
 
+    path('admin/odds', odds_admin,name='odds_admin'),
+    path('admin/odds/add', odds_add_admin,name='odds_add_admin'),
+    path('admin/odds/edit/<int:pk>/', odds_edit_admin,name='odds_edit_admin'),
+    path('admin/odds/remove/<int:pk>/', odds_remove_admin,name='odds_remove_admin'),
+
     path('admin/ads', ads_admin,name='ads_admin'),
     path('admin/ads/add', ads_add_admin,name='ads_add_admin'),
     path('admin/ads/edit/<int:pk>/', ads_edit_admin,name='ads_edit_admin'),
     path('admin/ads/remove/<int:pk>/', ads_remove_admin,name='ads_remove_admin'),
+    
 
     path('admin/video', video_admin,name='video_admin'),
     path('admin/video/add', video_add_admin,name='video_add_admin'),

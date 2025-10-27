@@ -1185,6 +1185,10 @@ select {
   width: 100%;
 }
 
+.w-\[50px\] {
+  width: 50px;
+}
+
 .min-w-\[70px\] {
   min-width: 70px;
 }
@@ -1581,11 +1585,6 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-stone-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(168 162 158 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[url\(\'\/upload\/banner\.webp\'\)\] {
@@ -2131,6 +2130,10 @@ select {
     width: 20%;
   }
 
+  .lg\:w-\[30\%\] {
+    width: 30%;
+  }
+
   .lg\:w-\[40\%\] {
     width: 40%;
   }
@@ -2143,8 +2146,8 @@ select {
     width: 89%;
   }
 
-  .lg\:w-full {
-    width: 100%;
+  .lg\:w-\[10\%\] {
+    width: 10%;
   }
 
   .lg\:min-w-\[200px\] {

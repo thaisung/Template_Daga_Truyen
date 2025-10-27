@@ -44,6 +44,9 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
     <script>
         // Trước khi unload, lưu vị trí scroll
         window.addEventListener('beforeunload', function () {
@@ -160,6 +163,12 @@
                 <a href="{% url 'channel_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
                      Kênh Live
                     {% if request.resolver_match.url_name == 'channel_admin' or 'admin/channel/edit' in request.path or 'admin/channel/add' in request.path %}
+                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
+                    {% endif %}
+                </a>
+                <a href="{% url 'odds_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
+                     Odds
+                    {% if request.resolver_match.url_name == 'odds_admin' or 'admin/odds/edit' in request.path or 'admin/odds/add' in request.path %}
                     <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
                     {% endif %}
                 </a>
