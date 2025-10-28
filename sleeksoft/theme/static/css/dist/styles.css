@@ -1185,10 +1185,6 @@ select {
   width: 100%;
 }
 
-.w-\[50px\] {
-  width: 50px;
-}
-
 .min-w-\[70px\] {
   min-width: 70px;
 }
@@ -2114,6 +2110,10 @@ select {
     min-height: 800px;
   }
 
+  .lg\:w-\[10\%\] {
+    width: 10%;
+  }
+
   .lg\:w-\[11\%\] {
     width: 11%;
   }
@@ -2144,10 +2144,6 @@ select {
 
   .lg\:w-\[89\%\] {
     width: 89%;
-  }
-
-  .lg\:w-\[10\%\] {
-    width: 10%;
   }
 
   .lg\:min-w-\[200px\] {
