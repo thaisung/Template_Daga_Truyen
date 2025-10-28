@@ -675,7 +675,7 @@
           (9)FACHAI- PANABET
         </button> -->
         {% for i in list_Odds %}
-        <button data-target="#{{i.Category}}{{i.id}}"
+        <button data-target="#odds{{i.id}}"
           class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] {% if  forloop.first %}border-sky-500 bg-sky-200{% endif %} border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
           {{i.Category}}
         </button>
