@@ -803,10 +803,25 @@
           VIP xem k văng , truy cập 1 lần xem đến thoát ra
         </span>
       </div> -->
-      {% for i in list_Odds %}
+      <!-- {% for i in list_Odds %}
       <div id="{{i.Category}}{{i.id}}"
         class="tab-content {% if not forloop.first %}hidden{% endif %} w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
         <div class="w-full grid grid-cols-3  divide-x-[2px] divide-blue-500">
+          {% for j in i.images.all %}
+          <img loading="lazy" class="cursor-pointer w-full h-full " src="{% if j.Image %}{{j.Image.url}}{% endif %}"
+            data-fancybox="{{i.Category}}{{i.id}}" />
+          {% endfor %}
+        </div>
+        <span
+          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
+          ✅ {{i.Describe}}
+        </span>
+      </div>
+      {% endfor %} -->
+      {% for i in list_Odds %}
+      <div id="{{i.Category}}{{i.id}}"
+        class="tab-content {% if not forloop.first %}hidden{% endif %} w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
+        <div class="w-full grid grid-cols-4  divide-x-[2px] divide-blue-500">
           {% for j in i.images.all %}
           <img loading="lazy" class="cursor-pointer w-full h-full " src="{% if j.Image %}{{j.Image.url}}{% endif %}"
             data-fancybox="{{i.Category}}{{i.id}}" />
