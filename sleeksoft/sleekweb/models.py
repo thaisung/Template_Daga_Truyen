@@ -85,6 +85,7 @@ class Channel(models.Model):
     Name = models.CharField('Tên kênh', max_length=100,blank=True, null=True)
     Key = models.CharField('Key live', max_length=200,blank=True, null=True)
     Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
+    Avatar = models.ImageField(upload_to='Channel_Daga', null=True,blank=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
@@ -104,19 +105,29 @@ class Video(models.Model):
 class Odds(models.Model):
     class Meta:
         ordering = ["id"]
-        verbose_name_plural = "Video"
+        verbose_name_plural = "Tỉ lệ cược"
     
     Category = models.CharField('Danh mục', max_length=200,blank=True, null=True)
     Describe = models.CharField('Mô tả', max_length=1000,blank=True, null=True)
+    Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
 class Odds_Image(models.Model):
     class Meta:
         ordering = ["id"]
-        verbose_name_plural = "Video"
+        verbose_name_plural = "Ảnh tỉ lệ cược"
     
     Image = models.ImageField(upload_to='Odds_Image', null=True,blank=True)
     Link_image = models.ForeignKey(Odds, on_delete=models.CASCADE, null=True, blank=True,related_name='images')
+    Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
+    Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
+
+class Animation_Image(models.Model):
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "Ảnh động"
+    
+    Image = models.ImageField(upload_to='Animation_Image', null=True,blank=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)

@@ -82,7 +82,8 @@ def home(request):
         context['lg'] = request.COOKIES.get('language') or 'VI'
         context['list_Ads'] = Ads.objects.all().order_by('Count')
         context['list_Channel'] = Channel.objects.all().order_by('Count')
-        context['list_Odds'] = Odds.objects.all()
+        context['list_Odds'] = Odds.objects.all().order_by('Count')
+        context['list_Animation_Image'] = Animation_Image.objects.all()
         context['list_Video_GaThuong'] = Video.objects.filter(Category='GaThuong').order_by('-id')
         context['list_Video_GaDao'] = Video.objects.filter(Category='GaDao').order_by('-id')
         # context['Product'] = Product.objects.get(Slug=slug)

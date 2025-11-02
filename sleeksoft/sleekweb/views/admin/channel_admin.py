@@ -88,6 +88,7 @@ def channel_add_admin(request):
             fields = {}
             fields['Name'] = request.POST.get('Name')
             fields['Key'] = request.POST.get('Key')
+            fields['Avatar'] = request.FILES.get('Avatar')
             obj = Channel.objects.create(**fields)
             return redirect('channel_admin')
         else:
@@ -102,6 +103,7 @@ def channel_edit_admin(request,pk):
             fields['Name'] = request.POST.get('Name')
             fields['Key'] = request.POST.get('Key')
             fields['Count'] = request.POST.get('Count')
+            fields['Avatar'] = request.FILES.get('Avatar')
 
             obj = Channel.objects.get(pk=pk)
 
@@ -111,6 +113,9 @@ def channel_edit_admin(request,pk):
                 obj.Key = fields['Key']
             if fields['Count']:
                 obj.Count = fields['Count']
+            if fields['Avatar']:
+                obj.Avatar.delete(save=False)
+                obj.Avatar = fields['Avatar']
 
             obj.save()
             return redirect('channel_admin')
@@ -122,6 +127,8 @@ def channel_remove_admin(request,pk):
         if request.method == 'POST':
             try:
                 obj = Channel.objects.get(pk=pk)
+                if obj.Avatar:
+                    obj.Avatar.delete(save=False)
                 obj.delete()
             except:
                 print('not')

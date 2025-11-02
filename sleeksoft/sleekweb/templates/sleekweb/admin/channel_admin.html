@@ -87,12 +87,12 @@
             <button type="submit" class="w-[20%] bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
         </form> -->
     </div>
-    <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
+    <!-- <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
         <div class="w-full flex  items-center justify-between bg-stone-300">
             <span class="w-full p-2 font-bold">Tên kênh</span>
             <span class="w-full p-2 font-bold">URL phát</span>
             <span class="w-full p-2 font-bold">Thứ tự</span>
-            <!-- <span class="w-full p-2 font-bold">Chức năng</span> -->
+            <span class="w-full p-2 font-bold">Chức năng</span>
         </div>
         {% for i in list_Channel %}
         <div class="w-full flex  items-center justify-between bg-stone-100">
@@ -108,12 +108,50 @@
                 {% csrf_token %}
                 <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count|default:''}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
             </form>
-            <!-- <div class="w-full flex p-2 font-medium">
+            <div class="w-full flex p-2 font-medium">
                 <form method="post" action="{% url 'channel_remove_admin' pk=i.id %}" class="w-full ">
                     {% csrf_token %}
                     <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
                 </form>
-            </div> -->
+            </div>
+        </div>
+        {% endfor %}
+    </div> -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-4 gap-3 p-3">
+        {% for i in list_Channel %}
+        <div class="w-full flex flex-col gap-2 justify-between bg-stone-200 shadow-lg p-3 rounded">
+            <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                {% csrf_token %}
+                {% if i.Avatar %}
+                <img src="{% if i.Avatar %}{{i.Avatar.url}}{% endif %}" class="w-full rounded-md border-[2px] border-stone-950" />
+                {% endif %}
+                <input placeholder="Ảnh đại diện" name="Avatar" type="file" accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Tên kênh :</label>
+                <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input placeholder="Tên kênh" name="Name" value="{{i.Name}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">URL phát :</label>
+                <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input placeholder="URL phát" name="Key" value="{{i.Key}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Thứ tự :</label>
+                <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count|default:''}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <form method="post" action="{% url 'odds_remove_admin' pk=i.id %}" class="w-full ">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
+            </form>
         </div>
         {% endfor %}
     </div>

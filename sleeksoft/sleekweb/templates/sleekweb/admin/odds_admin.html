@@ -90,11 +90,12 @@
             <button type="submit" class="lg:w-[20%] w-full bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
         </form>
     </div>
-    <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
+    <!-- <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
         <div class="w-full flex  items-center justify-between bg-stone-300">
             <span class="w-full lg:w-[10%] p-2 font-bold">Danh mục</span>
             <span class="w-full lg:w-[40%] p-2 font-bold">Mô tả</span>
-            <span class="w-full lg:w-[40%] p-2 font-bold">Danh sách ảnh</span>
+            <span class="w-full lg:w-[30%] p-2 font-bold">Danh sách ảnh</span>
+            <span class="w-full lg:w-[10%] p-2 font-bold">Thứ tự</span>
             <span class="w-full lg:w-[10%] p-2 font-bold">Chức năng</span>
         </div>
         {% for i in list_Odds %}
@@ -107,7 +108,7 @@
                 {% csrf_token %}
                 <input placeholder="Mô tả" name="Describe" value="{{i.Describe}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
             </form>
-            <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full lg:w-[40%] p-2 gap-2">
+            <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full lg:w-[30%] p-2 gap-2">
                 {% csrf_token %}
                 <div class="flex gap-1 overflow-x-auto">
                     {% for j in i.images.all %}
@@ -116,12 +117,56 @@
                 </div>
                 <input placeholder="Danh sách ảnh" name="List_Image" type="file" multiple accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
             </form>
+            <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" class="w-full lg:w-[10%] p-2">
+                {% csrf_token %}
+                <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
             <div class="w-full lg:w-[10%] flex p-2 font-medium">
                 <form method="post" action="{% url 'odds_remove_admin' pk=i.id %}" class="w-full ">
                     {% csrf_token %}
                     <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
                 </form>
             </div>
+        </div>
+        {% endfor %}
+    </div> -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-3 p-3">
+        {% for i in list_Odds %}
+        <div class="w-full flex flex-col gap-2 justify-between bg-stone-200 shadow-lg p-3 rounded">
+            <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                {% csrf_token %}
+                <div class="flex gap-1 overflow-x-auto">
+                    {% for j in i.images.all %}
+                    <img src="{% if j.Image %}{{j.Image.url}}{% endif %}" loading="lazy" data-fancybox="{{i.id}}{{i.Category}}" class="w-[100px] cursor-pointer rounded-md border-[2px] border-stone-950" />
+                    {% endfor %}
+                </div>
+                <input placeholder="Danh sách ảnh" name="List_Image" type="file" multiple accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Danh mục :</label>
+                <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input placeholder="Danh mục" name="Category" value="{{i.Category}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Mô tả :</label>
+                <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" class="w-full  p-2">
+                    {% csrf_token %}
+                    <input placeholder="Mô tả" name="Describe" value="{{i.Describe}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Thứ tự :</label>
+                <form method="post" action="{% url 'odds_edit_admin' pk=i.id %}" class="w-full  p-2">
+                    {% csrf_token %}
+                    <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                </form>
+            </div>
+            <form method="post" action="{% url 'odds_remove_admin' pk=i.id %}" class="w-full ">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
+            </form>
         </div>
         {% endfor %}
     </div>

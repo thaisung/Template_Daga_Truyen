@@ -1,11 +1,16 @@
 154.26.130.80 website
 123123abc
 Tt@112233445
+
 158.220.102.27
 456456abc
 
 217.217.253.144
 123123abc
+
+
+160.191.51.71
+@Sieutoc!RGb!ya397AS
 
 sudo chown -R www-data:www-data /home/sleekproject/sleeksoft/upload
 sudo chmod -R 775 /home/sleekproject/sleeksoft/upload
@@ -17,7 +22,7 @@ rtmp://158.220.102.27:1935/live/C1C2
 https://dagaxyz.online/hls/C1C2.m3u8
 
 rtmp://dagaxyz.online/live/test
-http://dagaxyz.online/hls/test.m3u8
+https://dagaxyz.online/hls/test.m3u8
 
 
 74.222.7.74:22 / root / e!Z7PHo&1i

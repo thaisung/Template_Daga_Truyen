@@ -1,0 +1,82 @@
+1. cài
+sudo apt update
+sudo apt install libnginx-mod-rtmp -y
+
+2.Cài rtmp
+sudo apt purge nginx nginx-common nginx-full -y
+sudo apt autoremove -y
+sudo apt install nginx libnginx-mod-rtmp -y
+
+
+3. chỉnh sử nginx.conf
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    sendfile on;
+    keepalive_timeout 65;
+    server_tokens off;
+
+    # HLS web server
+    server {
+        listen 80;
+        server_name _;
+
+        # Serve HLS files
+        location /hls {
+            types {
+                application/vnd.apple.mpegurl m3u8;
+                video/mp2t ts;
+            }
+            root /usr/share/nginx/html;
+            add_header Cache-Control no-cache;
+        }
+
+        # Serve player page and assets
+        location / {
+            root /usr/share/nginx/html;
+            index index.html player.html;
+        }
+    }
+}
+
+# RTMP config
+rtmp {
+    server {
+        listen 1935;             # RTMP port
+        chunk_size 4096;
+
+        application live {
+            live on;
+            record off;
+
+            # HLS enabled
+            hls on;
+            hls_path /usr/share/nginx/html/hls;
+            hls_fragment 3;
+        }
+    }
+}
+
+6.tạo thư mục
+sudo mkdir -p /usr/share/nginx/html/hls
+sudo chmod 777 /usr/share/nginx/html/hls
+
+
+5. kiểm tra lại và restart nginx
+nginx -t && sudo systemctl restart nginx
+
+6.cài SSL
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+
+
+

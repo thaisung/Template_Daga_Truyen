@@ -104,14 +104,13 @@
             <button type="submit" class="w-full lg:w-[20%] bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
         </form>
     </div>
-    <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
+    <!-- <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
         <div class="w-full flex  items-center justify-between bg-stone-300">
             <span class="w-full p-2 font-bold">Tên Video</span>
             <span class="w-full p-2 font-bold">Danh mục</span>
             <span class="w-full p-2 font-bold">Ảnh đại diện</span>
             <span class="w-full p-2 font-bold">Video</span>
             <span class="w-full p-2 font-bold">Chức năng</span>
-            <!-- <span class="w-full p-2 font-bold">Chức năng</span> -->
         </div>
         {% for i in list_Video_GaThuong %}
         <div class="w-full flex  items-center justify-between bg-stone-100">
@@ -193,6 +192,114 @@
                     <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-10">Xoá</button>
                 </form>
             </div>
+        </div>
+        {% endfor %}
+    </div> -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-3 p-3">
+        {% for i in list_Video_GaThuong %}
+        <div class="w-full flex flex-col gap-2 justify-between bg-stone-200 shadow-lg p-3 rounded">
+            <div class="w-full flex gap-3">
+                <div class="w-full flex flex-col ">
+                    <label class="whitespace-nowrap font-bold">Ảnh đại diện :</label>
+                    <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                        {% csrf_token %}
+                        {% if i.Avatar %}
+                        <img src="{% if i.Avatar %}{{i.Avatar.url}}{% endif %}" class="w-full rounded-md border-[2px] border-stone-950" />
+                        {% endif %}
+                        <input placeholder="Ảnh đại diện" name="Avatar" type="file" accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                    </form>
+                </div>
+                <div class="w-full flex flex-col ">
+                    <label class="whitespace-nowrap font-bold">Video :</label>
+                    <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                        {% csrf_token %}
+                        {% if i.Video %}
+                        <video 
+                            src="{% if i.Video %}{{ i.Video.url }}{% endif %}" 
+                            class="w-full rounded-md border-[2px] border-stone-950" 
+                            controls 
+                            preload="none"
+                            poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}" >
+                        </video>
+                        {% endif %}
+                        <input name="Video" type="file" accept="video/mp4" onchange="this.form.submit()" class="rounded w-full h-8" />
+                    </form>
+                </div>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Tiêu đề :</label>
+                <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input placeholder="Tiêu đề" name="Title" value="{{i.Title}}" onchange="this.form.submit()" class=" rounded w-full h-10" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Danh mục :</label>
+                <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <select name="Category" class=" rounded w-full h-10" onchange="this.form.submit()">
+                        <option {% if i.Category == 'GaThuong' %}selected{% endif %} value="GaThuong">GaThuong</option>
+                        <option {% if i.Category == 'GaDao' %}selected{% endif %} value="GaDao">GaDao</option>
+                    </select>
+                </form>
+            </div>
+            <form method="post" action="{% url 'video_remove_admin' pk=i.id %}" class="w-full ">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-10">Xoá</button>
+            </form>
+        </div>
+        {% endfor %}
+        {% for i in list_Video_GaDao %}
+        <div class="w-full flex flex-col gap-2 justify-between bg-stone-300 shadow-lg p-3 rounded">
+            <div class="w-full flex">
+                <div class="w-full flex flex-col ">
+                    <label class="whitespace-nowrap font-bold">Ảnh đại diện :</label>
+                    <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                        {% csrf_token %}
+                        {% if i.Avatar %}
+                        <img src="{% if i.Avatar %}{{i.Avatar.url}}{% endif %}" class="w-[150px] rounded-md border-[2px] border-stone-950" />
+                        {% endif %}
+                        <input placeholder="Ảnh đại diện" name="Avatar" type="file" accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+                    </form>
+                </div>
+                <div class="w-full flex flex-col ">
+                    <label class="whitespace-nowrap font-bold">Video :</label>
+                    <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full  gap-2">
+                        {% csrf_token %}
+                        {% if i.Video %}
+                        <video 
+                            src="{% if i.Video %}{{ i.Video.url }}{% endif %}" 
+                            class="w-[150px] rounded-md border-[2px] border-stone-950" 
+                            controls 
+                            preload="none"
+                            poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}" >
+                        </video>
+                        {% endif %}
+                        <input name="Video" type="file" accept="video/mp4" onchange="this.form.submit()" class="rounded w-full h-8" />
+                    </form>
+                </div>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Tiêu đề :</label>
+                <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input placeholder="Tiêu đề" name="Title" value="{{i.Title}}" onchange="this.form.submit()" class=" rounded w-full h-10" />
+                </form>
+            </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Danh mục :</label>
+                <form method="post" action="{% url 'video_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <select name="Category" class=" rounded w-full h-10" onchange="this.form.submit()">
+                        <option {% if i.Category == 'GaThuong' %}selected{% endif %} value="GaThuong">GaThuong</option>
+                        <option {% if i.Category == 'GaDao' %}selected{% endif %} value="GaDao">GaDao</option>
+                    </select>
+                </form>
+            </div>
+            <form method="post" action="{% url 'video_remove_admin' pk=i.id %}" class="w-full ">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-10">Xoá</button>
+            </form>
         </div>
         {% endfor %}
     </div>

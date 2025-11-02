@@ -64,43 +64,35 @@ import base64
 
 
     
-def odds_admin(request):
+def animation_admin(request):
     if request.method == 'GET':
         context = {}
         context['domain'] = settings.DOMAIN
-        context['list_Odds'] = Odds.objects.all().order_by('Count')
+        context['list_Animation_Image'] = Animation_Image.objects.all()
         s = request.GET.get('s')
         if s:
-            context['list_Odds'] = context['list_Odds'].filter(Q(Title__icontains=s)).order_by('-id')
+            context['list_Animation_Image'] = context['list_Animation_Image'].filter(Q(Title__icontains=s)).order_by('-id')
             context['s'] = s
         # print('context:',context)
         if request.user.is_authenticated and request.user.is_superuser:
-            return render(request, 'sleekweb/admin/odds_admin.html', context, status=200)
+            return render(request, 'sleekweb/admin/animation_admin.html', context, status=200)
         else:
             return redirect('login_admin')
         
 
-def odds_add_admin(request):
+def animation_add_admin(request):
     if request.method == 'GET':
         return redirect('login_admin')
     elif request.method == 'POST':
         if request.user.is_authenticated and request.user.is_superuser:
             fields = {}
-            fields['Category'] = request.POST.get('Category')
-            fields['Describe'] = request.POST.get('Describe')
-            obj = Odds.objects.create(**fields)
-
-            List_Image = request.FILES.getlist('List_Image')
-
-            if List_Image:
-                for img in List_Image:
-                    img_obj = Odds_Image.objects.create(Link_image=obj,Image=img)
-
-            return redirect('odds_admin')
+            fields['Image'] = request.FILES.get('Image')
+            obj = Animation_Image.objects.create(**fields)
+            return redirect('animation_admin')
         else:
             return redirect('login_admin')
     
-def odds_edit_admin(request,pk):
+def animation_edit_admin(request,pk):
     if request.method == 'GET':
         return redirect('login_admin')
     elif request.method == 'POST':
@@ -110,7 +102,7 @@ def odds_edit_admin(request,pk):
             fields['Describe'] = request.POST.get('Describe')
             fields['Count'] = request.POST.get('Count')
 
-            obj = Odds.objects.get(pk=pk)
+            obj = Animation_Image.objects.get(pk=pk)
 
 
             if fields['Category']:
@@ -137,22 +129,20 @@ def odds_edit_admin(request,pk):
                 for img in List_Image:
                     Odds_Image.objects.create(Link_image=obj, Image=img)
 
-            return redirect('odds_admin')
+            return redirect('animation_admin')
         else:
             return redirect('login_admin')
     
-def odds_remove_admin(request,pk):
+def animation_remove_admin(request,pk):
     if request.user.is_authenticated and request.user.is_superuser:
         if request.method == 'POST':
             try:
-                obj = Odds.objects.get(pk=pk)
-                for i in obj.images.all():
-                    if i.Image:
-                        i.Image.delete(save=False)
+                obj = Animation_Image.objects.get(pk=pk)
+                obj.Image.delete(save=False)
                 obj.delete()
             except:
                 print('not')
-            return redirect('odds_admin')
+            return redirect('animation_admin')
     else:
         return redirect('login_admin')
         

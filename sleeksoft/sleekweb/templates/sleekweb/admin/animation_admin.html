@@ -1,0 +1,92 @@
+{% extends './base.html' %}
+{% block title %}Quản lý DagaLive{% endblock %}
+{% block content %}
+<div class="w-full flex-col ">
+    <div class="flex flex-col lg:flex-row items-center  lg:justify-between border-b-[1px] border-[#0e203c]  lg:max-h-[50px] px-3 py-2 font-bold">
+        <span class="uppercase w-full flex justify-center lg:justify-start">
+            Trang danh sách ảnh động
+        </span>
+        
+        <style>
+            input:focus {
+                outline: none !important;
+            }
+        </style>
+    </div>
+    <div class="w-full flex flex-col  p-2 lg:p-3 gap-2" style="padding-bottom: 0px !important;">
+        <form method="post" action="{% url 'animation_add_admin' %}" enctype="multipart/form-data" class="flex gap-3 h-full items-center">
+            {% csrf_token %}
+            <div class="flex flex-col">
+                <label class="text-[12px]">Ảnh</label>
+                <input placeholder="Danh sách ảnh" name="Image" type="file"  accept="image/webp" class="w-full rounded h-10" />
+            </div>
+            <button type="submit" class="w-[200px] bg-green-500 py-1 px-5 rounded font-bold  h-10">Thêm</button>
+        </form>
+    </div>
+    <!-- <div class="w-full flex flex-col  items-center justify-center p-2 lg:p-3">
+        <div class="w-full flex  items-center justify-between bg-stone-300">
+            <span class="w-full lg:w-[50%] p-2 font-bold">Ảnh</span>
+            <span class="w-full lg:w-[50%] p-2 font-bold">Chức năng</span>
+        </div>
+        {% for i in list_Animation_Image %}
+        <div class="w-full flex  items-center justify-between bg-stone-100">
+            <form method="post" action="{% url 'animation_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full lg:w-[50%] p-2 gap-2">
+                {% csrf_token %}
+                <img src="{% if i.Image %}{{i.Image.url}}{% endif %}" loading="lazy" data-fancybox="{{i.id}}{{i.Category}}" class="w-[210px] cursor-pointer rounded-md border-[2px] border-stone-950" />
+                <input placeholder="Danh sách ảnh" name="Image" type="file"  accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <div class="w-full lg:w-[50%] flex p-2 font-medium">
+                <form method="post" action="{% url 'animation_remove_admin' pk=i.id %}" class="w-full ">
+                    {% csrf_token %}
+                    <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div> -->
+    <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 p-3">
+        {% for i in list_Animation_Image %}
+        <div class="w-full flex flex-col gap-2 justify-between bg-stone-200 shadow-lg p-3 rounded">
+            <form method="post" action="{% url 'animation_edit_admin' pk=i.id %}" enctype="multipart/form-data" class="flex flex-col w-full   gap-2">
+                {% csrf_token %}
+                <img src="{% if i.Image %}{{i.Image.url}}{% endif %}" loading="lazy" data-fancybox="{{i.id}}{{i.Category}}" class="w-full cursor-pointer rounded-md border-[2px] border-stone-950" />
+                <input placeholder="Danh sách ảnh" name="Image" type="file"  accept="image/webp" onchange="this.form.submit()" class=" rounded w-full h-8" />
+            </form>
+            <form method="post" action="{% url 'animation_remove_admin' pk=i.id %}" class="w-full ">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+function copyHref(element) {
+    const link = element.getAttribute("href"); // lấy href
+    const fullUrl = window.location.origin + link; // ghép domain hiện tại
+    navigator.clipboard.writeText(fullUrl).then(() => {
+        alert("✅ Link đã copy: " + fullUrl);
+    }).catch(err => {
+        console.error("Lỗi copy link:", err);
+    });
+}
+</script>
+<script>
+    $(document).ready(function() {
+        $('.open_input_Size').on('click', function() {
+            $('.input_Size').toggle(); // Bật nếu ẩn, ẩn nếu bật
+        });
+    });
+</script>
+<script>
+function copyHref(element) {
+    const link = element.getAttribute("href"); // lấy href
+    const fullUrl = window.location.origin + link; // ghép domain hiện tại
+    navigator.clipboard.writeText(fullUrl).then(() => {
+        alert("✅ Link đã copy: " + fullUrl);
+    }).catch(err => {
+        console.error("Lỗi copy link:", err);
+    });
+}
+</script>
+{% endblock %}

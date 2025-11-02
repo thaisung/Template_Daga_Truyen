@@ -92,13 +92,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 </head>
-
+<!-- bg-[url('/upload/body1.jpg')] bg-cover bg-center bg-no-repeat bg-fixed -->
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
   <header
     class="header-bg flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
     <style>
       .header-bg {
-        background-image: url('/upload/ae/ae_bg.gif');
+        /* background-image: url('/upload/ae/ae_bg.gif'); */
+        /* background-image: url('/upload/banner_mobile.jpg'); */
+        background-image: url('/upload/ae/ae_bg.gif'), url('/upload/banner_mobile.webp');
         background-size: cover;
         background-position: center;
       }
@@ -141,7 +143,7 @@
           </script>
           <img class=" w-full h-auto" src="/upload/domain.webp" />
         </a>
-        <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
+        <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-200 uppercase text-center">
           LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
           <br>THOMO-GÀ DAO-GÀ THÁI
         </h1>
@@ -312,47 +314,48 @@
 
     <!-- Các nút chọn kênh -->
     <div class="w-full py-3 lg:py-3 grid grid-cols-3 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
-      <div data-src="{{list_Channel.0.Key}}" data-img="/upload/error_C1C2.webp"
+      <!-- {% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %} -->
+      <div data-src="{{list_Channel.0.Key}}" data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.1.Key}}" data-img="/upload/error_CPC4.webp"
+      <div data-src="{{list_Channel.1.Key}}" data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.2.Key}}" data-img="/upload/error_CPC4.webp"
+      <div data-src="{{list_Channel.2.Key}}" data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.3.Key}}" data-img="/upload/error_TONHON.webp"
+      <div data-src="{{list_Channel.3.Key}}" data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.4.Key}}" data-img="/upload/error_GADAO.webp"
+      <div data-src="{{list_Channel.4.Key}}" data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.5.Key}}" data-img="/upload/error_GADAO.webp"
+      <div data-src="{{list_Channel.5.Key}}" data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.6.Key}}" data-img="/upload/error_GADAO.webp"
+      <div data-src="{{list_Channel.6.Key}}" data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.7.Key}}" data-img="/upload/error_TH7ABC.webp"
+      <div data-src="{{list_Channel.7.Key}}" data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.8.Key}}" data-img="/upload/error_C1C2.webp"
+      <div data-src="{{list_Channel.8.Key}}" data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
@@ -369,7 +372,7 @@
           <video id="my-video"
             class="video-js vjs-big-play-centered vjs-fluid rounded-xl lg:rounded-2xl overflow-hidden w-full h-[600px]"
             controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
-            poster="/upload/error_C1C2.webp"></video>
+            poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
 
 
           <style>
@@ -405,7 +408,7 @@
               let errorBox = $("#video-error");
 
               // 👇 Set source mặc định ban đầu
-              player.poster('/upload/error_C1C2.webp');
+              player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
               player.src({
                 src: "{{list_Channel.0.Key}}",
                 type: "application/x-mpegURL"
@@ -860,9 +863,9 @@
 
     <!-- Slider -->
     <div
-      class="swiper mySwiper w-full lg:w-[600px] max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] mt-3 lg:mt-5">
-      <div class="swiper-wrapper w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]">
-        <div
+      class="swiper mySwiper w-full  mt-3 lg:mt-5">
+      <div class="swiper-wrapper w-full ">
+        <!-- <div
           class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
           <img loading="lazy" src="/upload/lich1.webp"
             class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
@@ -911,7 +914,14 @@
           class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
           <img loading="lazy" src="/upload/slide6.webp"
             class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
+        </div> -->
+        {% for i in list_Animation_Image %}
+        <div
+          class="swiper-slide flex-shrink-0 w-full  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+          <img loading="lazy" src="{% if i.Image %}{{i.Image.url}}{% endif %}"
+            class="w-full h-[250px] lg:h-[700px] rounded-xl object-fill " alt="">
         </div>
+        {% endfor %}
       </div>
     </div>
     <script>
