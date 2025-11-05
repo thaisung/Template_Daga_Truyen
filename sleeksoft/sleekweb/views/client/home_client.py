@@ -65,6 +65,10 @@ from django.core.mail import send_mail
 from django.forms.models import model_to_dict
 from django.core.mail import send_mail,EmailMessage
 
+def phom(request):
+    if request.method == 'GET':
+        context = {}
+        return render(request, 'sleekweb/client/phom.html', context, status=200)
 
 def set_language(request, lang_code):
     response = redirect(request.META.get('HTTP_REFERER', '/'))  # quay lại trang vừa bấm

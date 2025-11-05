@@ -1,0 +1,374 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="vi">
+{% load static %}
+<head>
+{% tailwind_css %}
+<meta charset="utf-8" />
+<title>Bảng điểm Phỏm (3 người)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  body { font-family: Arial; padding: 12px; }
+  input { width: 90px; text-align:center; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:16px; }
+  th, td { border:1px solid #ccc; padding:8px; text-align:center; }
+  th { background: #00ffff; }
+  tbody td { background:#ffe08a; }
+  tfoot td { background:#a4c8ff; font-weight:bold; }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<div class="flex justify-between items-center gap-2 py-3">
+    <span id="date" class="font-bold"></span>
+    <h2 class="font-bold text-[20px] text-center">Bảng điểm Phỏm</h2>
+    <span id="thoi_gian" class="font-bold"></span>
+    <script>
+        $(document).ready(function () {
+            function loadTime() {
+                $.get("https://worldtimeapi.org/api/timezone/Asia/Ho_Chi_Minh", function(data) {
+                    let datetime = data.datetime; // VD: 2025-11-05T13:45:32.123Z
+
+                    let date = datetime.slice(0,10).split("-").reverse().join("-"); // lấy YYYY-MM-DD
+                    let time = datetime.slice(11, 19); // lấy HH:MM:SS
+
+                    $("#date").text(date);
+                    $("#thoi_gian").text(time);
+                });
+            }
+
+            loadTime();              // chạy khi load page
+            setInterval(loadTime, 1000); // cập nhật mỗi giây
+        });
+    </script>
+</div>
+
+<!-- Tên chỉ 1 lần -->
+<!-- Tên 1: <input id="n1" value="Thiệm">
+Tên 2: <input id="n2" value="Thái">
+Tên 3: <input id="n3" value="Trường">
+<br><br> -->
+
+<!-- Nhập lượt -->
+<div class="w-full flex gap-2 justify-between h-[50px]" >
+    <input type="number" id="s1" placeholder="Thiệm" class="rounded-lg">
+    <input type="number" id="s2" placeholder="Thái" class="rounded-lg">
+    <input type="number" id="s3" placeholder="Trường" class="rounded-lg">
+    <button id="addScore" class="">
+        <svg class="fill-green-500" width="50px" height="50px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+            <title>add_circle</title>
+            <desc>Created with Sketch.</desc>
+            <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Rounded" transform="translate(-102.000000, -1484.000000)">
+                    <g id="Content" transform="translate(100.000000, 1428.000000)">
+                        <g id="-Round-/-Content-/-add_circle" transform="translate(0.000000, 54.000000)">
+                            <g>
+                                <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                                <path class="fill-green-500" d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M16,13 L13,13 L13,16 C13,16.55 12.55,17 12,17 C11.45,17 11,16.55 11,16 L11,13 L8,13 C7.45,13 7,12.55 7,12 C7,11.45 7.45,11 8,11 L11,11 L11,8 C11,7.45 11.45,7 12,7 C12.55,7 13,7.45 13,8 L13,11 L16,11 C16.55,11 17,11.45 17,12 C17,12.55 16.55,13 16,13 Z" id="🔹Icon-Color" fill=""></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </button>
+</div>
+
+<table>
+  <thead>
+    <!-- <tr>
+      <th id="h1">P1</th>
+      <th id="h2">P2</th>
+      <th id="h3">P3</th>
+      <th >Chức năng</th>
+    </tr> -->
+    <tr>
+      <th  class="flex flex-col justify-center items-center w-full gap-3 bg-green-500">
+        <div class="w-full">
+            <img src="/upload/thiem.jpg" class="w-full" >
+        </div>
+        <div class="flex flex-col font-bold">
+            <div class="flex flex-col items-center  text-[12px]">
+                <span>Ù (v) :</span>
+                <span>5</span>
+            </div>
+            <div class="flex flex-col items-center  text-[12px]">
+                <span>Ăn chốt (v) :</span>
+                <span>5</span>
+            </div>
+            <div class="flex flex-col items-center  text-[12px]">
+                <span>Ù đền (v) :</span>
+                <span>5</span>
+            </div>
+            <div class="flex flex-col items-center  text-[12px]">
+                <span>Bị cháy (v) :</span>
+                <span>5</span>
+            </div>
+        </div>
+        </th>
+      <th id="h2">P2</th>
+      <th id="h3">P3</th>
+      <th class="">
+        <div class="flex w-full h-full justify-center items-start">
+            <div id="open_livechat" class="">
+              <svg class="w-[25px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve">
+                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+              </svg>
+            </div>
+            <div id="close_livechat" class="hidden">
+              <svg class="w-[25px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve"
+                transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)">
+                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <script>
+            $("#toggleTab").click(function () {
+              $("#livechat").slideToggle(400, "swing"); // trượt mượt
+              $("#close_livechat, #open_livechat").toggle(); // đổi icon nếu có
+              $(this).toggleClass("border-b"); // thêm hoặc bỏ border-b
+            });
+          </script>
+      </th>
+    </tr>
+  </thead>
+  <tbody id="totalRow">
+    <tr style="background:#a4c8ff; font-weight:bold;">
+      <td id="total1" class="bg-purple-300">0</td>
+      <td id="total2" class="bg-purple-300">0</td>
+      <td id="total3" class="bg-purple-300">0</td>
+      <td class="bg-purple-300">Tổng</td>
+    </tr>
+  </tbody>
+  <tbody id="scoreBody"></tbody>
+  <!-- <tfoot>
+    <tr>
+      <td id="total1">0</td>
+      <td id="total2">0</td>
+      <td id="total3">0</td>
+      <td >---</td>
+    </tr>
+  </tfoot> -->
+</table>
+
+<div class="flex justify-center items-center mt-5">
+    <button id="resetAll" class="px-4 py-2 rounded bg-red-500 text-yellow-200 font-bold">Reset</button>
+</div>
+
+<style>
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* ✅ make columns equal width */
+}
+
+th, td {
+  width: 25%; /* 4 cột = 25% mỗi cột, nếu 3 cột thì 33% */
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+</style>
+
+<script type="module">
+/* Firebase v10 (module) */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+/* ----- CONFIG ----- */
+const firebaseConfig = {
+  apiKey: "AIzaSyAowYnS_unhE_kzRz0UfDKgTOIPDMX7Ov0",
+  authDomain: "choi-phom.firebaseapp.com",
+  databaseURL: "https://choi-phom-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "choi-phom",
+  storageBucket: "choi-phom.appspot.com",
+  messagingSenderId: "17570082681",
+  appId: "1:17570082681:web:cb15836d6a56f5ea1249a8"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const roundsRef = ref(db, "rounds");
+
+/* ----- DOM refs ----- */
+const n1 = document.getElementById("n1");
+const n2 = document.getElementById("n2");
+const n3 = document.getElementById("n3");
+
+// const h1 = document.getElementById("h1");
+// const h2 = document.getElementById("h2");
+// const h3 = document.getElementById("h3");
+
+const s1 = document.getElementById("s1");
+const s2 = document.getElementById("s2");
+const s3 = document.getElementById("s3");
+
+const addBtn = document.getElementById("addScore");
+const resetBtn = document.getElementById("resetAll");
+
+const scoreBody = document.getElementById("scoreBody");
+const total1El = document.getElementById("total1");
+const total2El = document.getElementById("total2");
+const total3El = document.getElementById("total3");
+
+/* update header names when user types */
+// function updateNames() {
+//   h1.textContent = n1.value || "P1";
+//   h2.textContent = n2.value || "P2";
+//   h3.textContent = n3.value || "P3";
+// }
+// n1.addEventListener("input", updateNames);
+// n2.addEventListener("input", updateNames);
+// n3.addEventListener("input", updateNames);
+// updateNames();
+
+/* ----- add a round (one DB node contains all 3 values) ----- */
+addBtn.addEventListener("click", () => {
+  const v1 = Number(s1.value);
+  const v2 = Number(s2.value);
+  const v3 = Number(s3.value);
+
+  if (!Number.isFinite(v1) || !Number.isFinite(v2) || !Number.isFinite(v3)) {
+    return alert("Nhập điểm hợp lệ cho cả 3 người (0, -5, 3...).)");
+  }
+
+  push(roundsRef, { v1, v2, v3, time: Date.now() })
+    .then(() => {
+      s1.value = s2.value = s3.value = "";
+    })
+    .catch(err => {
+      console.error("Push error:", err);
+      alert("Không thể lưu, kiểm tra rules / mạng.");
+    });
+});
+
+/* Reset (xoá toàn bộ rounds) */
+resetBtn.addEventListener("click", () => {
+  if (!confirm("Xóa toàn bộ lượt chơi?")) return;
+  remove(roundsRef).catch(err => {
+    console.error("Remove error:", err);
+    alert("Không xóa được, kiểm tra quyền.");
+  });
+});
+
+/* ----- render realtime ----- */
+onValue(roundsRef, (snap) => {
+  const val = snap.val();
+  let rowsHtml = "";
+  let total1 = 0, total2 = 0, total3 = 0;
+
+  if (val) {
+    const entries = Object.entries(val).sort((a,b)=> (b[1].time||0) - (a[1].time||0));
+
+    entries.forEach(([key, r]) => {
+      const a = Number(r.v1) || 0;
+      const b = Number(r.v2) || 0;
+      const c = Number(r.v3) || 0;
+
+      rowsHtml += `
+        <tr>
+          <td>${a}</td>
+          <td>${b}</td>
+          <td>${c}</td>
+          <td class="">
+            <button class="flex justify-center items-center w-full h-full"
+              onclick="deleteRound('${key}')">
+              <svg class="w-[25px] fill-red-600" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.434 72.437" style="enable-background:new 0 0 72.434 72.437;" xml:space="preserve">
+                <path style="fill:;" d="M36.22,0C16.212,0,0,16.215,0,36.223c0,19.999,16.212,36.214,36.22,36.214
+                    s36.214-16.215,36.214-36.214C72.434,16.215,56.228,0,36.22,0z M51.812,48.083l-4.565,4.565l-11.02-11.021L24.86,52.995
+                    l-4.565-4.565l11.367-11.367L20.639,26.04l4.568-4.565l11.02,11.02l11.349-11.343l4.565,4.565L40.792,37.063L51.812,48.083z"></path>
+                </svg>
+            </button>
+          </td>
+        </tr>
+      `;
+
+      total1 += a;
+      total2 += b;
+      total3 += c;
+    });
+  }
+
+  scoreBody.innerHTML = rowsHtml;
+  total1El.textContent = total1;
+  total2El.textContent = total2;
+  total3El.textContent = total3;
+});
+
+window.deleteRound = (id) => {
+  if (!confirm("Xoá dòng điểm này?")) return;
+  remove(ref(db, "rounds/" + id))
+    .catch(err => alert("Không thể xoá: " + err));
+};
+
+
+</script>
+
+</body>
+</html>

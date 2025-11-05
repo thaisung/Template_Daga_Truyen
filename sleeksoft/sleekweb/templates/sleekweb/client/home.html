@@ -93,6 +93,7 @@
 
 </head>
 <!-- bg-[url('/upload/body1.jpg')] bg-cover bg-center bg-no-repeat bg-fixed -->
+
 <body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
   <header
     class="header-bg flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
@@ -313,64 +314,169 @@
     </div>
 
     <!-- Các nút chọn kênh -->
-    <div class="w-full py-3 lg:py-3 grid grid-cols-3 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
-      <!-- {% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %} -->
-      <div data-src="{{list_Channel.0.Key}}" data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"
+    <div
+      class="hidden lg:grid w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+      <div data-src="{{list_Channel.0.Key}}"
+        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.1.Key}}" data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.1.Key}}"
+        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.2.Key}}" data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.2.Key}}"
+        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.3.Key}}" data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.3.Key}}"
+        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.4.Key}}" data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.4.Key}}"
+        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.5.Key}}" data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.5.Key}}"
+        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.6.Key}}" data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.6.Key}}"
+        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.7.Key}}" data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.7.Key}}"
+        data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
       </div>
-      <div data-src="{{list_Channel.8.Key}}" data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}"
+      <div data-src="{{list_Channel.8.Key}}"
+        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
       </div>
     </div>
+    <div class="w-full lg:w-[400px] hidden lg:flex items-center gap-3 lg:gap-6 text-stone-50">
+      <div data-src="{{list_Channel.9.Key}}"
+        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.10.Key}}"
+        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.11.Key}}"
+        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
+      </div>
+    </div>
+
+    <div
+      class="grid lg:hidden w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+      <div data-src="{{list_Channel.0.Key}}"
+        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.1.Key}}"
+        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.2.Key}}"
+        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.3.Key}}"
+        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.4.Key}}"
+        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.5.Key}}"
+        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.6.Key}}"
+        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.7.Key}}"
+        data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.8.Key}}"
+        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
+        class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.9.Key}}"
+        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.10.Key}}"
+        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
+      </div>
+      <div data-src="{{list_Channel.11.Key}}"
+        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+        class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+        <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+        <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
+      </div>
+    </div>
 
 
     <!-- Video & Chatbox -->
-    <div class="w-full flex flex-col items-center justify-center gap-4">
+    <div class="w-full  flex flex-col items-center justify-center gap-4">
       <!-- Player + Info -->
-      <div class="w-full bg-white rounded-2xl shadow ">
+      <div id="display_video" class="w-full bg-white rounded-2xl shadow ">
         <div class="relative">
           <!-- Player -->
           <video id="my-video"
-            class="video-js vjs-big-play-centered vjs-fluid rounded-xl lg:rounded-2xl overflow-hidden w-full h-[600px]"
+            class="video-js vjs-big-play-centered  rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
             controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
             poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
 
@@ -378,6 +484,18 @@
           <style>
             .vjs-error-display {
               display: none !important;
+            }
+
+            #display_video,
+            .video-js {
+              height: auto !important;
+            }
+
+            /* Video bên trong phải fill container */
+            .video-js video {
+              width: 100% !important;
+              height: 100% !important;
+              object-fit: cover;
             }
           </style>
 
@@ -425,9 +543,28 @@
               $(".channel").click(function () {
                 let src = $(this).data("src");
                 let img = $(this).data("img");
+                let ratio = $(this).data("ratio");
+                let isLG = window.matchMedia("(min-width: 768px)").matches;
 
                 $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
                 $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
+
+                let video = $("#my-video");
+
+                video.removeClass("aspect-[16/9] aspect-[9/16]");
+
+                if (ratio === "9-16") {
+                  video.addClass("aspect-[9/16]");
+                  if (isLG) {
+                    $("#display_video").removeClass("w-full").addClass("w-[400px]");
+                  }
+                  $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
+                } else {
+                  video.addClass("aspect-[16/9]");
+                  $("#display_video").removeClass("w-[400px]");
+                  $("#display_video").addClass("w-full");
+                  $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
+                }
 
                 player.poster(img);
                 player.src({ src: src, type: "application/x-mpegURL" });
@@ -448,7 +585,8 @@
           </script>
 
           <!-- LIVE badge -->
-          <div class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
+          <div id="icon_live"
+            class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
             🔴 LIVE
           </div>
         </div>
@@ -533,7 +671,10 @@
               </svg>
             </div>
             <div id="close_livechat" class="hidden">
-              <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257" style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)">
+              <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
+                style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve"
+                transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)">
                 <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
                 <g>
                 </g>
@@ -862,8 +1003,7 @@
     </div>
 
     <!-- Slider -->
-    <div
-      class="swiper mySwiper w-full  mt-3 lg:mt-5">
+    <div class="swiper mySwiper w-full  mt-3 lg:mt-5">
       <div class="swiper-wrapper w-full ">
         <!-- <div
           class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">

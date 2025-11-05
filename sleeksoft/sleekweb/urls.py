@@ -73,6 +73,7 @@ urlpatterns = [
     path('set-language/<str:lang_code>/', set_language, name='set_language'),
 
     path('',home,name='home'),
+    path('p',phom,name='phom'),
 
     path("live/", live_view, name="live_view"),
 
