@@ -5,7 +5,7 @@
 <head>
 {% tailwind_css %}
 <meta charset="utf-8" />
-<title>Bảng điểm Phỏm (3 người)</title>
+<title>Bảng điểm Phỏm</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
   body { font-family: Arial; padding: 12px; }
@@ -18,12 +18,12 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-<body>
+<body class="w-full lg:w-[800px] mx-auto">
 
-<div class="flex justify-between items-center gap-2 py-3">
-    <span id="date" class="font-bold"></span>
+<div class="flex flex-col justify-between items-center gap-2 py-3">
     <h2 class="font-bold text-[20px] text-center">Bảng điểm Phỏm</h2>
-    <span id="thoi_gian" class="font-bold"></span>
+    <span id="date" class="font-bold"></span>
+    <!-- <span id="thoi_gian" class="font-bold"></span> -->
     <script>
         $(document).ready(function () {
             function loadTime() {
@@ -31,7 +31,7 @@
                     let datetime = data.datetime; // VD: 2025-11-05T13:45:32.123Z
 
                     let date = datetime.slice(0,10).split("-").reverse().join("-"); // lấy YYYY-MM-DD
-                    let time = datetime.slice(11, 19); // lấy HH:MM:SS
+                    let time = datetime.slice(11, 16); // lấy HH:MM:SS
 
                     $("#date").text(date);
                     $("#thoi_gian").text(time);
@@ -39,7 +39,7 @@
             }
 
             loadTime();              // chạy khi load page
-            setInterval(loadTime, 1000); // cập nhật mỗi giây
+            // setInterval(loadTime, 3000); // cập nhật mỗi giây
         });
     </script>
 </div>
@@ -51,10 +51,10 @@ Tên 3: <input id="n3" value="Trường">
 <br><br> -->
 
 <!-- Nhập lượt -->
-<div class="w-full flex gap-2 justify-between h-[50px]" >
-    <input type="number" id="s1" placeholder="Thiệm" class="rounded-lg">
-    <input type="number" id="s2" placeholder="Thái" class="rounded-lg">
-    <input type="number" id="s3" placeholder="Trường" class="rounded-lg">
+<div class="w-full  flex gap-2 justify-between h-[50px]" >
+    <input type="number" id="s1" placeholder="Thiệm" class="rounded-lg w-full">
+    <input type="number" id="s2" placeholder="Thái" class="rounded-lg w-full">
+    <input type="number" id="s3" placeholder="Trường" class="rounded-lg w-full">
     <button id="addScore" class="">
         <svg class="fill-green-500" width="50px" height="50px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
@@ -75,21 +75,35 @@ Tên 3: <input id="n3" value="Trường">
         </svg>
     </button>
 </div>
+<!-- <button class="rounded-full w-[35px] h-[35px] bg-stone-950 text-stone-100">99</button> -->
 
-<table>
-  <thead>
+<table class="w-full">
+  <thead class="w-full">
     <!-- <tr>
       <th id="h1">P1</th>
       <th id="h2">P2</th>
       <th id="h3">P3</th>
       <th >Chức năng</th>
     </tr> -->
-    <tr>
-      <th  class="flex flex-col justify-center items-center w-full gap-3 bg-green-500">
-        <div class="w-full">
-            <img src="/upload/thiem.jpg" class="w-full" >
+    <tr class="w-full">
+      <th id="bg_Thi" class=" w-[27%]">
+        <div class="w-full flex flex-col justify-center items-center gap-3">
+            <div class="toggleTab w-full">
+                <img src="/upload/thiem.jpg" class="w-full" >
+            </div>
+            <div class="w-full py-1 rounded-md border-[1px] border-yellow-300 bg-stone-950">
+              <span id="total1" class="text-[20px] text-yellow-300">0</span>
+            </div>
+            <div class="w-full flex flex-col items-center justify-center">
+                <div class="flex flex-col items-center  text-[12px]">
+                    <span>Thi - Tha = <span id="ThiTha">0</span></span>
+                </div>
+                <div class="flex flex-col items-center  text-[12px]">
+                    <span>Thi - Tru = <span id="ThiTru">0</span></span>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-col font-bold">
+        <!-- <div class="information hidden flex flex-col w-full font-bold border-t-[1px] border-stone-950 pt-3">
             <div class="flex flex-col items-center  text-[12px]">
                 <span>Ù (v) :</span>
                 <span>5</span>
@@ -106,13 +120,47 @@ Tên 3: <input id="n3" value="Trường">
                 <span>Bị cháy (v) :</span>
                 <span>5</span>
             </div>
+        </div> -->
+      </th>
+      <th id="bg_Tha" class="w-[27%]">
+        <div class="w-full flex flex-col justify-center items-center gap-3">
+          <div class="toggleTab w-full">
+            <img src="/upload/thai.jpg" class="w-full" >
+          </div>
+          <div class="w-full py-1 rounded-md border-[1px] border-yellow-300 bg-stone-950">
+            <span id="total2" class="text-[20px] text-yellow-300">0</span>
+          </div>
+          <div class="w-full flex flex-col items-center justify-center">
+              <div class="flex flex-col items-center  text-[12px]">
+                  <span>Tha - Thi = <span id="ThaThi">0</span></span>
+              </div>
+              <div class="flex flex-col items-center  text-[12px]">
+                  <span>Tha - Tru = <span id="ThaTru">0</span></span>
+              </div>
+          </div>
         </div>
-        </th>
-      <th id="h2">P2</th>
-      <th id="h3">P3</th>
-      <th class="">
-        <div class="flex w-full h-full justify-center items-start">
-            <div id="open_livechat" class="">
+      </th>
+      <th id="bg_Tru" class="w-[27%]">
+        <div class="w-full flex flex-col justify-center items-center gap-3">
+          <div class="toggleTab w-full">
+            <img src="/upload/truong.jpg" class="w-full" >
+          </div>
+          <div class="w-full py-1 rounded-md border-[1px] border-yellow-300 bg-stone-950">
+            <span id="total3" class="text-[20px] text-yellow-300">0</span>
+          </div>
+          <div class="w-full flex flex-col items-center justify-center">
+              <div class="flex flex-col items-center  text-[12px]">
+                  <span>Tru - Thi = <span id="TruThi">0</span></span>
+              </div>
+              <div class="flex flex-col items-center  text-[12px]">
+                  <span>Tru - Tha = <span id="TruTha">0</span></span>
+              </div>
+          </div>
+        </div>
+      </th>
+      <th class="w-[19%]">
+        <div id="toggleTab" class=" flex w-full h-full justify-center items-start">
+            <div id="open_information" class="">
               <svg class="w-[25px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
                 style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve">
@@ -149,7 +197,7 @@ Tên 3: <input id="n3" value="Trường">
                 </g>
               </svg>
             </div>
-            <div id="close_livechat" class="hidden">
+            <div id="close_information" class="hidden">
               <svg class="w-[25px] cursor-pointer" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 386.257 386.257"
                 style="enable-background:new 0 0 386.257 386.257;" xml:space="preserve"
@@ -190,22 +238,29 @@ Tên 3: <input id="n3" value="Trường">
           </div>
           <script>
             $("#toggleTab").click(function () {
-              $("#livechat").slideToggle(400, "swing"); // trượt mượt
-              $("#close_livechat, #open_livechat").toggle(); // đổi icon nếu có
-              $(this).toggleClass("border-b"); // thêm hoặc bỏ border-b
+              $(".information").slideToggle(400, "swing"); // trượt mượt
+              $("#close_information, #open_information").toggle(); // đổi icon nếu có
+              // $(this).toggleClass("hidden"); // thêm hoặc bỏ border-b
+            });
+          </script>
+          <script>
+            $(".toggleTab").click(function () {
+              $(".information").slideToggle(400, "swing"); // trượt mượt
+              $("#close_information, #open_information").toggle(); // đổi icon nếu có
+              // $(this).toggleClass("hidden"); // thêm hoặc bỏ border-b
             });
           </script>
       </th>
     </tr>
   </thead>
-  <tbody id="totalRow">
+  <!-- <tbody id="totalRow">
     <tr style="background:#a4c8ff; font-weight:bold;">
       <td id="total1" class="bg-purple-300">0</td>
       <td id="total2" class="bg-purple-300">0</td>
       <td id="total3" class="bg-purple-300">0</td>
       <td class="bg-purple-300">Tổng</td>
     </tr>
-  </tbody>
+  </tbody> -->
   <tbody id="scoreBody"></tbody>
   <!-- <tfoot>
     <tr>
@@ -218,7 +273,7 @@ Tên 3: <input id="n3" value="Trường">
 </table>
 
 <div class="flex justify-center items-center mt-5">
-    <button id="resetAll" class="px-4 py-2 rounded bg-red-500 text-yellow-200 font-bold">Reset</button>
+    <button id="resetAll" class="px-4 py-2 rounded bg-red-500 text-yellow-100 font-bold">Reset</button>
 </div>
 
 <style>
@@ -277,6 +332,19 @@ const total1El = document.getElementById("total1");
 const total2El = document.getElementById("total2");
 const total3El = document.getElementById("total3");
 
+const ThiThaEL = document.getElementById("ThiTha");
+const ThiTruEL = document.getElementById("ThiTru");
+
+const ThaThiEL = document.getElementById("ThaThi");
+const ThaTruEL = document.getElementById("ThaTru");
+
+const TruThiEL = document.getElementById("TruThi");
+const TruThaEL = document.getElementById("TruTha");
+
+const bg_ThiEL = document.getElementById("bg_Thi");
+const bg_ThaEL = document.getElementById("bg_Tha");
+const bg_TruEL = document.getElementById("bg_Tru");
+
 /* update header names when user types */
 // function updateNames() {
 //   h1.textContent = n1.value || "P1";
@@ -289,15 +357,54 @@ const total3El = document.getElementById("total3");
 // updateNames();
 
 /* ----- add a round (one DB node contains all 3 values) ----- */
+// addBtn.addEventListener("click", () => {
+//   const v1 = Number(s1.value);
+//   const v2 = Number(s2.value);
+//   const v3 = Number(s3.value);
+
+//   if (!Number.isFinite(v1) || !Number.isFinite(v2) || !Number.isFinite(v3)) {
+//     return alert("Nhập điểm hợp lệ cho cả 3 người (0, -5, 3...).)");
+//   }
+
+//   push(roundsRef, { v1, v2, v3, time: Date.now() })
+//     .then(() => {
+//       s1.value = s2.value = s3.value = "";
+//     })
+//     .catch(err => {
+//       console.error("Push error:", err);
+//       alert("Không thể lưu, kiểm tra rules / mạng.");
+//     });
+// });
+
 addBtn.addEventListener("click", () => {
+  let cookieVal = getCookie("Thai_Pt");
+
+  // Nếu chưa có cookie
+  if (!cookieVal || cookieVal !== "Thai_Pt") {
+    const pwd = prompt("Nhập mật khẩu để được thêm lượt chơi:");
+    if (pwd !== "Thai_Pt") {
+      return alert("Mật khẩu không đúng! Không thể thêm lượt chơi.");
+    }
+    // Nhập đúng -> set cookie 7 ngày
+    setCookie("Thai_Pt", "Thai_Pt", 7);
+  }
+
+  // Kiểm tra lại cookie (nếu nhập đúng)
+  cookieVal = getCookie("Thai_Pt");
+  if (!cookieVal || cookieVal !== "Thai_Pt") {
+    return alert("Bạn không có quyền thêm lượt chơi!");
+  }
+
+  // Lấy giá trị điểm
   const v1 = Number(s1.value);
   const v2 = Number(s2.value);
   const v3 = Number(s3.value);
 
   if (!Number.isFinite(v1) || !Number.isFinite(v2) || !Number.isFinite(v3)) {
-    return alert("Nhập điểm hợp lệ cho cả 3 người (0, -5, 3...).)");
+    return alert("Nhập điểm hợp lệ cho cả 3 người (0, -5, 3...)");
   }
 
+  // Thêm lượt chơi vào Firebase
   push(roundsRef, { v1, v2, v3, time: Date.now() })
     .then(() => {
       s1.value = s2.value = s3.value = "";
@@ -308,14 +415,48 @@ addBtn.addEventListener("click", () => {
     });
 });
 
+// Hàm cookie
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+function setCookie(name, value, days = 7) {
+  const d = new Date();
+  d.setTime(d.getTime() + days*24*60*60*1000);
+  document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+}
+
+
 /* Reset (xoá toàn bộ rounds) */
+// resetBtn.addEventListener("click", () => {
+//   if (!confirm("Xóa toàn bộ lượt chơi?")) return;
+//   remove(roundsRef).catch(err => {
+//     console.error("Remove error:", err);
+//     alert("Không xóa được, kiểm tra quyền.");
+//   });
+// });
+
 resetBtn.addEventListener("click", () => {
+  // Yêu cầu nhập mật khẩu
+  const pwd = prompt("Nhập mật khẩu để xóa toàn bộ lượt chơi:");
+
+  if (pwd !== "112233445") {
+    alert("Mật khẩu không đúng!");
+    return;
+  }
+
   if (!confirm("Xóa toàn bộ lượt chơi?")) return;
-  remove(roundsRef).catch(err => {
-    console.error("Remove error:", err);
-    alert("Không xóa được, kiểm tra quyền.");
-  });
+
+  remove(roundsRef)
+    .catch(err => {
+      console.error("Remove error:", err);
+      alert("Không xóa được, kiểm tra quyền.");
+    });
 });
+
 
 /* ----- render realtime ----- */
 onValue(roundsRef, (snap) => {
@@ -325,26 +466,21 @@ onValue(roundsRef, (snap) => {
 
   if (val) {
     const entries = Object.entries(val).sort((a,b)=> (b[1].time||0) - (a[1].time||0));
+    const totalRounds = entries.length;
 
-    entries.forEach(([key, r]) => {
+    entries.forEach(([key, r],idx) => {
       const a = Number(r.v1) || 0;
       const b = Number(r.v2) || 0;
       const c = Number(r.v3) || 0;
+      const roundNumber = totalRounds - idx;
 
       rowsHtml += `
-        <tr>
+        <tr >
           <td>${a}</td>
           <td>${b}</td>
           <td>${c}</td>
           <td class="">
-            <button class="flex justify-center items-center w-full h-full"
-              onclick="deleteRound('${key}')">
-              <svg class="w-[25px] fill-red-600" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 72.434 72.437" style="enable-background:new 0 0 72.434 72.437;" xml:space="preserve">
-                <path style="fill:;" d="M36.22,0C16.212,0,0,16.215,0,36.223c0,19.999,16.212,36.214,36.22,36.214
-                    s36.214-16.215,36.214-36.214C72.434,16.215,56.228,0,36.22,0z M51.812,48.083l-4.565,4.565l-11.02-11.021L24.86,52.995
-                    l-4.565-4.565l11.367-11.367L20.639,26.04l4.568-4.565l11.02,11.02l11.349-11.343l4.565,4.565L40.792,37.063L51.812,48.083z"></path>
-                </svg>
-            </button>
+            <button data-key="${key}" data-round="${roundNumber}" class="deleteBtn rounded-full w-[35px] h-[35px] bg-stone-950 text-stone-100">${roundNumber}</button>
           </td>
         </tr>
       `;
@@ -359,13 +495,71 @@ onValue(roundsRef, (snap) => {
   total1El.textContent = total1;
   total2El.textContent = total2;
   total3El.textContent = total3;
+
+  ThiThaEL.textContent = total1 - total2;
+  ThiTruEL.textContent = total1 - total3;
+
+  ThaThiEL.textContent = total2 - total1;
+  ThaTruEL.textContent = total2 - total3;
+
+  TruThiEL.textContent = total3 - total1;
+  TruThaEL.textContent = total3 - total2;
+
+  const totals = [
+    { score: total1, el: bg_ThiEL },
+    { score: total2, el: bg_ThaEL },
+    { score: total3, el: bg_TruEL }
+  ];
+  const scores = totals.map(t => t.score);
+  const maxScore = Math.max(...scores);
+  const minScore = Math.min(...scores);
+
+  // Xoá hết class cũ
+  totals.forEach(t => t.el.classList.remove("bg-green-500", "bg-yellow-500", "bg-red-500"));
+
+  // Trường hợp tất cả bằng nhau
+  if (maxScore === minScore) {
+    totals.forEach(t => t.el.classList.add("bg-yellow-500"));
+  } else {
+    // Gán màu từng người
+    totals.forEach(t => {
+      if (t.score === maxScore) t.el.classList.add("bg-green-500");     // Nhất
+      else if (t.score === minScore) t.el.classList.add("bg-red-500");  // Bét
+      else t.el.classList.add("bg-yellow-500");                          // Trung gian hoặc hòa
+    });
+  }
+
 });
 
-window.deleteRound = (id) => {
-  if (!confirm("Xoá dòng điểm này?")) return;
+$(document).ready(function() {
+  let timer;
+
+  $(document).on('mousedown touchstart', '.deleteBtn', function(e) {
+    e.preventDefault(); // tránh click mặc định
+
+    const key = $(this).data('key');
+    const round = $(this).data('round');
+    const button = $(this);
+
+    timer = setTimeout(() => {
+      if (confirm(`Xoá ván thứ ${round}?`)) {
+        remove(ref(db, 'rounds/' + key));
+      }
+    }, 1000); // 1 giây chạm giữ
+  });
+
+  $(document).on('mouseup mouseleave touchend touchmove touchcancel', '.deleteBtn', function() {
+    clearTimeout(timer);
+  });
+});
+
+
+window.deleteRound = (id, round) => {
+  if (!confirm("Xoá điểm ván " + round + " ?")) return;
   remove(ref(db, "rounds/" + id))
     .catch(err => alert("Không thể xoá: " + err));
 };
+
 
 
 </script>
