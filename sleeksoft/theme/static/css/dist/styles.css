@@ -1249,6 +1249,14 @@ select {
   width: 27%;
 }
 
+.w-\[600px\] {
+  width: 600px;
+}
+
+.w-\[800px\] {
+  width: 800px;
+}
+
 .min-w-\[70px\] {
   min-width: 70px;
 }

@@ -556,12 +556,12 @@
                 if (ratio === "9-16") {
                   video.addClass("aspect-[9/16]");
                   if (isLG) {
-                    $("#display_video").removeClass("w-full").addClass("w-[400px]");
+                    $("#display_video").removeClass("w-full").addClass("w-[800px]");
                   }
                   $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
                 } else {
                   video.addClass("aspect-[16/9]");
-                  $("#display_video").removeClass("w-[400px]");
+                  $("#display_video").removeClass("w-[800px]");
                   $("#display_video").addClass("w-full");
                   $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
                 }
