@@ -317,55 +317,64 @@
     <div
       class="hidden lg:grid w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
       <div data-src="{{list_Channel.0.Key}}"
-        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.0.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
       </div>
       <div data-src="{{list_Channel.1.Key}}"
-        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.1.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
       </div>
       <div data-src="{{list_Channel.2.Key}}"
-        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.2.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
       </div>
       <div data-src="{{list_Channel.3.Key}}"
-        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.3.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
       </div>
       <div data-src="{{list_Channel.4.Key}}"
-        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.4.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
       </div>
       <div data-src="{{list_Channel.5.Key}}"
-        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.5.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
       </div>
       <div data-src="{{list_Channel.6.Key}}"
-        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.6.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
       </div>
       <div data-src="{{list_Channel.7.Key}}"
-        data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.7.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
       </div>
       <div data-src="{{list_Channel.8.Key}}"
-        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.8.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
@@ -373,19 +382,22 @@
     </div>
     <div class="w-full lg:w-[400px] hidden lg:flex items-center gap-3 lg:gap-6 text-stone-50">
       <div data-src="{{list_Channel.9.Key}}"
-        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.9.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
       </div>
       <div data-src="{{list_Channel.10.Key}}"
-        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.10.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
       </div>
       <div data-src="{{list_Channel.11.Key}}"
-        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.11.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
@@ -395,73 +407,85 @@
     <div
       class="grid lg:hidden w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
       <div data-src="{{list_Channel.0.Key}}"
-        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.0.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
       </div>
       <div data-src="{{list_Channel.1.Key}}"
-        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.1.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
       </div>
       <div data-src="{{list_Channel.2.Key}}"
-        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.2.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
       </div>
       <div data-src="{{list_Channel.3.Key}}"
-        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.3.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
       </div>
       <div data-src="{{list_Channel.4.Key}}"
-        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.4.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
       </div>
       <div data-src="{{list_Channel.5.Key}}"
-        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.5.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
       </div>
       <div data-src="{{list_Channel.6.Key}}"
-        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.6.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
       </div>
       <div data-src="{{list_Channel.7.Key}}"
-        data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.7.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
       </div>
       <div data-src="{{list_Channel.8.Key}}"
-        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
+        data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9" data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.8.Name}}"
         class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
       </div>
       <div data-src="{{list_Channel.9.Key}}"
-        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.9.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
       </div>
       <div data-src="{{list_Channel.10.Key}}"
-        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.10.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
       </div>
       <div data-src="{{list_Channel.11.Key}}"
-        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+        data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16" data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
+        data-namechannel = "{{list_Channel.11.Name}}"
         class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
         <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
         <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
@@ -540,7 +564,51 @@
                 });
               });
 
-              $(".channel").click(function () {
+              $(".channel").click(async function () {
+
+                password_channel_condition = $(this).data("password");
+                name_channel = $(this).data("namechannel");
+                password = "";
+
+                if (password_channel_condition == 1) {
+                  // ======= HIỆN HỘP NHẬP MẬT KHẨU =======
+                  password = prompt(`Nhập mật khẩu để xem kênh ${name_channel}:`);
+
+                  if (!password) {
+                      alert(`Bạn chưa nhập mật khẩu cho kênh ${name_channel}!`);
+                      return; // ⛔ Dừng
+                  }
+                }
+
+                // ======= GỌI API KIỂM TRA MẬT KHẨU =======
+                let valid = false;
+
+                try {
+                    let response = await fetch("/api/check-password/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ password: password, channel: name_channel })
+                    });
+
+                    let data = await response.json();
+                    valid = data.valid === true;
+
+                } catch (e) {
+                    alert("Không thể kết nối API!");
+                    return; // ⛔ Dừng
+                }
+
+                // ======= SAI MẬT KHẨU → DỪNG CODE =======
+                if (!valid) {
+                    alert("❌ Sai mật khẩu!");
+                    return; // ⛔ Không chạy phần còn lại
+                }
+
+                // ======= ĐÚNG MẬT KHẨU → CHẠY TIẾP CODE GỐC =======
+
+
                 let src = $(this).data("src");
                 let img = $(this).data("img");
                 let ratio = $(this).data("ratio");
@@ -782,42 +850,6 @@
         TRANG CHẠY NHANH TỐC ĐỘ</span>
       <div
         class="flex justify-between w-full gap-0 overflow-x-auto mt-2  bg-stone-50 text-stone-950 font-bold shadow-sm">
-        <!-- <button data-target="#tab-1"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[2px] border-sky-500 bg-sky-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (1)M99
-        </button>
-        <button data-target="#tab-2"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (2)SB24
-        </button>
-        <button data-target="#tab-3"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (3)Wa855
-        </button>
-        <button data-target="#tab-4"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (4)KFC369
-        </button>
-        <button data-target="#tab-5"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (5)F88
-        </button>
-        <button data-target="#tab-6"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (6)Asian ACF-PC1
-        </button>
-        <button data-target="#tab-7"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (7)wcc - cj1.2
-        </button>
-        <button data-target="#tab-8"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (8)Ta1 -sgmc
-        </button>
-        <button data-target="#tab-9"
-          class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
-          (9)FACHAI- PANABET
-        </button> -->
         {% for i in list_Odds %}
         <button data-target="#odds{{i.id}}"
           class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] {% if  forloop.first %}border-sky-500 bg-sky-200{% endif %} border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
@@ -825,143 +857,6 @@
         </button>
         {% endfor %}
       </div>
-      <!-- <div id="tab-1"
-        class="tab-content w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-2  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/M99_1.webp"
-            data-fancybox="M99" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/M99_2.webp"
-            data-fancybox="M99" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅M99 2/3 sân xem,chạy trước cược từ 4giây>7giây( vừa chạy nhanh + tỷ lệ chuẩn)
-        </span>
-      </div>
-      <div id="tab-2"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-4  divide-x-[2px]  divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/SB24_1.webp"
-            data-fancybox="SB24" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/SB24_2.webp"
-            data-fancybox="SB24" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/SB24_3.webp"
-            data-fancybox="SB24" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/SB24_4.webp"
-            data-fancybox="SB24" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅SB24 : tỷ lệ chuẩn , bạc đè lúc % về cao , trang nhiều sân Ae tiện lợi khi xem
-        </span>
-      </div>
-      <div id="tab-3"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-2  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/WA855_1.webp"
-            data-fancybox="WA855" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/WA855_2.webp"
-            data-fancybox="WA855" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅WA855 : trang chạy nhẹ.tốc độ ngang sb24 , 2 sân xem pc1-cj1
-        </span>
-      </div>
-      <div id="tab-4"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-4  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/KFC369_1.webp"
-            data-fancybox="KFC369" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/KFC369_2.webp"
-            data-fancybox="KFC369" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/KFC369_3.webp"
-            data-fancybox="KFC369" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/KFC369_4.webp"
-            data-fancybox="KFC369" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅KFC369 : trang chạy nhanh tỷ lệ chuẩn , trang HD hình ảnh đẹp, sắc nét, trang 4/5 sân chiếu , đa dạng sân
-          chiếu
-        </span>
-      </div>
-      <div id="tab-5"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-2  divide-x-[2px] divide-blue-500">
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅F88
-        </span>
-      </div>
-      <div id="tab-6"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-3  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/ASIANACFPC1_1.webp"
-            data-fancybox="ASIANACFPC1" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/ASIANACFPC1_2.webp"
-            data-fancybox="ASIANACFPC1" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/ASIANACFPC1_3.webp"
-            data-fancybox="ASIANACFPC1" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅Asian / pisoperya / link gốc sân PC tỷ lệ phần % chạy chuẩn chiến thắng cao - hình ảnh 1080 HD sắc nét, chạy
-          ổn định
-        </span>
-      </div>
-      <div id="tab-7"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-2  divide-x-[2px] divide-blue-500">
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅wcc-cj1.2
-        </span>
-      </div>
-      <div id="tab-8"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-1  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/TA1SMGC_1.webp"
-            data-fancybox="TA1SMGC" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅sgmc / ta1 / trang mới phát hành tỷ lệ chuẩn % chiến thắng cao / mới ra mắt. Hình ảnh đẹp chạy mượt
-        </span>
-      </div>
-      <div id="tab-9"
-        class="tab-content hidden w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-3  divide-x-[2px] divide-blue-500">
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/FACHAIPANABET_1.webp"
-            data-fancybox="FACHAIPANABET" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/FACHAIPANABET_2.webp"
-            data-fancybox="FACHAIPANABET" />
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="/upload/ratio/FACHAIPANABET_3.webp"
-            data-fancybox="FACHAIPANABET" />
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅FACHAI- PANABET trang xem đc gà cam , xem gà thái Full sân , xem gà dao , trang chạy mượt nhanh , đặc biệt
-          VIP xem k văng , truy cập 1 lần xem đến thoát ra
-        </span>
-      </div> -->
-      <!-- {% for i in list_Odds %}
-      <div id="{{i.Category}}{{i.id}}"
-        class="tab-content {% if not forloop.first %}hidden{% endif %} w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
-        <div class="w-full grid grid-cols-3  divide-x-[2px] divide-blue-500">
-          {% for j in i.images.all %}
-          <img loading="lazy" class="cursor-pointer w-full h-full " src="{% if j.Image %}{{j.Image.url}}{% endif %}"
-            data-fancybox="{{i.Category}}{{i.id}}" />
-          {% endfor %}
-        </div>
-        <span
-          class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
-          ✅ {{i.Describe}}
-        </span>
-      </div>
-      {% endfor %} -->
       {% for i in list_Odds %}
       <div id="odds{{i.id}}"
         class="tab-content {% if not forloop.first %}hidden{% endif %} w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
@@ -1005,56 +900,6 @@
     <!-- Slider -->
     <div class="swiper mySwiper w-full  mt-3 lg:mt-5">
       <div class="swiper-wrapper w-full ">
-        <!-- <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/lich1.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/lich2.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full  max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/lich3.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/lich4.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide1.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide2.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide3.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide4.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide5.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div>
-        <div
-          class="swiper-slide flex-shrink-0 w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px]  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
-          <img loading="lazy" src="/upload/slide6.webp"
-            class="w-full max-h-[500px] min-h-[500px] lg:max-h-[800px] lg:min-h-[800px] object-fill" alt="">
-        </div> -->
         {% for i in list_Animation_Image %}
         <div
           class="swiper-slide flex-shrink-0 w-full  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
@@ -1154,90 +999,6 @@
           <span class="uppercase font-bold mt-2 text-blue-700">{{i.Title}}</span>
         </div>
         {% endfor %}
-        <!-- <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/cpc4_1.webp">
-              <source data-src="/upload/video/cpc4_1.mp4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/cpc4_3.webp">
-              <source data-src="/upload/video/cpc4_3.mp4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/cpc4_4.webp">
-              <source data-src="/upload/video/cpc4_4.mp4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/cpc4_5.webp">
-              <source data-src="/upload/video/cpc4_5.mp4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_5.webp">
-              <source data-src="/upload/video/gadao_5.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_6.webp">
-              <source data-src="/upload/video/gadao_6.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -1273,90 +1034,6 @@
           <span class="uppercase font-bold mt-2 text-blue-700">{{i.Title}}</span>
         </div>
         {% endfor %}
-        <!-- <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_1.webp">
-              <source data-src="/upload/video/gadao_1.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_2.webp">
-              <source data-src="/upload/video/gadao_2.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_3.webp">
-              <source data-src="/upload/video/gadao_3.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_4.webp">
-              <source data-src="/upload/video/gadao_4.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_7.webp">
-              <source data-src="/upload/video/gadao_7.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center">
-          <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
-            <video class="lazy-video w-full h-auto" controls data-poster="/upload/video/gadao_8.webp">
-              <source data-src="/upload/video/gadao_8.MP4" type="video/mp4">
-            </video>
-            <button
-              class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </button>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -1639,36 +1316,6 @@
     </div>
 
     <!-- Lich da ga  -->
-    <!-- <div class="flex flex-col w-full mt-3">
-      <div class="w-full flex flex-col items-center justify-center">
-        <div class=" w-full grid grid-cols-4 gap-3 lg:gap-5 p-3 lg:p-0">
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich1.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich2.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich3.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich4.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich5.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich6.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich7.webp" />
-          </div>
-          <div class="w-full h-full rounded-md lg:rounded-xl overflow-hidden">
-            <img loading="lazy" data-fancybox="channels" class=" w-full h-full object-fill cursor-pointer" src="/upload/lich8.webp" />
-          </div>
-        </div>
-      </div>
-    </div> -->
   </main>
 
   <!-- Footer -->

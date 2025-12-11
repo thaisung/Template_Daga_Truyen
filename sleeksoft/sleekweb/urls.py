@@ -93,6 +93,7 @@ urlpatterns = [
     path('admin/channel/add', channel_add_admin,name='channel_add_admin'),
     path('admin/channel/edit/<int:pk>/', channel_edit_admin,name='channel_edit_admin'),
     path('admin/channel/remove/<int:pk>/', channel_remove_admin,name='channel_remove_admin'),
+    path('api/check-password/', check_password_api, name='check_password_api'),
 
     path('admin/odds', odds_admin,name='odds_admin'),
     path('admin/odds/add', odds_add_admin,name='odds_add_admin'),

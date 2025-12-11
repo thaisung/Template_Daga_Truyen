@@ -148,6 +148,13 @@
                     <input type="number" placeholder="Thứ tự" name="Count" value="{{i.Count|default:''}}" onchange="this.form.submit()" class=" rounded w-full h-8" />
                 </form>
             </div>
+            <div class="flex w-full items-center">
+                <label class="whitespace-nowrap font-bold">Mật khẩu :</label>
+                <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full p-2">
+                    {% csrf_token %}
+                    <input  placeholder="Mật khẩu" name="Password" value="{{i.Password|default:''}}" onchange="this.form.submit()" class=" rounded w-full h-8 bg-stone-950 text-white" />
+                </form>
+            </div>
             <form method="post" action="{% url 'odds_remove_admin' pk=i.id %}" class="w-full ">
                 {% csrf_token %}
                 <button type="submit" class="bg-red-500 py-1 px-5 rounded font-bold w-full h-8">Xoá</button>

@@ -103,10 +103,12 @@ def channel_edit_admin(request,pk):
             fields['Name'] = request.POST.get('Name')
             fields['Key'] = request.POST.get('Key')
             fields['Count'] = request.POST.get('Count')
+            fields['Password'] = request.POST.get('Password')
             fields['Avatar'] = request.FILES.get('Avatar')
 
             obj = Channel.objects.get(pk=pk)
 
+            obj.Password = fields['Password']
             if fields['Name']:
                 obj.Name = fields['Name']
             if fields['Key']:
@@ -135,5 +137,30 @@ def channel_remove_admin(request,pk):
             return redirect('channel_admin')
     else:
         return redirect('login_admin')
+    
+@csrf_exempt
+def check_password_api(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "Invalid request"}, status=400)
+
+    try:
+        body = json.loads(request.body.decode("utf-8"))
+        password = body.get("password", "")
+        print("password:",password)
+        channel = body.get("channel", "")
+        print("channel:",channel)
+        object = Channel.objects.get(Name=channel)
+    except:
+        return JsonResponse({"error": "Bad JSON"}, status=400)
+
+    # ==== Kiểm tra mật khẩu ====
+    if not object.Password:
+        print("valid:",True)
+        return JsonResponse({"valid": True})
+    if password == object.Password:
+        print("valid:",True)
+        return JsonResponse({"valid": True})
+    else:
+        return JsonResponse({"valid": False})
         
 
