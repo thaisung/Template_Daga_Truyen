@@ -1,7 +1,8 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="vi">
-    {% load static %}
+{% load static %}
+
 <head>
     {% tailwind_css %}
     {{ form.media }}
@@ -52,7 +53,7 @@
         window.addEventListener('beforeunload', function () {
             localStorage.setItem('scrollPos', window.scrollY);
         });
-    
+
         // Khi load lại, cuộn đến vị trí cũ
         window.addEventListener('DOMContentLoaded', function () {
             const scrollPos = localStorage.getItem('scrollPos');
@@ -62,28 +63,27 @@
             }
         });
     </script>
-    
+
 
     <script>
         function formatNumber(num) {
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
-        $(document).ready(function() {
+        $(document).ready(function () {
             function formatNumberWithDot(num) {
                 return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
             }
-        
-            $('.format_number').each(function() {
+
+            $('.format_number').each(function () {
                 var originalNumber = $(this).text().trim();
                 var formattedNumber = formatNumberWithDot(originalNumber);
                 $(this).text(formattedNumber);
             });
         });
-      </script>
-      
+    </script>
 
-      <style>
-        
+
+    <style>
         @font-face {
             font-family: 'UTM Aptima';
             src: url("{% static 'fonts/00022-UTM-Aptima.ttf' %}") format('truetype');
@@ -123,20 +123,157 @@
             font-family: 'UTM Aptima', sans-serif !important;
         }
 
-        .ff-bb{
+        .ff-bb {
             font-family: 'UTM Bebas', sans-serif !important;
         }
 
+        /* Premium Admin Styling */
+        .admin-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(71, 85, 105, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .admin-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .admin-input {
+            background: rgba(30, 41, 59, 0.6) !important;
+            border: 1px solid rgba(71, 85, 105, 0.5) !important;
+            color: white !important;
+            transition: all 0.2s ease;
+        }
+
+        .admin-input::placeholder {
+            color: rgba(148, 163, 184, 0.8);
+        }
+
+        .admin-input:focus {
+            border-color: rgba(245, 158, 11, 0.8) !important;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2) !important;
+            outline: none !important;
+        }
+
+        .admin-btn-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .admin-btn-primary:hover {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .admin-btn-danger {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+        }
+
+        .admin-btn-danger:hover {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .admin-btn-info {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .admin-btn-info:hover {
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            transform: translateY(-2px);
+        }
+
+        .admin-btn-success {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .admin-btn-success:hover {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            transform: translateY(-2px);
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(71, 85, 105, 0.4);
+        }
+
+        .admin-sidebar {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
+            backdrop-filter: blur(20px);
+        }
+
+        .admin-nav-item {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .admin-nav-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-left-color: rgba(245, 158, 11, 0.5);
+        }
+
+
+        .admin-nav-item.active {
+            background: rgba(245, 158, 11, 0.15);
+            border-left-color: #f59e0b;
+        }
+
+        .admin-nav-item.active .nav-arrow {
+            display: block;
+        }
+
+        .admin-table-header {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        .admin-table-row {
+            background: rgba(30, 41, 59, 0.5);
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .admin-table-row:hover {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .glow-amber {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </head>
 
-<body class=" flex  items-center justify-center bg-red-500" style="background: url('/upload/website/background.png') no-repeat center center/cover;">
-    <div class="flex  w-full min-h-screen h-full">
-        <div class="click_menu lg:hidden flex justify-center items-center fixed top-2 left-2 cursor-pointer bg-[#eaebe7] p-1 border-[1px] border-[#0e203c] rounded-md ">
-            <svg class="w-[25px] fill-[#0e203c]" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<body class="flex items-center justify-center bg-slate-900"
+    style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), url('/upload/website/background.png') no-repeat center center/cover;">
+    <div class="flex w-full min-h-screen h-full">
+        <!-- Mobile Menu Button -->
+        <div
+            class="click_menu lg:hidden flex justify-center items-center fixed top-3 left-3 cursor-pointer bg-gradient-to-r from-amber-500 to-orange-500 p-2 rounded-lg shadow-lg z-50 hover:from-amber-400 hover:to-orange-400 transition-all duration-200">
+            <svg class="w-[25px] fill-white" viewBox="0 0 18 12" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>menu</title>
                 <desc>Created with Sketch.</desc>
                 <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -145,64 +282,138 @@
                             <g id="Outlined-/-Navigation-/-menu" transform="translate(816.000000, 54.000000)">
                                 <g>
                                     <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-                                    <path d="M3,18 L21,18 L21,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L21,8 L21,6 L3,6 Z" id="🔹-Icon-Color" fill="#0e203c"></path>
+                                    <path
+                                        d="M3,18 L21,18 L21,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L21,8 L21,6 L3,6 Z"
+                                        id="🔹-Icon-Color" fill="#ffffff"></path>
                                 </g>
                             </g>
                         </g>
                     </g>
                 </g>
             </svg>
-        </div> 
-        <div id="menu" class="menu fixed lg:static  grow bg-[#eaebe7] lg:bg-transparent hidden lg:flex flex-col  text-white w-[350px] min-h-screen border-[1px] border-[#0e203c]" style="z-index: 9999;">
-            <div class="uppercase flex flex-col justify-center items-center py-[20px]  bg-[#11284A] border-b-[1px] border-[#0e203c] text-[30px]">
-                XEMLIVEGA.COM
-                <span class="text-[16px]">Quản trị trang web</span>
-                <span class="text-[14px] text-yellow-500">{{request.user.username}}</span>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="menu"
+            class="menu fixed lg:sticky lg:top-0 admin-sidebar hidden lg:flex flex-col text-white w-[280px] h-screen border-r border-slate-700/50"
+            style="z-index: 9999;">
+            <!-- Logo Section -->
+            <div
+                class="flex flex-col justify-center items-center py-6 bg-gradient-to-b from-slate-800/80 to-transparent border-b border-slate-700/50">
+                <span
+                    class="uppercase text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">XEMLIVEGA.COM</span>
+                <span class="text-sm text-slate-400 mt-1">Quản trị trang web</span>
+                <span class="text-sm text-amber-500 font-medium mt-1">{{request.user.username}}</span>
             </div>
-            <nav class="flex flex-col p-3 font-bold   text-[#11284A] grow h-full">
-                <a href="{% url 'channel_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
-                     Kênh Live
-                    {% if request.resolver_match.url_name == 'channel_admin' or 'admin/channel/edit' in request.path or 'admin/channel/add' in request.path %}
-                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
-                    {% endif %}
+
+            <!-- Navigation -->
+            <nav class="flex flex-col p-4 text-slate-200 grow h-full gap-1">
+                <a href="{% url 'channel_admin' %}"
+                    class="admin-nav-item flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer {% if request.resolver_match.url_name == 'channel_admin' or 'admin/channel/edit' in request.path or 'admin/channel/add' in request.path %}active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Kênh Live</span>
+                    </div>
+                    <svg class="nav-arrow w-4 h-4 text-amber-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="{% url 'odds_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
-                     Odds
-                    {% if request.resolver_match.url_name == 'odds_admin' or 'admin/odds/edit' in request.path or 'admin/odds/add' in request.path %}
-                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
-                    {% endif %}
+
+                <a href="{% url 'odds_admin' %}"
+                    class="admin-nav-item flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer {% if request.resolver_match.url_name == 'odds_admin' or 'admin/odds/edit' in request.path or 'admin/odds/add' in request.path %}active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Odds</span>
+                    </div>
+                    <svg class="nav-arrow w-4 h-4 text-amber-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="{% url 'animation_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
-                     Danh sách ảnh động
-                    {% if request.resolver_match.url_name == 'animation_admin' or 'admin/animation/edit' in request.path or 'admin/animation/add' in request.path %}
-                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
-                    {% endif %}
+
+                <a href="{% url 'animation_admin' %}"
+                    class="admin-nav-item flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer {% if request.resolver_match.url_name == 'animation_admin' or 'admin/animation/edit' in request.path or 'admin/animation/add' in request.path %}active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="font-medium">Danh sách ảnh động</span>
+                    </div>
+                    <svg class="nav-arrow w-4 h-4 text-amber-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="{% url 'video_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
-                     Video
-                    {% if request.resolver_match.url_name == 'video_admin' or 'admin/video/edit' in request.path or 'admin/video/add' in request.path %}
-                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
-                    {% endif %}
+
+                <a href="{% url 'video_admin' %}"
+                    class="admin-nav-item flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer {% if request.resolver_match.url_name == 'video_admin' or 'admin/video/edit' in request.path or 'admin/video/add' in request.path %}active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
+                            </path>
+                        </svg>
+                        <span class="font-medium">Video</span>
+                    </div>
+                    <svg class="nav-arrow w-4 h-4 text-amber-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <a href="{% url 'ads_admin' %}" class="flex items-center justify-between border-b-[1px] border-[#0e203c] py-3 cursor-pointer">
-                     Quảng cáo
-                    {% if request.resolver_match.url_name == 'ads_admin' or 'admin/ads/edit' in request.path or 'admin/ads/add' in request.path %}
-                    <svg class="w-[20px] fill-[#0e203c]" version="1.1" viewBox="0 0 13 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)"><title></title><desc></desc><defs></defs><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#0e203c" id="Icons-AV" transform="translate(-88.000000, -88.000000)"><g id="play-arrow" transform="translate(88.500000, 88.000000)"><path d="M0,0 L0,14 L11,7 L0,0 Z" id="Shape"></path></g></g></g></svg>
-                    {% endif %}
+
+                <a href="{% url 'ads_admin' %}"
+                    class="admin-nav-item flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer {% if request.resolver_match.url_name == 'ads_admin' or 'admin/ads/edit' in request.path or 'admin/ads/add' in request.path %}active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm2.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6.207.293a1 1 0 00-1.414 0l-6 6a1 1 0 101.414 1.414l6-6a1 1 0 000-1.414zM12.5 10a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="font-medium">Quảng cáo</span>
+                    </div>
+                    <svg class="nav-arrow w-4 h-4 text-amber-500 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
                 </a>
-                <div class="flex gap-2 justify-center items-center p-3">
-                    <a href="{% url 'logout_admin' %}" class="px-2 py-1 bg-[#0e203c] text-white rounded-md">
-                        <svg class="fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z" fill="#ffffff"></path></svg>
+
+                <!-- Logout Button -->
+                <div class="mt-auto pt-4 border-t border-slate-700/50">
+                    <a href="{% url 'logout_admin' %}"
+                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-400 hover:bg-red-500/10 transition-all duration-200">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 3a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1H3zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="font-medium">Đăng xuất</span>
                     </a>
                 </div>
             </nav>
         </div>
+
         <script>
             let isOpen = false;
-        
+
             $(".click_menu").click(function () {
                 const $menu = $("#menu");
-        
+
                 if (!isOpen) {
                     $menu.show(); // hiện ra trước khi chạy hiệu ứng
                     gsap.to($menu, {
@@ -220,10 +431,10 @@
                         }
                     });
                 }
-        
+
                 isOpen = !isOpen;
             });
-        
+
             // Đóng khi click ra ngoài
             $(document).click(function (e) {
                 const $menu = $("#menu");
@@ -240,7 +451,11 @@
                 }
             });
         </script>
-        {% block content %}{% endblock %}
+
+        <!-- Main Content Area -->
+        <div class="flex-1 overflow-auto min-h-screen">
+            {% block content %}{% endblock %}
+        </div>
     </div>
 </body>
 
