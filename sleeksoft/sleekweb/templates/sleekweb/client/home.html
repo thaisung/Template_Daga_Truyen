@@ -1221,6 +1221,7 @@
 		</a> -->
 
     <!-- ADS quang cao -->
+    {% if list_Ads %}
     <div class="w-full flex flex-col gap-2">
       {% for i in list_Ads %}
       {% if i.Script %}
@@ -1234,6 +1235,7 @@
       {% endif %}
       {% endfor %}
     </div>
+    {% endif %}
 
     <!-- Các nút chọn kênh -->
     <div class="hidden lg:grid w-full py-2 grid-cols-4 lg:grid-cols-9 items-center gap-2 lg:gap-4 text-stone-50">
