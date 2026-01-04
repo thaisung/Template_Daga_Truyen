@@ -1,0 +1,2249 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="vi">
+{% load static %}
+
+<head>
+    {% tailwind_css %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>XEMLIVEGA.COM - LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI</title>
+    <meta name="description"
+        content="Trực tiếp đá gà  THOMO-GÀDAO-GATHÁI  Live HD Full tất cả sân các giải đấu arena đấu trường hot nhất, xem Live đágà giải trí, kết nối đam mê , sự kiện đang phát, truy cập xem ngay" />
+    <link rel="canonical" href="https://xemlivega.com/" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/upload/logologo.png" type="image/x-icon" />
+
+    <!-- Open Graph (Facebook, Instagram, Zalo, …) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title"
+        content="XEMLIVEGA.COM - LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
+    <meta property="og:description"
+        content="Trực tiếp đá gà  THOMO-GÀDAO-GATHÁI  Live HD Full tất cả sân các giải đấu arena đấu trường hot nhất, xem Live đágà giải trí, kết nối đam mê , sự kiện đang phát, truy cập xem ngay" />
+    <meta property="og:url" content="https://xemlivega.com/" />
+    <meta property="og:site_name" content="viewfullmedian" />
+    <meta property="og:image" content="/upload/logologo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Tùy chọn: nếu có nhiều ảnh, có thể thêm nhiều og:image -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title"
+        content="XEMLIVEGA.COM - LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI" />
+    <meta name="twitter:description"
+        content="Trực tiếp đá gà  THOMO-GÀDAO-GATHÁI  Live HD Full tất cả sân các giải đấu arena đấu trường hot nhất, xem Live đágà giải trí, kết nối đam mê , sự kiện đang phát, truy cập xem ngay" />
+    <meta name="twitter:image" content="/upload/logologo.png" />
+    <!-- Tuỳ chọn: @username nếu có -->
+    <!-- <meta name="twitter:site" content="@youraccount" /> -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17603238855">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17603238855');
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI",
+      "description": "Trực tiếp đá gà  THOMO-GÀDAO-GATHÁI  Live HD Full tất cả sân các giải đấu arena đấu trường hot nhất, xem Live đágà giải trí, kết nối đam mê , sự kiện đang phát, truy cập xem ngay",
+      "image": [
+        "https://xemlivega.com/upload/thumb.jpg"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "viewfullmedian"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "viewfullmedian",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://xemlivega.com/upload/thumb.jpg"
+        }
+      },
+      "url": "https://xemlivega.com/"
+    }
+  </script>
+
+
+    <!-- Structured Data (tùy chọn, giúp SEO) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/8.23.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.23.3/video.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Premium Dark Theme Styles -->
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+        }
+
+        /* ===== PREMIUM DARK BACKGROUND ===== */
+        .premium-dark-bg {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .premium-dark-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+            animation: auroraShift 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraShift {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+        }
+
+        /* ===== GLASSMORPHISM CARDS ===== */
+        .glass-card {
+            background: rgba(30, 30, 50, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .header-premium {
+            background: rgba(15, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow:
+                0 4px 30px rgba(245, 158, 11, 0.15),
+                0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #06b6d4, #f59e0b, transparent);
+            animation: headerGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes headerGlow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ===== MAIN TITLE ===== */
+        .main-title-premium {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #ffffff 50%, #f59e0b 75%, #fbbf24 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 3s linear infinite;
+            text-shadow: none;
+            filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
+        }
+
+        @keyframes titleShimmer {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        /* ===== CHANNEL BUTTONS ===== */
+        .channel-btn-premium {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #fbbf24 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 16px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                0 4px 15px rgba(245, 158, 11, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .channel-btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmerSweep 2s infinite;
+        }
+
+        @keyframes shimmerSweep {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .channel-btn-premium:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow:
+                0 8px 25px rgba(245, 158, 11, 0.6),
+                0 0 30px rgba(245, 158, 11, 0.3);
+        }
+
+        .channel-btn-premium .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+
+        .channel-btn-premium .dot.live {
+            background: #22c55e;
+            box-shadow: 0 0 15px #22c55e;
+        }
+
+        .channel-btn-premium .dot.offline {
+            background: #ef4444;
+            box-shadow: 0 0 15px #ef4444;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+
+        /* ===== VIDEO PLAYER ===== */
+        .video-player-premium {
+            background: rgba(20, 20, 35, 0.9);
+            border-radius: 20px;
+            padding: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-player-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, #f59e0b, #ef4444, #8b5cf6, #06b6d4, #10b981, #f59e0b);
+            background-size: 400% 400%;
+            animation: rainbowBorder 3s linear infinite;
+            border-radius: 20px;
+            z-index: -1;
+            padding: 3px;
+        }
+
+        @keyframes rainbowBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .video-player-premium .video-inner {
+            background: #0f0f1a;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* LIVE Badge */
+        .live-badge-premium {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow:
+                0 4px 15px rgba(239, 68, 68, 0.5),
+                0 0 30px rgba(239, 68, 68, 0.3);
+            animation: livePulse 1.5s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .live-badge-premium::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: liveDot 1s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes liveDot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Video Info */
+        .video-info-premium {
+            background: rgba(20, 20, 35, 0.95);
+            padding: 16px 20px;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .video-info-premium h2 {
+            color: #fbbf24;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .video-info-premium .viewer-count {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-info-premium .viewer-count svg {
+            color: #06b6d4;
+        }
+
+        /* ===== CHATBOX ===== */
+        .chatbox-premium {
+            background: rgba(20, 20, 35, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(6, 182, 212, 0.1);
+        }
+
+        .chat-header-premium {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-header-premium:hover {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+        }
+
+        .chat-header-premium span {
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-header-premium span::before {
+            content: '💬';
+        }
+
+        .chat-toggle-icon {
+            width: 24px;
+            height: 24px;
+            fill: rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header-premium {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(6, 182, 212, 0.15) 100%);
+            border: 2px solid rgba(34, 211, 238, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(34, 211, 238, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            animation: headerShimmer 3s infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .section-header-premium span {
+            color: #fbbf24;
+            font-weight: 800;
+            text-shadow:
+                0 0 10px rgba(251, 191, 36, 0.8),
+                0 0 30px rgba(251, 191, 36, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Header Icons */
+        .section-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            color: #06b6d4;
+            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.8));
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.85;
+            }
+        }
+
+        /* Video Section Headers */
+        .video-section-title {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-weight: 900;
+            font-size: clamp(18px, 4vw, 28px);
+            text-shadow:
+                0 0 15px rgba(255, 255, 255, 0.5),
+                0 2px 10px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* About Section Header */
+        .about-header-premium {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            color: #a78bfa;
+            font-weight: 800;
+            text-shadow:
+                0 0 15px rgba(167, 139, 250, 0.8),
+                0 0 30px rgba(167, 139, 250, 0.4);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Odds Section Header */
+        .odds-header-premium {
+            color: #22d3ee;
+            font-weight: 800;
+            text-shadow:
+                0 0 15px rgba(34, 211, 238, 0.8),
+                0 0 30px rgba(34, 211, 238, 0.4);
+        }
+
+        /* ===== ARENA BUTTONS ===== */
+        .arena-btn-premium {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #1e3a5f 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50px;
+            padding: 10px 16px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .arena-btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+            animation: arenaShimmer 3s infinite;
+        }
+
+        @keyframes arenaShimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .arena-btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 25px rgba(6, 182, 212, 0.4),
+                0 0 20px rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.6);
+        }
+
+        /* ===== TAB BUTTONS ===== */
+        .tab-btn-premium {
+            background: rgba(30, 30, 50, 0.8);
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn-premium:hover {
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+        }
+
+        .tab-btn-premium.active {
+            background: rgba(245, 158, 11, 0.2);
+            border-bottom-color: #f59e0b;
+            color: #fbbf24;
+        }
+
+        /* ===== VIDEO CARDS ===== */
+        .video-section-header {
+            position: relative;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-section-header .bg-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .video-section-header .bg-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .video-section-header span {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-weight: 800;
+            text-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .video-card-premium {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .video-card-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card-premium:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .video-card-premium:hover::before {
+            opacity: 1;
+        }
+
+        .video-card-premium .title {
+            color: #06b6d4;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Play Button */
+        .play-btn-premium {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .play-btn-premium:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .play-btn-premium svg {
+            width: 64px;
+            height: 64px;
+            color: white;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn-premium:hover svg {
+            transform: scale(1.2);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section-premium {
+            background: rgba(20, 20, 35, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .about-section-premium h2,
+        .about-section-premium h3,
+        .about-section-premium h4 {
+            color: #fbbf24;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .about-section-premium p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        .about-section-premium .quote {
+            border-left: 4px solid #f59e0b;
+            padding-left: 20px;
+            margin: 16px 0;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(245, 158, 11, 0.1);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .about-section-premium ul {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .about-section-premium li::marker {
+            color: #06b6d4;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-premium {
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+            border-top: 1px solid rgba(245, 158, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #06b6d4, #f59e0b, transparent);
+        }
+
+        .footer-premium .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: floatBounce 2s ease-in-out infinite;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .scroll-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        @keyframes floatBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ===== SWIPER ENHANCEMENTS ===== */
+        .swiper-premium .swiper-slide {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== ODDS SECTION ===== */
+        .odds-content-premium {
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .odds-footer-premium {
+            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* ===== RESPONSIVE ADJUSTMENTS ===== */
+        @media (max-width: 768px) {
+            .channel-btn-premium {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .section-header-premium {
+                padding: 12px 16px;
+            }
+
+            .video-player-premium {
+                border-radius: 12px;
+            }
+
+            .video-player-premium::before {
+                padding: 2px;
+            }
+        }
+    </style>
+
+</head>
+<!-- bg-[url('/upload/body1.jpg')] bg-cover bg-center bg-no-repeat bg-fixed -->
+
+<body class="premium-dark-bg flex flex-col items-center min-h-screen relative">
+
+    <header class="header-premium header-bg flex items-center justify-center w-full py-3 lg:py-6 px-3 lg:px-0">
+        <style>
+            .header-bg {
+                /* background-image: url('/upload/ae/ae_bg.gif'); */
+                /* background-image: url('/upload/banner_mobile.jpg'); */
+                background-image: url('/upload/ae/ae_bg.gif'), url('/upload/banner_mobile.webp');
+                background-size: cover;
+                background-position: center;
+            }
+
+            @media (min-width: 1024px) {
+                .header-bg {
+                    background-image: none;
+                }
+            }
+        </style>
+
+        <div
+            class="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[1200px] lg:max-w-[1200px] h-auto lg:h-[200px] lg:gap-6">
+            <a href="/"
+                class=" hidden lg:w-[11%] w-[100px] lg:flex flex-col justify-center items-center py-2 h-full gap-2">
+                <img id="logo" class="spin w-full h-auto " src="/upload/logologo.png" />
+                <script>
+                    const logo = document.getElementById("logo");
+                    let angle = 0;
+
+                    setInterval(() => {
+                        angle += 360;
+                        logo.style.transition = "transform 0.9s linear"; // xoay trong 0.5s
+                        logo.style.transform = `rotateY(${angle}deg)`;
+                    }, 5000); // cứ 3s xoay 1 vòng
+                </script>
+                <img class=" w-full h-auto" src="/upload/domain.png" />
+            </a>
+            <div class=" lg:hidden flex  w-full items-center">
+                <a href="/"
+                    class=" min-w-[70px] max-w-[70px] flex flex-col justify-center items-center py-2 h-full gap-2">
+                    <img id="logo1" class="spin w-full h-auto " src="/upload/logologo.png" />
+                    <script>
+                        const logo1 = document.getElementById("logo1");
+                        let angle1 = 0;
+
+                        setInterval(() => {
+                            angle1 += 360;
+                            logo1.style.transition = "transform 0.9s linear"; // xoay trong 0.5s
+                            logo1.style.transform = `rotateY(${angle1}deg)`;
+                        }, 5000); // cứ 3s xoay 1 vòng
+                    </script>
+                    <img class=" w-full h-auto" src="/upload/domain.png" />
+                </a>
+                <h1
+                    class="main-title-premium block lg:hidden text-[18px] lg:text-[30px] font-bold uppercase text-center">
+                    LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
+                    <br>THOMO-GÀ DAO-GÀ THÁI
+                </h1>
+            </div>
+            <div class=" hidden lg:w-[89%] w-full h-full lg:flex flex-col  bg-cover bg-center rounded-lg overflow-hidden"
+                style="background-image: url('/upload/banner.webp');">
+                <div class="live-banner min-h-[61px]">
+                    <svg class="icon" viewBox="0 0 32 32">
+                        <path d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z" />
+                    </svg>
+                    <div class="scrolling-text">
+                        <div class="scrolling-inner">
+                            <span>
+                                => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp Full sân
+                                    Gà-cam Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉 </span>
+                                    <span>
+                                        => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp
+                                            Full sân Gà-cam Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉 </span>
+                        </div>
+                    </div>
+                    <div class="flip">
+                        <svg class="icon" viewBox="0 0 32 32">
+                            <path d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                  c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                  M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .live-banner {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 10px 16px;
+                    /* border-radius: 14px; */
+                    width: 100%;
+                    background: rgba(40, 40, 40, 0.9);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                    overflow: hidden;
+                }
+
+                .icon {
+                    width: 40px;
+                    height: 40px;
+                    fill: #ffd166;
+                    filter: drop-shadow(0 0 6px #ff4d6d) drop-shadow(0 0 12px #ffd166);
+                    animation: pulse 1.6s ease-in-out infinite;
+                }
+
+                .flip {
+                    transform: scaleX(-1);
+                    display: flex;
+                    align-items: center;
+                }
+
+                /* chữ chạy liên tục */
+                .scrolling-text {
+                    flex: 1;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                .scrolling-inner {
+                    display: inline-flex;
+                    animation: scroll 15s linear infinite;
+                }
+
+                .scrolling-inner span {
+                    padding-right: 50px;
+                    /* khoảng cách giữa 2 lần lặp */
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #fff;
+                    text-shadow: 0 0 6px #ffd166, 0 0 12px #ff4d6d;
+                }
+
+                /* animation chạy ngang */
+                @keyframes scroll {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+
+                /* icon nhấp nháy */
+                @keyframes pulse {
+
+                    0%,
+                    100% {
+                        transform: scale(1);
+                        opacity: 0.9;
+                    }
+
+                    50% {
+                        transform: scale(1.2);
+                        opacity: 1;
+                    }
+                }
+            </style>
+
+
+        </div>
+    </header>
+    <main
+        class="flex flex-col justify-center items-center gap-3 lg:gap-6 h-full w-full lg:w-[1200px] py-3 lg:py-8 px-3 lg:p-0">
+        <h1 class="main-title-premium hidden lg:block text-[24px] lg:text-[32px] font-bold uppercase text-center">
+            LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ<br>THOMO-GÀ DAO-GÀ THÁI
+        </h1>
+        <!-- <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
+      LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
+      <br>THOMO-GÀ DAO-GÀ THÁI
+    </h1> -->
+
+        <!-- Chu chay mobile -->
+        <div
+            class=" lg:hidden lg:w-[89%] w-full h-full flex flex-col  bg-[url('/upload/banner.webp')] bg-cover bg-center rounded-lg overflow-hidden">
+            <div class="live-banner min-h-[61px]">
+                <svg class="icon" viewBox="0 0 32 32">
+                    <path d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z" />
+                </svg>
+                <div class="scrolling-text">
+                    <div class="scrolling-inner">
+                        <span>
+                            => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp Full sân Gà-cam
+                                Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉 </span>
+                                <span>
+                                    => Không Cá Cược Dưới Mọi Hình Thức <= Link xem Live đá gà 🐓 phát trực tiếp Full
+                                        sân Gà-cam Gà-Dao Gà thái | Chúc tất cả AE xem Live vui vẻ 🎉 </span>
+                    </div>
+                </div>
+                <div class="flip">
+                    <svg class="icon" viewBox="0 0 32 32">
+                        <path d="M31.705,15.284l-9.97-9.991c-0.634-0.66-1.748-0.162-1.723,0.734v4.976H1c-0.55,0-1,0.45-1,1v8
+                  c0,0.55,0.45,1,1,1h19v4.972c-0.024,0.892,1.082,1.376,1.715,0.742l9.977-9.999C32.098,16.318,32.098,15.678,31.705,15.284z
+                  M22.017,23.564V19H20H2v-6h18v-4.998l7.55,7.566L22.017,23.564z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- <a class="w-full" href="http://sv388x.net" target="_blank" rel="noopener">						
+			<img  src="https://accentric.co.uk/wp-content/uploads/2025/09/signal-2025-07-31-200754.gif" class="w-full" alt="">						
+		</a> -->
+
+        <!-- ADS quang cao -->
+        <div class="w-full flex flex-col gap-2">
+            {% for i in list_Ads %}
+            {% if i.Script %}
+            <div>
+                {{ i.Script|safe }}
+            </div>
+            {% else %}
+            <a href="{{i.Link}}" target="_blank">
+                <img src="{% if i.Banner %}{{i.Banner.url}}{% endif %}" />
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Các nút chọn kênh -->
+        <div
+            class="hidden lg:grid w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+            <div data-src="{{list_Channel.0.Key}}"
+                data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.0.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.1.Key}}"
+                data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.1.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.2.Key}}"
+                data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.2.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.3.Key}}"
+                data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.3.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.4.Key}}"
+                data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.4.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.5.Key}}"
+                data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.5.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.6.Key}}"
+                data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.6.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.7.Key}}"
+                data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.7.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.8.Key}}"
+                data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.8.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
+            </div>
+        </div>
+        <div class="w-full lg:w-[400px] hidden lg:flex items-center gap-3 lg:gap-6 text-stone-50">
+            <div data-src="{{list_Channel.9.Key}}"
+                data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.9.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.10.Key}}"
+                data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.10.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.11.Key}}"
+                data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.11.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
+            </div>
+        </div>
+
+        <div
+            class="grid lg:hidden w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+            <div data-src="{{list_Channel.0.Key}}"
+                data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.0.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.1.Key}}"
+                data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.1.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.2.Key}}"
+                data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.2.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.3.Key}}"
+                data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.3.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.4.Key}}"
+                data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.4.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.5.Key}}"
+                data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.5.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.6.Key}}"
+                data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.6.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.7.Key}}"
+                data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.7.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.8.Key}}"
+                data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.8.Name}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.9.Key}}"
+                data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.9.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.10.Key}}"
+                data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.10.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
+            </div>
+            <div data-src="{{list_Channel.11.Key}}"
+                data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
+                data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
+                data-namechannel="{{list_Channel.11.Name}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
+                <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
+            </div>
+        </div>
+
+
+        <!-- Video & Chatbox -->
+        <div class="w-full flex flex-col items-center justify-center gap-4">
+            <!-- Player + Info -->
+            <div id="display_video" class="video-player-premium w-full">
+                <div class="video-inner relative">
+                    <!-- Player -->
+                    <video id="my-video"
+                        class="video-js vjs-big-play-centered  rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
+                        controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
+                        poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
+
+
+                    <style>
+                        .vjs-error-display {
+                            display: none !important;
+                        }
+
+                        #display_video,
+                        .video-js {
+                            height: auto !important;
+                        }
+
+                        /* Video bên trong phải fill container */
+                        .video-js video {
+                            width: 100% !important;
+                            height: 100% !important;
+                            object-fit: cover;
+                        }
+                    </style>
+
+
+                    <style>
+                        /* Ẩn nút play to */
+                        .vjs-big-play-button {
+                            display: none !important;
+                        }
+
+                        .vjs-fullscreen-control {
+                            display: block !important;
+                        }
+                    </style>
+
+
+
+                    <script>
+                        $(function () {
+                            let player = videojs("my-video", {
+                                autoplay: "muted",
+                                controls: true,
+                                preload: "auto",
+                                muted: true,
+                                fluid: true
+                            });
+
+                            let errorBox = $("#video-error");
+
+                            // 👇 Set source mặc định ban đầu
+                            player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
+                            player.src({
+                                src: "{{list_Channel.0.Key}}",
+                                type: "application/x-mpegURL"
+                            });
+
+
+                            // 👇 Đảm bảo play khi vào trang
+                            player.ready(function () {
+                                player.play().catch(err => {
+                                    console.warn("Autoplay bị chặn:", err);
+                                });
+                            });
+
+                            $(".channel").click(async function () {
+
+                                password_channel_condition = $(this).data("password");
+                                name_channel = $(this).data("namechannel");
+                                password = "";
+
+                                if (password_channel_condition == 1) {
+                                    // ======= HIỆN HỘP NHẬP MẬT KHẨU =======
+                                    password = prompt(`Nhập mật khẩu để xem kênh ${name_channel}:`);
+
+                                    if (!password) {
+                                        alert(`Bạn chưa nhập mật khẩu cho kênh ${name_channel}!`);
+                                        return; // ⛔ Dừng
+                                    }
+                                }
+
+                                // ======= GỌI API KIỂM TRA MẬT KHẨU =======
+                                let valid = false;
+
+                                try {
+                                    let response = await fetch("/api/check-password/", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({ password: password, channel: name_channel })
+                                    });
+
+                                    let data = await response.json();
+                                    valid = data.valid === true;
+
+                                } catch (e) {
+                                    alert("Không thể kết nối API!");
+                                    return; // ⛔ Dừng
+                                }
+
+                                // ======= SAI MẬT KHẨU → DỪNG CODE =======
+                                if (!valid) {
+                                    alert("❌ Sai mật khẩu!");
+                                    return; // ⛔ Không chạy phần còn lại
+                                }
+
+                                // ======= ĐÚNG MẬT KHẨU → CHẠY TIẾP CODE GỐC =======
+
+
+                                let src = $(this).data("src");
+                                let img = $(this).data("img");
+                                let ratio = $(this).data("ratio");
+                                let isLG = window.matchMedia("(min-width: 768px)").matches;
+
+                                $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
+                                $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
+
+                                let video = $("#my-video");
+
+                                video.removeClass("aspect-[16/9] aspect-[9/16]");
+
+                                if (ratio === "9-16") {
+                                    video.addClass("aspect-[9/16]");
+                                    if (isLG) {
+                                        $("#display_video").removeClass("w-full").addClass("w-[800px]");
+                                    }
+                                    $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
+                                } else {
+                                    video.addClass("aspect-[16/9]");
+                                    $("#display_video").removeClass("w-[800px]");
+                                    $("#display_video").addClass("w-full");
+                                    $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
+                                }
+
+                                player.poster(img);
+                                player.src({ src: src, type: "application/x-mpegURL" });
+                                player.play();
+
+                                errorBox.addClass("hidden");
+                            });
+
+                            player.on("error", function () {
+                                console.warn("Không phát được video từ link này.");
+                                let currentPoster = player.poster();
+                                if (currentPoster) {
+                                    player.poster(currentPoster);
+                                }
+                                errorBox.removeClass("hidden");
+                            });
+                        });
+                    </script>
+
+                    <!-- LIVE badge -->
+                    <div id="icon_live" class="live-badge-premium">
+                        LIVE
+                    </div>
+                </div>
+
+                <!-- Video info -->
+                <div class="video-info-premium">
+                    <h2>Trực tiếp Đá Gà - Giải đấu hôm nay</h2>
+                    <div class="viewer-count">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <span><span id="count">3.2</span>k người đang xem</span>
+                    </div>
+                    <script>
+                        // giá trị khởi tạo
+                        let count = 3.0;
+
+                        function updateViewers() {
+                            // random dao động ±0.2
+                            let change = (Math.random() * 0.4 - 0.2).toFixed(1);
+                            count = (3.0 + parseFloat(change)).toFixed(1);
+
+                            // đảm bảo không nhỏ hơn 2.5k và không lớn hơn 3.5k
+                            if (count < 2.5) count = 2.5;
+                            if (count > 3.5) count = 3.5;
+
+                            document.getElementById("count").textContent = count;
+                        }
+
+                        // cứ 2–5 giây sẽ random 1 lần
+                        setInterval(updateViewers, Math.floor(Math.random() * 3000) + 2000);
+                    </script>
+                </div>
+            </div>
+
+            <!-- Chat box -->
+            <div class="chatbox-premium w-full flex flex-col">
+                <div id="toggleTab" class="chat-header-premium">
+                    <span>Live Chat</span>
+                    <div class="flex">
+                        <div id="open_livechat" class="">
+                            <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 386.257 386.257" style="enable-background:new 0 0 386.257 386.257;"
+                                xml:space="preserve">
+                                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div id="close_livechat" class="hidden">
+                            <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 386.257 386.257" style="enable-background:new 0 0 386.257 386.257;"
+                                xml:space="preserve"
+                                transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)">
+                                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                                <g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <script>
+                        $("#toggleTab").click(function () {
+                            $("#livechat").slideToggle(400, "swing"); // trượt mượt
+                            $("#close_livechat, #open_livechat").toggle(); // đổi icon nếu có
+                            $(this).toggleClass("border-b"); // thêm hoặc bỏ border-b
+                        });
+                    </script>
+                </div>
+                <div id="livechat" class="hidden flex-1 overflow-y-auto p-3 space-y-2 text-sm">
+                    <div class="w-full">
+                        <iframe src="https://www5.cbox.ws/box/?boxid=958228&boxtag=tXyrxf" width="100%" height="450"
+                            allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0"
+                            scrolling="auto"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh mục các sân -->
+        <div class="w-full flex flex-col items-center justify-center gap-3">
+            <span
+                class="section-header-premium w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-broadcast-tower mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái
+            </span>
+            <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3 text-[14px] lg:text-[16px]">
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">DV1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">DV2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7a</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CJ1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CJ2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7b</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC3</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">NN</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">NN2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7c</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC4</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">PC1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">PC2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC5</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TONHON</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">Ta1</a>
+            </div>
+        </div>
+
+        <!-- ADS click link -->
+        <div class="w-full flex flex-col justify-center items-center gap-2 mt-3">
+            <span class="hidden md:block uppercase font-bold text-center text-[18px] lg:text-[20px]"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-chart-line mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                TRANG XEM HỖ TRỢ, TRANG GỐC, TỶ LỆ CHUẨN, TRANG CHẠY NHANH TỐC ĐỘ
+            </span>
+            <span class="md:hidden uppercase font-bold text-center text-[18px] lg:text-[20px]"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-chart-line mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                TRANG XEM HỖ TRỢ, TRANG GỐC,
+                <br>TỶ LỆ CHUẨN,
+                <br>TRANG CHẠY NHANH TỐC ĐỘ
+            </span>
+            <div class="flex justify-between w-full gap-0 overflow-x-auto mt-2 rounded-xl overflow-hidden"
+                style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(34, 211, 238, 0.3);">
+                {% for i in list_Odds %}
+                <button data-target="#odds{{i.id}}" class="tab-btn w-full whitespace-nowrap px-4 py-3 font-bold transition-all duration-300
+          {% if forloop.first %}text-cyan-400{% else %}text-stone-400{% endif %}
+          hover:text-cyan-300 hover:bg-cyan-500/10"
+                    style="{% if forloop.first %}background: linear-gradient(180deg, rgba(34,211,238,0.15) 0%, transparent 100%); border-bottom: 2px solid #22d3ee;{% else %}border-bottom: 2px solid transparent;{% endif %}">
+                    {{i.Category}}
+                </button>
+                {% endfor %}
+            </div>
+            {% for i in list_Odds %}
+            <div id="odds{{i.id}}"
+                class="tab-content {% if not forloop.first %}hidden{% endif %} w-full flex flex-col justify-center items-center  mt-3 border-[2px] border-blue-500 rounded-md lg:rounded-lg overflow-hidden">
+                <div class="w-full grid grid-cols-4  divide-x-[2px] divide-blue-500">
+                    {% for j in i.images.all %}
+                    <img loading="lazy" class="cursor-pointer w-full h-full "
+                        src="{% if j.Image %}{{j.Image.url}}{% endif %}" data-fancybox="odds{{i.id}}" />
+                    {% endfor %}
+                </div>
+                <span
+                    class="font-bold text-stone-50 border-t-[2px] border-blue-500 bg-blue-700 w-full text-center py-3 text-[16px] lg:text-[18px] px-3">
+                    ✅ {{i.Describe}}
+                </span>
+            </div>
+            {% endfor %}
+            <script>
+                $(function () {
+                    $(".tab-btn").on("click", function () {
+                        let target = $(this).data("target");
+
+                        // reset tất cả nút
+                        $(".tab-btn")
+                            .removeClass("text-cyan-400")
+                            .addClass("text-stone-400")
+                            .css({
+                                "background": "transparent",
+                                "border-bottom": "2px solid transparent"
+                            });
+
+                        // kích hoạt nút đang chọn
+                        $(this)
+                            .removeClass("text-stone-400")
+                            .addClass("text-cyan-400")
+                            .css({
+                                "background": "linear-gradient(180deg, rgba(34,211,238,0.15) 0%, transparent 100%)",
+                                "border-bottom": "2px solid #22d3ee"
+                            });
+
+                        // ẩn tab hiện tại bằng fadeOut rồi hiện tab mới bằng fadeIn
+                        $(".tab-content:visible").fadeOut(200, function () {
+                            $(".tab-content").addClass("hidden");
+                            $(target).removeClass("hidden").hide().fadeIn(200);
+                        });
+                    });
+                });
+            </script>
+        </div>
+
+        <!-- Slider -->
+        <div class="swiper mySwiper w-full  mt-3 lg:mt-5">
+            <div class="swiper-wrapper w-full ">
+                {% for i in list_Animation_Image %}
+                <div
+                    class="swiper-slide flex-shrink-0 w-full  rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <img loading="lazy" src="{% if i.Image %}{{i.Image.url}}{% endif %}"
+                        class="w-full h-[250px] lg:h-[700px] rounded-xl object-fill " alt="">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <script>
+            const swiper = new Swiper('.mySwiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                coverflowEffect: {
+                    rotate: 20,
+                    stretch: 80,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false,
+                },
+                loop: true,
+                speed: 800, // tốc độ chuyển slide
+                autoplay: {
+                    delay: 1000,               // 1 giây đổi slide
+                    disableOnInteraction: false,
+                    reverseDirection: true,    // 🔄 chạy ngược
+                },
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const videos = document.querySelectorAll("video.lazy-video");
+
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const video = entry.target;
+                            const source = video.querySelector("source");
+
+                            // gán poster
+                            if (video.dataset.poster) {
+                                video.poster = video.dataset.poster;
+                                video.removeAttribute("data-poster");
+                            }
+
+                            // gán src cho source
+                            if (source && source.dataset.src) {
+                                source.src = source.dataset.src;
+                                video.load(); // bắt buộc gọi để load lại source
+                                source.removeAttribute("data-src");
+                            }
+
+                            obs.unobserve(video); // chỉ chạy 1 lần
+                        }
+                    });
+                });
+
+                videos.forEach(v => observer.observe(v));
+            });
+        </script>
+
+
+
+        <!-- Video đá gà mới nhất hôm nay -->
+        <div class="flex flex-col w-full mt-3 gap-6">
+            <div class="relative flex items-center justify-center w-full h-[80px] rounded-xl overflow-hidden">
+                <div class="w-[50%] bg-gradient-to-r from-red-600 to-red-500 h-full"></div>
+                <div class="w-[50%] bg-gradient-to-l from-blue-600 to-blue-500 h-full"></div>
+                <span
+                    class="lg:hidden video-section-title absolute inset-0 flex items-center justify-center uppercase p-3 text-center bg-transparent">
+                    <i class="fas fa-video mr-3"></i>Video đá gà mới nhất<br>hôm nay
+                </span>
+                <span
+                    class="hidden lg:flex video-section-title absolute inset-0 items-center justify-center uppercase p-3 text-center bg-transparent">
+                    <i class="fas fa-video mr-3"></i>Video đá gà mới nhất hôm nay
+                </span>
+            </div>
+            <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for i in list_Video_GaThuong %}
+                <div class="flex flex-col items-center">
+                    <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+                        <video class="lazy-video w-full h-auto" controls
+                            data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
+                            <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
+                        </video>
+                        <button
+                            class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="uppercase font-bold mt-2 text-cyan-400 text-[13px] lg:text-[18px]"
+                        style="text-shadow: 0 0 10px rgba(34,211,238,0.5);">{{i.Title}}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Video đá gà dao mới nhất hôm nay -->
+        <div class="flex flex-col w-full mt-3 gap-6">
+            <div class="relative flex items-center justify-center w-full h-[80px] rounded-xl overflow-hidden">
+                <div class="w-[50%] bg-gradient-to-r from-red-600 to-red-500 h-full"></div>
+                <div class="w-[50%] bg-gradient-to-l from-blue-600 to-blue-500 h-full"></div>
+                <span
+                    class="lg:hidden video-section-title absolute inset-0 flex items-center justify-center uppercase p-3 text-center bg-transparent">
+                    <i class="fas fa-shield-halved mr-3"></i>Video đá gà Dao mới nhất<br>hôm nay
+                </span>
+                <span
+                    class="hidden lg:flex video-section-title absolute inset-0 items-center justify-center uppercase p-3 text-center bg-transparent">
+                    <i class="fas fa-shield-halved mr-3"></i>Video đá gà Dao mới nhất hôm nay
+                </span>
+            </div>
+            <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for i in list_Video_GaDao %}
+                <div class="flex flex-col items-center">
+                    <div class="relative w-full rounded-lg overflow-hidden shadow-lg">
+                        <video class="lazy-video w-full h-auto" controls
+                            data-poster="{% if i.Avatar %}{{ i.Avatar.url }}{% endif %}">
+                            <source data-src="{% if i.Video %}{{ i.Video.url }}{% endif %}" type="video/mp4">
+                        </video>
+                        <button
+                            class="playBtn absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="uppercase font-bold mt-2 text-cyan-400 text-[13px] lg:text-[18px]"
+                        style="text-shadow: 0 0 10px rgba(34,211,238,0.5);">{{i.Title}}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <script>
+            // xử lý tất cả nút play
+            document.querySelectorAll(".playBtn").forEach(btn => {
+                const video = btn.previousElementSibling; // video liền trước
+                btn.addEventListener("click", () => {
+                    btn.style.display = "none";
+                    video.play();
+                });
+            });
+        </script>
+
+        <!-- About us -->
+        <div class="flex flex-col w-full mt-3 gap-2">
+            <span
+                class="about-header-premium flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px] rounded-xl p-3 text-center h-[60px] lg:h-[80px]">
+                <i class="fas fa-info-circle section-icon"
+                    style="color: #a78bfa; filter: drop-shadow(0 0 8px rgba(167,139,250,0.8));"></i>
+                Bài viết giới thiệu
+            </span>
+            <div class="w-full flex flex-col items-center justify-center mt-5 text-[13px] lg:text-[16px]">
+                <div class="w-full flex flex-col  justify-center">
+                    <h2 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        XemLiveGa - Đỉnh Cao <span class="font-bold">đá gà trực tiếp</span> Tại Việt Nam
+                    </h2>
+                    <br>
+                    <p class="text-[18px]"><span class="font-bold">đá gà trực tiếp</span> từ Campuchia đã trở thành một
+                        hình thức
+                        giải trí đầy hấp dẫn, thu hút hàng triệu người yêu thích trên khắp Việt Nam. Trong số các nền
+                        tảng phát
+                        sóng, XemLiveGa nổi bật như một địa chỉ uy tín, mang đến những trận <span class="font-bold">đá
+                            gà trực
+                            tiếp</span> đỉnh cao từ các trường gà danh tiếng như CPC1, CPC2, CPC3, CPC4 và CPC5, đặc
+                        biệt là các trận
+                        đá gà cựa dao kịch tính.</p>
+                    <br>
+                    <br>
+                    <p class="text-[18px]">
+                        Với chất lượng hình ảnh sắc nét, đường truyền ổn định, đội ngũ bình luận viên chuyên nghiệp và
+                        lịch thi đấu
+                        cập nhật liên tục, XemLiveGa không chỉ là một trang web xem <span class="font-bold">đá gà trực
+                            tiếp</span>
+                        mà còn là nơi hội tụ cộng đồng đam mê gà chọi. Hãy cùng khám phá lý do vì sao XemLiveGa trở
+                        thành lựa chọn
+                        hàng đầu cho người yêu thích <span class="font-bold">đá gà trực tiếp</span>!
+                    </p>
+                    <br>
+                    <img loading="lazy" class="w-full cursor-pointer" src="/upload/bv1.webp"
+                        data-fancybox="channels1" />
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        1. XemLiveGa - Nguồn Gốc và Sứ Mệnh
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa được thành lập bởi những người có niềm đam mê mãnh liệt với <span
+                            class="font-bold">đá gà trực tiếp</span>, đặc biệt là đá gà cựa dao. Từ khi ra mắt, trang đã
+                        đặt mục tiêu
+                        rõ ràng:</p>
+                    <br>
+                    <p class="text-[18px] italic px-6 py-3 border-l-[3px] border-stone-600">
+                        “Cung cấp cho người xem Việt Nam những trận <span class="font-bold">đá gà trực tiếp</span> chất
+                        lượng cao từ
+                        các trường gà Campuchia, đảm bảo chính xác, nhanh chóng và an toàn.”
+                    </p>
+                    <br>
+                    <p class="text-[18px]">
+                        “Cung cấp cho người xem Việt Nam những trận <span class="font-bold">đá gà trực tiếp</span> chất
+                        lượng cao từ
+                        các trường gà Campuchia, đảm bảo chính xác, nhanh chóng và an toàn.”
+                    </p>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        2. Vì Sao Nên Chọn XemLiveGa Để Xem <span class="font-bold">đá gà trực tiếp</span>?
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa không chỉ là một trang web phát sóng mà còn là nơi mang đến trải
+                        nghiệm giải
+                        trí đỉnh cao với các ưu điểm nổi bật:</p>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            Phát Sóng Ổn Định, Không Gián Đoạn
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">Khác với các kênh livestream phụ thuộc vào bên thứ ba, XemLiveGa sở hữu
+                            đường truyền
+                            riêng từ các trường gà Campuchia. Điều này đảm bảo các trận <span class="font-bold">đá gà
+                                trực tiếp</span>
+                            không bị lag hay gián đoạn, mang lại trải nghiệm mượt mà cho người xem.</p>
+                    </div>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            Hình Ảnh Sắc Nét, Hỗ Trợ Đa Nền Tảng
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">XemLiveGa hỗ trợ xem trên mọi thiết bị: điện thoại, máy tính bảng, laptop
+                            hay TV
+                            thông minh. Với chất lượng hình ảnh Full HD và tốc độ khung hình cao, từng cú ra đòn, từng
+                            pha “xé gió”
+                            của các chiến kê trong đá gà cựa dao đều được tái hiện sống động.</p>
+                    </div>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            Bình Luận Viên Chuyên Nghiệp, Gần Gũi
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">Đội ngũ bình luận viên của XemLiveGa mang đến những phân tích chi tiết,
+                            vui nhộn và
+                            giàu cảm xúc bằng tiếng Việt. Các bình luận trước, trong và sau trận đấu giúp người xem nắm
+                            bắt tình hình
+                            nhanh chóng, tăng thêm phần kịch tính.</p>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            Lịch Thi Đấu Cập Nhật Liên Tục
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">Mỗi ngày, XemLiveGa công bố lịch thi đấu từ CPC1 đến CPC5 ngay từ sáng
+                            sớm. Người xem
+                            có thể dễ dàng chọn trường gà, loại trận đấu (đá gà cựa dao, cựa tròn, gà tre, gà nòi) và
+                            đặt lịch nhắc
+                            nhở để không bỏ lỡ trận đấu yêu thích.</p>
+                    </div>
+                    <br>
+                    <img loading="lazy" class="w-full cursor-pointer" src="/upload/bv2.webp"
+                        data-fancybox="channels1" />
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        3. Khám Phá Các Trường Gà CPC1 - CPC5 Trên XemLiveGa
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa không chỉ là một trang web phát sóng mà còn là nơi mang đến trải
+                        nghiệm giải
+                        trí đỉnh cao với các ưu điểm nổi bật:</p>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            CPC1 - Thánh Địa Gà Nòi Campuchia
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">CPC1 là trường gà lâu đời, nổi tiếng với các trận đá gà cựa tròn và gà
+                            đòn truyền
+                            thống. Những chiến kê tại đây được tuyển chọn kỹ lưỡng, thường là gà lai Thái, Miền Tây hoặc
+                            Khmer, mang
+                            đến những màn trình diễn mãn nhãn.</p>
+                    </div>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            CPC2 - Những Trận Gà Đỉnh Cao
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">Nếu bạn yêu thích các trận gà đỉnh cao với những chiến kê lừng , CPC2 là
+                            lựa chọn
+                            không thể bỏ qua. Những cú ra đòn tốc độ và lối đá canh chặn có thể hạ gục đối thủ trong
+                            chớp mắt, tạo nên
+                            những pha gay cấn đến nghẹt thở.</p>
+                    </div>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            CPC3 - Đá Gà Đêm Sôi Động
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">Hoạt động chủ yếu vào buổi tối, CPC3 là điểm đến lý tưởng cho những ai
+                            bận rộn ban
+                            ngày. Với hệ thống đèn chiếu hiện đại, mỗi trận đấu tại đây như một buổi diễn nghệ thuật,
+                            kết hợp giữa sự
+                            gay cấn và vẻ đẹp của <span class="font-bold">đá gà trực tiếp</span>.</p>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            CPC4 - Nghệ Thuật Gà Tre
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">CPC4 nổi bật với các trận đá gà tre, nơi những chú gà nhỏ nhưng tinh tế
+                            thể hiện kỹ
+                            thuật ra đòn điêu luyện. Sự khéo léo và bền bỉ của các chiến kê tại đây luôn khiến người xem
+                            mê mẩn.</p>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="w-full flex flex-col  justify-center">
+                        <h4 class="uppercase font-bold text-[16px] lg:text-[18px]">
+                            CPC5 - Sân Chơi Của Các “Đại Gia” Gà Chọi
+                        </h4>
+                        <br>
+                        <p class="text-[18px]">CPC5 là nơi quy tụ các tay chơi gà từ Việt Nam, Thái Lan và Campuchia.
+                            Các trận đấu
+                            tại đây thường có giá trị lớn, với những chiến kê trị giá hàng chục, thậm chí hàng trăm
+                            triệu đồng, mang
+                            đến trải nghiệm <span class="font-bold">đá gà trực tiếp</span> đẳng cấp.</p>
+                    </div>
+                    <br>
+                    <img loading="lazy" class="w-full cursor-pointer" src="/upload/bv3.webp"
+                        data-fancybox="channels1" />
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        4. Trải Nghiệm Người Dùng Tại XemLiveGa
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa được thiết kế với giao diện thân thiện, dễ sử dụng, phù hợp cho cả
+                        người mới.
+                        Các tính năng nổi bật bao gồm:</p>
+                    <br>
+                    <ul class="list-inside list-disc ">
+                        <li class="text-[18px]">Xem lại trận đấu kinh điển: Lưu trữ các trận <span class="font-bold">đá
+                                gà trực
+                                tiếp</span> nổi bật.</li>
+                        <li class="text-[18px]">Bình luận cùng cộng đồng: Tương tác trực tiếp với người xem khác.</li>
+                        <li class="text-[18px]">Nhận thông báo trận đấu mới: Không bỏ lỡ bất kỳ trận đấu nào.</li>
+                        <li class="text-[18px]">Gợi ý chiến kê nổi bật: Cập nhật top gà chọi xuất sắc trong tuần.</li>
+                        <li class="text-[18px]">Bảo mật cao: Không lưu trữ thông tin cá nhân, đảm bảo an toàn cho người
+                            dùng.</li>
+                    </ul>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        5. Đá Gà Cựa Dao - Đỉnh Cao Nghệ Thuật Tại XemLiveGa
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">Đá gà cựa dao là điểm nhấn đặc biệt tại XemLiveGa. Với cựa dao dài từ 3.5 đến
+                        5 phân,
+                        được mài sắc bén, mỗi trận đấu là sự kết hợp giữa tốc độ, chiến thuật và sự kiên cường của các
+                        chiến kê.
+                        Những cú ra đòn nhanh như chớp, máu lửa như phim hành động, khiến người xem không thể rời mắt.
+                    </p>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        6. Cộng Đồng XemLiveGa - Kết Nối Đam Mê
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa không chỉ là nơi xem <span class="font-bold">đá gà trực tiếp</span>
+                        mà còn là
+                        cộng đồng sôi động với:</p>
+                    <br>
+                    <ul class="list-inside list-disc ">
+                        <li class="text-[18px]">Nhóm Facebook và Zalo: Chia sẻ lịch đấu, hình ảnh chiến kê, và kèo hấp
+                            dẫn.</li>
+                        <li class="text-[18px]">Bảng xếp hạng chiến kê: Theo dõi top gà thắng liên tiếp.</li>
+                        <li class="text-[18px]">Livestream tương tác: Hỏi đáp trực tiếp với bình luận viên.</li>
+                        <li class="text-[18px]">Sự kiện và minigame: Dự đoán kết quả trận đấu để nhận thưởng giá trị.
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        7. Cách Truy Cập XemLiveGa
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">Để xem <span class="font-bold">đá gà trực tiếp</span> tại XemLiveGa, bạn chỉ
+                        cần:</p>
+                    <br>
+                    <ul class="list-inside list-decimal ">
+                        <li class="text-[18px]">Truy cập https://xemlivega.com.</li>
+                        <li class="text-[18px]">Tìm kiếm từ khóa “XemLiveGa <span class="font-bold">đá gà trực
+                                tiếp</span> CPC1
+                            CPC5” trên Google.</li>
+                        <li class="text-[18px]">Lưu link truy cập nhanh để xem mọi lúc, mọi nơi.</li>
+                    </ul>
+                    <br>
+                    <p class="text-[18px]">Không cần đăng ký phức tạp, bạn có thể thưởng thức các trận đấu ngay lập tức!
+                    </p>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        8. XemLiveGa Có Hợp Pháp Không?
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa chỉ cung cấp dịch vụ phát sóng <span class="font-bold">đá gà trực
+                            tiếp</span>
+                        từ các trường gà hợp pháp tại Campuchia, nơi đá gà là hoạt động được cấp phép. Trang không tổ
+                        chức cá cược,
+                        không thu phí và không yêu cầu người xem tham gia bất kỳ hoạt động đánh bạc nào, đảm bảo an toàn
+                        và minh
+                        bạch.</p>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        9. Lưu Ý Khi Xem <span class="font-bold">đá gà trực tiếp</span>
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">Để xem <span class="font-bold">đá gà trực tiếp</span> tại XemLiveGa, bạn chỉ
+                        cần:</p>
+                    <br>
+                    <ul class="list-inside list-disc ">
+                        <li class="text-[18px]">Tránh để trẻ em dưới 16 tuổi xem nội dung có yếu tố máu me.</li>
+                        <li class="text-[18px]">Không chia sẻ thông tin cá nhân nếu không cần thiết.</li>
+                        <li class="text-[18px]">Tôn trọng người xem khác trong phòng bình luận.</li>
+                        <li class="text-[18px]">Kiểm tra quy định pháp luật địa phương trước khi xem tại nơi công cộng.
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="w-full flex flex-col  justify-center">
+                    <h3 class="uppercase font-bold text-[18px] lg:text-[22px]">
+                        10. Kết Luận
+                    </h3>
+                    <br>
+                    <p class="text-[18px]">XemLiveGa không chỉ là một trang web xem <span class="font-bold">đá gà trực
+                            tiếp</span>, mà còn là một cộng đồng sôi động, nơi bạn có thể thưởng thức những trận đá gà
+                        cựa dao đỉnh
+                        cao, kết nối với những người cùng đam mê và trải nghiệm giải trí chất lượng. Với hệ thống phát
+                        sóng từ CPC1
+                        đến CPC5, hình ảnh sắc nét, bình luận cuốn hút và tính năng thân thiện, XemLiveGa xứng đáng là
+                        lựa chọn số
+                        một cho anh em yêu <span class="font-bold">đá gà trực tiếp</span>.</p>
+                    <br>
+                    <p class="text-[18px]">Truy cập ngay: https://xemlivega.com</p>
+                    <p class="text-[18px]"><span class="font-bold">đá gà trực tiếp</span> không chỉ là máu lửa – mà còn
+                        là nghệ
+                        thuật, chiến thuật và bản lĩnh. Tất cả đều hội tụ tại XemLiveGa!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lich da ga  -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-premium flex flex-col items-center justify-center w-full">
+        <span class="copyright py-6 font-bold text-[17px] lg:text-[20px] w-full text-center uppercase px-2 lg:px-0">
+            © 2025 Xemlivega. All rights reserved.
+        </span>
+        <img id="scrollTopImg" class="scroll-top-btn w-[100px] lg:w-[150px] h-auto mb-5" src="/upload/domain.png" />
+
+        <script>
+            function smoothScrollToTop(duration = 1000) {
+                const start = window.scrollY;
+                const startTime = performance.now();
+
+                function scrollStep(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1); // từ 0 → 1
+                    const ease = 1 - Math.pow(1 - progress, 3); // easing cubic-out
+                    window.scrollTo(0, start * (1 - ease));
+
+                    if (progress < 1) {
+                        requestAnimationFrame(scrollStep);
+                    }
+                }
+
+                requestAnimationFrame(scrollStep);
+            }
+
+            document.getElementById("scrollTopImg").addEventListener("click", () => {
+                smoothScrollToTop(1500); // 1500ms = 1.5 giây, chậm hơn mặc định
+            });
+        </script>
+
+
+    </footer>
+
+</body>
+
+</html>
