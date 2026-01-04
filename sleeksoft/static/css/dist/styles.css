@@ -2863,6 +2863,14 @@ select {
     gap: 1.5rem;
   }
 
+  .lg\:gap-5 {
+    gap: 1.25rem;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
   .lg\:rounded-2xl {
     border-radius: 1rem;
   }

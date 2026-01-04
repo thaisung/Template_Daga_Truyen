@@ -246,14 +246,14 @@
     /* Title container with sparkle effect */
     .title-container {
       position: relative;
-      padding: 20px 30px;
+      padding: 16px 24px;
       width: 100%;
       background: rgba(15, 15, 25, 0.9);
-      border-radius: 12px;
+      border-radius: 10px;
       border: 2px solid #fbbf24;
       box-shadow:
-        0 0 20px rgba(251, 191, 36, 0.2),
-        inset 0 0 30px rgba(0, 0, 0, 0.3);
+        0 0 15px rgba(251, 191, 36, 0.2),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
       overflow: hidden;
     }
 
@@ -328,15 +328,15 @@
     .channel-btn-premium {
       background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
       border: none;
-      border-radius: 30px;
-      padding: 10px 18px;
+      border-radius: 25px;
+      padding: 8px 14px;
       position: relative;
       overflow: hidden;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow:
-        0 4px 15px rgba(251, 191, 36, 0.4),
-        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+        0 3px 12px rgba(251, 191, 36, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     /* Shimmer sparkle effect */
@@ -1176,9 +1176,9 @@
     </div>
   </header>
   <main
-    class="flex flex-col justify-center items-center gap-3 lg:gap-6 h-full w-full lg:w-[1200px] py-3 lg:py-8 px-3 lg:p-0">
-    <div class="title-container hidden lg:block">
-      <h1 class="main-title-premium hidden lg:block text-[24px] lg:text-[32px] font-bold uppercase text-center"
+    class="flex flex-col justify-center items-center gap-4 lg:gap-5 h-full w-full lg:w-[1200px] py-3 lg:py-6 px-3 lg:p-0">
+    <div class="title-container hidden lg:block mb-2">
+      <h1 class="main-title-premium hidden lg:block text-[22px] lg:text-[28px] font-bold uppercase text-center"
         data-text="LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI">
         LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ<br>THOMO-GÀ DAO-GÀ THÁI
       </h1>
@@ -1236,7 +1236,7 @@
     </div>
 
     <!-- Các nút chọn kênh -->
-    <div class="hidden lg:grid w-full py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+    <div class="hidden lg:grid w-full py-2 grid-cols-4 lg:grid-cols-9 items-center gap-2 lg:gap-4 text-stone-50">
       <div data-src="{{list_Channel.0.Key}}"
         data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
         data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
