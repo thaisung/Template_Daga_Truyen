@@ -62,6 +62,8 @@ from .views.admin.video_admin import *
 # from .views.admin.product_admin import *
 # from .views.admin.ads_admin import *
 
+from .views.client.stream_finder import stream_finder_page, scan_url, check_single_stream
+
 
 sitemaps_dict = {
     'static': StaticViewSitemap,
@@ -115,6 +117,11 @@ urlpatterns = [
     path('admin/video/add', video_add_admin,name='video_add_admin'),
     path('admin/video/edit/<int:pk>/', video_edit_admin,name='video_edit_admin'),
     path('admin/video/remove/<int:pk>/', video_remove_admin,name='video_remove_admin'),
+
+    # Stream Finder Tool
+    path('stream-finder/', stream_finder_page, name='stream_finder'),
+    path('stream-finder/scan/', scan_url, name='stream_finder_scan'),
+    path('stream-finder/check/', check_single_stream, name='stream_finder_check'),
 
 
     # path('admin/product', product_admin,name='product_admin'),

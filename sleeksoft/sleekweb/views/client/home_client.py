@@ -112,6 +112,7 @@ def home(request):
         # except:
         #     context['Ads_100'] = {}
         # print('context:',context)
+        # return render(request, 'sleekweb/client/home.html', context, status=200)
         return render(request, 'sleekweb/client/home.html', context, status=200)
     
 def card_credit(request):

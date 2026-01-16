@@ -109,3 +109,38 @@ dể cấp chứng chỉ
 
 
 
+
+
+
+rtmp {
+    server {
+        listen 1935;
+        
+        application live {
+            live on;
+            
+            # Transcode to multiple qualities
+            exec ffmpeg -i rtmp://localhost/live/$name
+                -c:v libx264 -preset veryfast -b:v 3000k -s 1920x1080 -f flv rtmp://localhost/hls/$name_1080p
+                -c:v libx264 -preset veryfast -b:v 1500k -s 1280x720 -f flv rtmp://localhost/hls/$name_720p
+                -c:v libx264 -preset veryfast -b:v 800k -s 854x480 -f flv rtmp://localhost/hls/$name_480p
+                -c:v libx264 -preset veryfast -b:v 400k -s 640x360 -f flv rtmp://localhost/hls/$name_360p;
+        }
+        
+        application hls {
+            live on;
+            hls on;
+            hls_path /tmp/hls;
+            hls_fragment 3;
+            hls_playlist_length 60;
+            
+            # Enable variant playlist for quality selection
+            hls_variant _1080p BANDWIDTH=3000000,RESOLUTION=1920x1080;
+            hls_variant _720p BANDWIDTH=1500000,RESOLUTION=1280x720;
+            hls_variant _480p BANDWIDTH=800000,RESOLUTION=854x480;
+            hls_variant _360p BANDWIDTH=400000,RESOLUTION=640x360;
+        }
+    }
+}
+
+

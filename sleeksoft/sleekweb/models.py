@@ -83,7 +83,7 @@ class Channel(models.Model):
         verbose_name_plural = "Kênh Live"
     
     Name = models.CharField('Tên kênh', max_length=100,blank=True, null=True)
-    Key = models.CharField('Key live', max_length=200,blank=True, null=True)
+    Key = models.CharField('Key live', max_length=500,blank=True, null=True)
     Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
     Avatar = models.ImageField(upload_to='Channel_Daga', null=True,blank=True)
     Password = models.CharField('Mật khẩu', max_length=100,blank=True, null=True)

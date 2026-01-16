@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Stream URL Finder - Tìm Link Video Live</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed, #f472b6, #00d4ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            color: #888;
+            border: 1px solid transparent;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .url-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .url-input::placeholder {
+            color: #666;
+        }
+
+        .scan-btn {
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            color: #fff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scan-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+        }
+
+        .scan-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .scan-btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .scan-btn.loading .spinner {
+            display: block;
+        }
+
+        .scan-btn.loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Options */
+        .options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #7c3aed;
+        }
+
+        .option-item label {
+            color: #ccc;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .option-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            margin-left: 5px;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .results-title {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        .results-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .stat-badge.total {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        .stat-badge.online {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .stat-badge.method {
+            background: rgba(124, 58, 237, 0.2);
+            color: #a855f7;
+        }
+
+        /* Stream Cards */
+        .stream-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .stream-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stream-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+
+        .stream-card.online {
+            border-left: 3px solid #10b981;
+        }
+
+        .stream-card.offline {
+            border-left: 3px solid #ef4444;
+            opacity: 0.7;
+        }
+
+        .stream-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .stream-type {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .type-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(124, 58, 237, 0.2);
+            color: #a855f7;
+        }
+
+        .type-badge.hls {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .type-badge.rtmp {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .type-badge.dash {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .type-badge.iframe {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+        }
+
+        .type-badge.network {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .source-badge {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .status-dot.online {
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .status-dot.offline {
+            background: #ef4444;
+        }
+
+        .stream-url {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #00d4ff;
+            word-break: break-all;
+            margin-bottom: 12px;
+        }
+
+        .stream-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .copy-btn {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .copy-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .test-btn {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .test-btn:hover {
+            background: rgba(16, 185, 129, 0.3);
+        }
+
+        .open-btn {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+        }
+
+        .open-btn:hover {
+            background: rgba(139, 92, 246, 0.3);
+        }
+
+        /* Error Message */
+        .error-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            color: #ef4444;
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .error-box.show {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
+        }
+
+        .no-results i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Tips Section */
+        .tips-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .tips-box h3 {
+            color: #f59e0b;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .tips-box ul {
+            list-style: none;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .tips-box li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tips-box li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .info-box i {
+            color: #3b82f6;
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        .info-box p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Check Stream Section */
+        .check-result {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .check-result.show {
+            display: block;
+        }
+
+        .check-result.online {
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .check-result.offline {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .url-input {
+                min-width: 100%;
+            }
+
+            .scan-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Stream URL Finder</h1>
+        <p class="subtitle">Công cụ tìm kiếm link video/livestream từ các website</p>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('scan')">
+                <i class="fas fa-search"></i> Quét Website
+            </button>
+            <button class="tab-btn" onclick="switchTab('check')">
+                <i class="fas fa-check-circle"></i> Kiểm tra Link
+            </button>
+        </div>
+
+        <!-- Tab 1: Scan Website -->
+        <div class="tab-content active" id="tab-scan">
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="url-input" id="urlInput"
+                        placeholder="https://example.com hoặc example.com" autocomplete="off">
+                    <button class="scan-btn" id="scanBtn" onclick="scanUrl()">
+                        <div class="spinner"></div>
+                        <span class="btn-text"><i class="fas fa-search"></i> Quét tìm Stream</span>
+                    </button>
+                </div>
+
+                <div class="options">
+                    <div class="option-item">
+                        <input type="checkbox" id="useSelenium" checked>
+                        <label for="useSelenium">
+                            Sử dụng Selenium (JavaScript rendering)
+                            <span class="option-badge">Khuyên dùng</span>
+                        </label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="deepScan">
+                        <label for="deepScan">
+                            Deep Scan (quét kỹ hơn)
+                            <span class="option-badge"
+                                style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">60-90s</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>Selenium mode:</strong> Mở trình duyệt ẩn để thực thi JavaScript (~30s).<br>
+                    <strong>Deep Scan:</strong> Click tất cả các tabs/buttons và đợi lâu hơn để tìm hết streams
+                    (~60-90s).
+                </p>
+            </div>
+
+            <!-- Error Box -->
+            <div class="error-box" id="errorBox">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="errorText"></span>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">Kết quả tìm kiếm</h2>
+                    <div class="results-stats">
+                        <span class="stat-badge method" id="methodBadge">requests</span>
+                        <span class="stat-badge total" id="totalBadge">0 streams</span>
+                        <span class="stat-badge online" id="onlineBadge">0 online</span>
+                    </div>
+                </div>
+
+                <div class="stream-list" id="streamList">
+                    <!-- Stream cards will be inserted here -->
+                </div>
+
+                <div class="no-results" id="noResults" style="display: none;">
+                    <i class="fas fa-video-slash"></i>
+                    <p>Không tìm thấy stream nào trên trang này</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Check Single Stream -->
+        <div class="tab-content" id="tab-check">
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="url-input" id="streamUrlInput"
+                        placeholder="https://example.com/stream.m3u8" autocomplete="off">
+                    <button class="scan-btn" id="checkBtn" onclick="checkStream()">
+                        <div class="spinner"></div>
+                        <span class="btn-text"><i class="fas fa-check"></i> Kiểm tra</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    Nhập trực tiếp link stream (.m3u8, .mpd, rtmp://, v.v.) để kiểm tra xem stream còn hoạt động hay
+                    không.
+                </p>
+            </div>
+
+            <div class="error-box" id="checkErrorBox">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="checkErrorText"></span>
+            </div>
+
+            <div class="check-result" id="checkResult">
+                <div class="stream-header">
+                    <div class="stream-type">
+                        <span class="type-badge" id="checkTypeBadge">HLS</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="checkStatusDot"></span>
+                        <span id="checkStatusText">Checking...</span>
+                    </div>
+                </div>
+                <div class="stream-url" id="checkStreamUrl"></div>
+                <div class="stream-actions">
+                    <button class="action-btn copy-btn"
+                        onclick="copyUrl(document.getElementById('checkStreamUrl').textContent)">
+                        <i class="fas fa-copy"></i> Copy URL
+                    </button>
+                    <button class="action-btn test-btn"
+                        onclick="testStream(document.getElementById('checkStreamUrl').textContent)">
+                        <i class="fas fa-play"></i> Test Play
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips-box">
+            <h3>💡 Mẹo sử dụng</h3>
+            <ul>
+                <li>Bật Selenium để quét các trang có video player động (JW Player, Video.js, v.v.)</li>
+                <li>Quá trình quét với Selenium có thể mất 10-20 giây</li>
+                <li>Các stream "Online" có thể copy trực tiếp để sử dụng</li>
+                <li>Một số stream có thể yêu cầu Referer header đúng để phát được</li>
+                <li>Dùng tab "Kiểm tra Link" để test nhanh một stream URL</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Đã copy!</div>
+
+    <script>
+        const urlInput = document.getElementById('urlInput');
+        const scanBtn = document.getElementById('scanBtn');
+        const errorBox = document.getElementById('errorBox');
+        const errorText = document.getElementById('errorText');
+        const resultsSection = document.getElementById('resultsSection');
+        const streamList = document.getElementById('streamList');
+        const noResults = document.getElementById('noResults');
+        const totalBadge = document.getElementById('totalBadge');
+        const onlineBadge = document.getElementById('onlineBadge');
+        const methodBadge = document.getElementById('methodBadge');
+        const toast = document.getElementById('toast');
+
+        // Enter key to search
+        urlInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') scanUrl();
+        });
+
+        document.getElementById('streamUrlInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') checkStream();
+        });
+
+        function switchTab(tabName) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.tab-btn').classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        async function scanUrl() {
+            const url = urlInput.value.trim();
+            const useSelenium = document.getElementById('useSelenium').checked;
+            const deepScan = document.getElementById('deepScan').checked;
+
+            if (!url) {
+                showError('Vui lòng nhập URL trang web');
+                return;
+            }
+
+            // Show loading
+            scanBtn.classList.add('loading');
+            scanBtn.disabled = true;
+            hideError();
+            resultsSection.classList.remove('show');
+
+            try {
+                const response = await fetch('/stream-finder/scan/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        url: url,
+                        use_selenium: useSelenium,
+                        deep_scan: deepScan
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Có lỗi xảy ra');
+                }
+
+                displayResults(data);
+
+            } catch (error) {
+                showError(error.message);
+            } finally {
+                scanBtn.classList.remove('loading');
+                scanBtn.disabled = false;
+            }
+        }
+
+        function displayResults(data) {
+            resultsSection.classList.add('show');
+            streamList.innerHTML = '';
+
+            methodBadge.textContent = data.method === 'selenium' ? '🚀 Selenium' : '📡 Requests';
+
+            if (data.streams.length === 0) {
+                noResults.style.display = 'block';
+                totalBadge.textContent = '0 streams';
+                onlineBadge.textContent = '0 online';
+                return;
+            }
+
+            noResults.style.display = 'none';
+            totalBadge.textContent = `${data.total} streams`;
+            onlineBadge.textContent = `${data.online} online`;
+
+            data.streams.forEach((stream, index) => {
+                const card = createStreamCard(stream, index);
+                streamList.appendChild(card);
+            });
+        }
+
+        function createStreamCard(stream, index) {
+            const div = document.createElement('div');
+            div.className = `stream-card ${stream.status ? 'online' : 'offline'}`;
+
+            const typeClass = getTypeClass(stream.type);
+            const sourceClass = getSourceClass(stream.source);
+
+            div.innerHTML = `
+                <div class="stream-header">
+                    <div class="stream-type">
+                        <span class="type-badge ${typeClass}">${stream.type}</span>
+                        <span class="source-badge ${sourceClass}">${formatSource(stream.source)}</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot ${stream.status ? 'online' : 'offline'}"></span>
+                        <span style="color: ${stream.status ? '#10b981' : '#ef4444'}">${stream.status_text}</span>
+                    </div>
+                </div>
+                <div class="stream-url" id="url-${index}">${stream.url}</div>
+                <div class="stream-actions">
+                    <button class="action-btn copy-btn" onclick="copyUrl('${escapeHtml(stream.url)}')">
+                        <i class="fas fa-copy"></i> Copy URL
+                    </button>
+                    <button class="action-btn test-btn" onclick="testStream('${escapeHtml(stream.url)}')">
+                        <i class="fas fa-play"></i> Test Play
+                    </button>
+                    <button class="action-btn open-btn" onclick="window.open('${escapeHtml(stream.url)}', '_blank')">
+                        <i class="fas fa-external-link-alt"></i> Mở link
+                    </button>
+                </div>
+            `;
+
+            return div;
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/'/g, "\\'").replace(/"/g, '\\"');
+        }
+
+        function getTypeClass(type) {
+            type = type.toLowerCase();
+            if (type.includes('hls')) return 'hls';
+            if (type.includes('rtmp')) return 'rtmp';
+            if (type.includes('dash')) return 'dash';
+            if (type.includes('iframe')) return 'iframe';
+            return '';
+        }
+
+        function getSourceClass(source) {
+            if (source === 'network_capture') return 'network';
+            return '';
+        }
+
+        function formatSource(source) {
+            const sources = {
+                'regex_match': 'HTML Parse',
+                'video_tag': 'Video Tag',
+                'player_config': 'Player Config',
+                'iframe': 'Iframe',
+                'network_capture': '🌐 Network',
+                'js_parse': 'JS Parse'
+            };
+            return sources[source] || source;
+        }
+
+        function copyUrl(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Đã copy URL!');
+            }).catch(err => {
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('Đã copy URL!');
+            });
+        }
+
+        function testStream(url) {
+            const playerHtml = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Test Stream</title>
+                    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"><\/script>
+                    <style>
+                        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; font-family: sans-serif; }
+                        video { max-width: 100%; max-height: 80vh; }
+                        .info { color: #fff; margin-top: 20px; font-size: 14px; }
+                        .error { color: #f00; margin-top: 20px; }
+                    </style>
+                </head>
+                <body>
+                    <video id="video" controls autoplay></video>
+                    <div class="info" id="info">Loading...</div>
+                    <div class="error" id="error" style="display:none;"></div>
+                    <script>
+                        const video = document.getElementById('video');
+                        const errorDiv = document.getElementById('error');
+                        const infoDiv = document.getElementById('info');
+                        const url = '${url}';
+                        
+                        infoDiv.textContent = 'URL: ' + url;
+                        
+                        if (url.includes('.m3u8')) {
+                            if (Hls.isSupported()) {
+                                const hls = new Hls({
+                                    xhrSetup: function(xhr, url) {
+                                        xhr.withCredentials = false;
+                                    }
+                                });
+                                hls.loadSource(url);
+                                hls.attachMedia(video);
+                                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                                    infoDiv.textContent += ' | HLS.js loaded';
+                                    video.play();
+                                });
+                                hls.on(Hls.Events.ERROR, (event, data) => {
+                                    if (data.fatal) {
+                                        errorDiv.style.display = 'block';
+                                        errorDiv.textContent = 'Error: ' + data.type + ' - ' + data.details;
+                                    }
+                                });
+                            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                                video.src = url;
+                            }
+                        } else {
+                            video.src = url;
+                        }
+                        
+                        video.onerror = () => {
+                            errorDiv.style.display = 'block';
+                            errorDiv.textContent = 'Cannot load video. May be blocked by CORS or offline.';
+                        };
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            const newWindow = window.open('', '_blank');
+            newWindow.document.write(playerHtml);
+            newWindow.document.close();
+        }
+
+        async function checkStream() {
+            const url = document.getElementById('streamUrlInput').value.trim();
+            const checkBtn = document.getElementById('checkBtn');
+            const checkErrorBox = document.getElementById('checkErrorBox');
+            const checkResult = document.getElementById('checkResult');
+
+            if (!url) {
+                checkErrorBox.classList.add('show');
+                document.getElementById('checkErrorText').textContent = 'Vui lòng nhập URL stream';
+                return;
+            }
+
+            checkBtn.classList.add('loading');
+            checkBtn.disabled = true;
+            checkErrorBox.classList.remove('show');
+            checkResult.classList.remove('show');
+
+            try {
+                const response = await fetch('/stream-finder/check/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: url })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Có lỗi xảy ra');
+                }
+
+                // Display result
+                checkResult.classList.add('show');
+                checkResult.className = 'check-result show ' + (data.status ? 'online' : 'offline');
+
+                document.getElementById('checkTypeBadge').textContent = data.type;
+                document.getElementById('checkStreamUrl').textContent = data.url;
+                document.getElementById('checkStatusDot').className = 'status-dot ' + (data.status ? 'online' : 'offline');
+                document.getElementById('checkStatusText').textContent = data.status_text;
+                document.getElementById('checkStatusText').style.color = data.status ? '#10b981' : '#ef4444';
+
+            } catch (error) {
+                checkErrorBox.classList.add('show');
+                document.getElementById('checkErrorText').textContent = error.message;
+            } finally {
+                checkBtn.classList.remove('loading');
+                checkBtn.disabled = false;
+            }
+        }
+
+        function showError(message) {
+            errorText.textContent = message;
+            errorBox.classList.add('show');
+        }
+
+        function hideError() {
+            errorBox.classList.remove('show');
+        }
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
