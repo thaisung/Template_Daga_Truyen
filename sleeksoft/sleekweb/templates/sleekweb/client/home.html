@@ -1482,16 +1482,26 @@
                         controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
                         poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
 
-                    <!-- IFrame Player (for iframe embed) -->
-                    <iframe id="iframe-player"
-                        class="w-full aspect-[16/9] rounded-xl lg:rounded-2xl"
-                        style="display: none;"
-                        src=""
-                        frameborder="0" 
-                        allowfullscreen 
-                        allow="autoplay; fullscreen; picture-in-picture; camera; microphone; encrypted-media"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                    <!-- Redirect Overlay (hiện khi chọn kênh iframe) -->
+                    <div id="redirect-overlay" class="w-full aspect-[16/9] rounded-xl lg:rounded-2xl relative" style="display: none; background: #000;">
+                        <!-- Ảnh đại diện -->
+                        <img id="redirect-poster" src="" alt="Loading..." class="w-full h-full object-cover rounded-xl lg:rounded-2xl">
+                        
+                        <!-- Overlay -->
+                        <div id="redirect-content" class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center rounded-xl lg:rounded-2xl">
+                            <!-- Spinner (hiện khi đang loading) -->
+                            <div id="redirect-spinner" class="redirect-spinner" style="display: none;"></div>
+                            <!-- Text loading -->
+                            <p id="redirect-text" class="text-white text-lg font-semibold mt-4" style="display: none;">Đang chuyển hướng...</p>
+                            <p id="redirect-subtext" class="text-gray-300 text-sm mt-2" style="display: none;">Vui lòng chờ trong giây lát</p>
+                            
+                            <!-- Nút Xem ngay (hiện khi chưa click) -->
+                            <button id="watch-now-btn" class="watch-now-btn">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Xem ngay</span>
+                            </button>
+                        </div>
+                    </div>
 
                     <style>
                         .vjs-error-display {
@@ -1517,14 +1527,55 @@
                             display: none !important;
                         }
                         
-                        /* Iframe player styles */
-                        #iframe-player {
+                        /* Redirect overlay styles */
+                        #redirect-overlay {
                             border: none;
                             background: #000;
                         }
                         
-                        #iframe-player.hidden {
+                        #redirect-overlay.hidden {
                             display: none !important;
+                        }
+                        
+                        /* Loading Spinner */
+                        .redirect-spinner {
+                            width: 60px;
+                            height: 60px;
+                            border: 4px solid rgba(255, 255, 255, 0.3);
+                            border-top: 4px solid #fbbf24;
+                            border-radius: 50%;
+                            animation: spin 1s linear infinite;
+                        }
+                        
+                        @keyframes spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                        
+                        /* Watch Now Button */
+                        .watch-now-btn {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+                            color: #000;
+                            font-weight: 700;
+                            font-size: 18px;
+                            padding: 16px 32px;
+                            border: none;
+                            border-radius: 50px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
+                        }
+                        
+                        .watch-now-btn:hover {
+                            transform: scale(1.05);
+                            box-shadow: 0 6px 30px rgba(245, 158, 11, 0.7);
+                        }
+                        
+                        .watch-now-btn i {
+                            font-size: 24px;
                         }
                     </style>
 
@@ -1557,18 +1608,51 @@
                             // ===== XỬ LÝ TRẠNG THÁI KHỞI TẠO =====
                             let firstChannelStreamType = "{{list_Channel.0.StreamType|default:'url'}}";
                             let firstChannelIframe = "{{list_Channel.0.Iframe|default:''}}";
+                            let firstChannelImg = '{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}';
+                            
+                            // Lưu link iframe hiện tại để dùng cho nút "Xem ngay"
+                            let currentIframeLink = "";
+                            
+                            // Hàm hiện loading và redirect
+                            function showLoadingAndRedirect(link) {
+                                $("#watch-now-btn").hide();
+                                $("#redirect-spinner").show();
+                                $("#redirect-text").show();
+                                $("#redirect-subtext").show();
+                                
+                                setTimeout(function() {
+                                    window.location.href = link;
+                                }, 1000);
+                            }
+                            
+                            // Xử lý click nút "Xem ngay"
+                            $("#watch-now-btn").click(function() {
+                                if (currentIframeLink) {
+                                    showLoadingAndRedirect(currentIframeLink);
+                                }
+                            });
                             
                             if (firstChannelStreamType === "iframe" && firstChannelIframe) {
-                                // Kênh đầu tiên dùng iframe - ẩn video player
+                                // Kênh đầu tiên dùng iframe - hiện overlay với nút "Xem ngay"
                                 $(".video-js").hide();
-                                $("#iframe-player").show().attr("src", firstChannelIframe);
+                                $("#redirect-poster").attr("src", firstChannelImg || "/upload/logologo.png");
+                                $("#redirect-overlay").show();
+                                
+                                // Hiện nút "Xem ngay", ẩn loading
+                                $("#watch-now-btn").show();
+                                $("#redirect-spinner").hide();
+                                $("#redirect-text").hide();
+                                $("#redirect-subtext").hide();
+                                
+                                // Lưu link để dùng khi click
+                                currentIframeLink = firstChannelIframe;
                             } else {
-                                // Kênh đầu tiên dùng URL - ẩn iframe
-                                $("#iframe-player").hide();
+                                // Kênh đầu tiên dùng URL - ẩn redirect overlay
+                                $("#redirect-overlay").hide();
                                 $(".video-js").show();
                                 
                                 // 👇 Set source mặc định ban đầu
-                                player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
+                                player.poster(firstChannelImg);
                                 player.src({
                                     src: "{{list_Channel.0.Key}}",
                                     type: "application/x-mpegURL"
@@ -1639,40 +1723,50 @@
                                 $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
 
                                 let video = $("#my-video");
-                                let iframePlayer = $("#iframe-player");
+                                let redirectOverlay = $("#redirect-overlay");
 
                                 // Reset aspect ratio classes
                                 video.removeClass("aspect-[16/9] aspect-[9/16]");
-                                iframePlayer.removeClass("aspect-[16/9] aspect-[9/16]");
+                                redirectOverlay.removeClass("aspect-[16/9] aspect-[9/16]");
 
                                 if (ratio === "9-16") {
                                     video.addClass("aspect-[9/16]");
-                                    iframePlayer.addClass("aspect-[9/16]");
+                                    redirectOverlay.addClass("aspect-[9/16]");
                                     if (isLG) {
                                         $("#display_video").removeClass("w-full").addClass("w-[800px]");
                                     }
                                     $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
                                 } else {
                                     video.addClass("aspect-[16/9]");
-                                    iframePlayer.addClass("aspect-[16/9]");
+                                    redirectOverlay.addClass("aspect-[16/9]");
                                     $("#display_video").removeClass("w-[800px]");
                                     $("#display_video").addClass("w-full");
                                     $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
                                 }
 
-                                // ======= CHUYỂN ĐỔI GIỮA VIDEO PLAYER VÀ IFRAME =======
+                                // ======= CHUYỂN ĐỔI GIỮA VIDEO PLAYER VÀ REDIRECT =======
                                 let videoWrapper = $(".video-js"); // VideoJS tạo wrapper div
                                 
                                 if (streamType === "iframe" && iframeSrc) {
-                                    // Sử dụng IFrame - ẩn video player
+                                    // Sử dụng redirect - ẩn video player, hiện overlay với nút "Xem ngay"
                                     videoWrapper.hide();
                                     player.pause();
-                                    iframePlayer.show();
-                                    iframePlayer.attr("src", iframeSrc);
+                                    
+                                    // Hiện overlay với ảnh đại diện
+                                    $("#redirect-poster").attr("src", img || "/upload/logologo.png");
+                                    redirectOverlay.show();
+                                    
+                                    // Hiện nút "Xem ngay", ẩn loading
+                                    $("#watch-now-btn").show();
+                                    $("#redirect-spinner").hide();
+                                    $("#redirect-text").hide();
+                                    $("#redirect-subtext").hide();
+                                    
+                                    // Lưu link để dùng khi click nút "Xem ngay"
+                                    currentIframeLink = iframeSrc;
                                 } else {
-                                    // Sử dụng Video Player (HLS) - ẩn iframe
-                                    iframePlayer.hide();
-                                    iframePlayer.attr("src", ""); // Clear iframe
+                                    // Sử dụng Video Player (HLS) - ẩn redirect overlay
+                                    redirectOverlay.hide();
                                     videoWrapper.show();
                                     player.poster(img);
                                     player.src({ src: src, type: "application/x-mpegURL" });

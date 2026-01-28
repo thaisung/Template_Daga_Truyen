@@ -91,12 +91,931 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Premium Dark Theme Styles -->
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #d97706);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+        }
+
+        /* ===== PREMIUM DARK BACKGROUND ===== */
+        .premium-dark-bg {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .premium-dark-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+            animation: auroraShift 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes auroraShift {
+            0% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+        }
+
+        /* ===== GLASSMORPHISM CARDS ===== */
+        .glass-card {
+            background: rgba(30, 30, 50, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== HEADER STYLES ===== */
+        .header-premium {
+            background: rgba(15, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            box-shadow:
+                0 4px 30px rgba(245, 158, 11, 0.15),
+                0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #06b6d4, #f59e0b, transparent);
+            animation: headerGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes headerGlow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ===== MAIN TITLE ===== */
+        .main-title-premium {
+            color: #fbbf24;
+            text-shadow:
+                0 0 10px rgba(251, 191, 36, 0.6),
+                0 0 20px rgba(251, 191, 36, 0.4),
+                0 0 30px rgba(251, 191, 36, 0.2);
+            animation: titlePulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes titlePulse {
+
+            0%,
+            100% {
+                text-shadow:
+                    0 0 10px rgba(251, 191, 36, 0.6),
+                    0 0 20px rgba(251, 191, 36, 0.4),
+                    0 0 30px rgba(251, 191, 36, 0.2);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 15px rgba(251, 191, 36, 0.8),
+                    0 0 30px rgba(251, 191, 36, 0.5),
+                    0 0 45px rgba(251, 191, 36, 0.3);
+            }
+        }
+
+        /* Title container with sparkle effect */
+        .title-container {
+            position: relative;
+            padding: 16px 24px;
+            width: 100%;
+            background: rgba(15, 15, 25, 0.9);
+            border-radius: 10px;
+            border: 2px solid #fbbf24;
+            box-shadow:
+                0 0 15px rgba(251, 191, 36, 0.2),
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Shimmer sparkle effect */
+        .title-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.3),
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* ===== CHANNEL SECTION CONTAINER ===== */
+        .channel-section-premium {
+            background: rgba(15, 15, 25, 0.9);
+            border: 2px solid #fbbf24;
+            border-radius: 16px;
+            box-shadow:
+                0 0 25px rgba(251, 191, 36, 0.25),
+                inset 0 0 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-section-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(251, 191, 36, 0.05),
+                    rgba(251, 191, 36, 0.1),
+                    rgba(251, 191, 36, 0.05),
+                    transparent);
+            animation: channelShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes channelShimmer {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 150%;
+            }
+        }
+
+        /* ===== CHANNEL BUTTONS ===== */
+        .channel-btn-premium {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 8px 14px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow:
+                0 3px 12px rgba(251, 191, 36, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Shimmer sparkle effect */
+        .channel-btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    rgba(255, 255, 255, 0.6),
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            animation: btnShimmer 2.5s ease-in-out infinite;
+        }
+
+        @keyframes btnShimmer {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 150%;
+            }
+        }
+
+        .channel-btn-premium:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow:
+                0 8px 25px rgba(251, 191, 36, 0.5),
+                0 0 30px rgba(245, 158, 11, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .channel-btn-premium span:not(.dot) {
+            color: #1a1a2e;
+            font-weight: 600;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .channel-btn-premium .dot {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            min-height: 10px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+            animation: dotPulse 1.5s ease-in-out infinite;
+        }
+
+        .channel-btn-premium .dot.live {
+            background: #22c55e;
+            box-shadow: 0 0 15px #22c55e;
+        }
+
+        .channel-btn-premium .dot.offline {
+            background: #ef4444;
+            box-shadow: 0 0 15px #ef4444;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
+        }
+
+        /* ===== VIDEO PLAYER ===== */
+        .video-player-premium {
+            background: rgba(20, 20, 35, 0.9);
+            border-radius: 20px;
+            padding: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-player-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, #f59e0b, #ef4444, #8b5cf6, #06b6d4, #10b981, #f59e0b);
+            background-size: 400% 400%;
+            animation: rainbowBorder 3s linear infinite;
+            border-radius: 20px;
+            z-index: -1;
+            padding: 3px;
+        }
+
+        @keyframes rainbowBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .video-player-premium .video-inner {
+            background: #0f0f1a;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* LIVE Badge */
+        .live-badge-premium {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow:
+                0 4px 15px rgba(239, 68, 68, 0.5),
+                0 0 30px rgba(239, 68, 68, 0.3);
+            animation: livePulse 1.5s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .live-badge-premium::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: liveDot 1s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes liveDot {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Video Info */
+        .video-info-premium {
+            background: rgba(20, 20, 35, 0.95);
+            padding: 16px 20px;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .video-info-premium h2 {
+            color: #fbbf24;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+
+        .video-info-premium .viewer-count {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .video-info-premium .viewer-count svg {
+            color: #06b6d4;
+        }
+
+        /* ===== CHATBOX ===== */
+        .chatbox-premium {
+            background: rgba(20, 20, 35, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(6, 182, 212, 0.1);
+        }
+
+        .chat-header-premium {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chat-header-premium:hover {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+        }
+
+        .chat-header-premium span {
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-header-premium span::before {
+            content: '💬';
+        }
+
+        .chat-toggle-icon {
+            width: 24px;
+            height: 24px;
+            fill: rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        /* Chat Arrow Gradient */
+        .chat-arrow-gradient {
+            fill: url(#chatArrowGradient);
+            filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.6));
+            transition: all 0.3s ease;
+        }
+
+        .chat-arrow-gradient:hover {
+            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.8));
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-header-premium {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(34, 211, 238, 0.1) 50%, rgba(6, 182, 212, 0.15) 100%);
+            border: 2px solid rgba(34, 211, 238, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 32px rgba(34, 211, 238, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            animation: headerShimmer 3s infinite;
+        }
+
+        @keyframes headerShimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .section-header-premium span {
+            color: #fbbf24;
+            font-weight: 800;
+            text-shadow:
+                0 0 10px rgba(251, 191, 36, 0.8),
+                0 0 30px rgba(251, 191, 36, 0.4),
+                0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Header Icons */
+        .section-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            color: #06b6d4;
+            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.8));
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.85;
+            }
+        }
+
+        /* Video Section Headers */
+        .video-section-title {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-weight: 900;
+            font-size: clamp(18px, 4vw, 28px);
+            text-shadow:
+                0 0 15px rgba(255, 255, 255, 0.5),
+                0 2px 10px rgba(0, 0, 0, 0.8),
+                0 0 40px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* About Section Header */
+        .about-header-premium {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            color: #a78bfa;
+            font-weight: 800;
+            text-shadow:
+                0 0 15px rgba(167, 139, 250, 0.8),
+                0 0 30px rgba(167, 139, 250, 0.4);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Odds Section Header */
+        .odds-header-premium {
+            color: #22d3ee;
+            font-weight: 800;
+            text-shadow:
+                0 0 15px rgba(34, 211, 238, 0.8),
+                0 0 30px rgba(34, 211, 238, 0.4);
+        }
+
+        /* ===== ARENA BUTTONS ===== */
+        .arena-btn-premium {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 50%, #1e3a5f 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50px;
+            padding: 10px 16px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .arena-btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+            animation: arenaShimmer 3s infinite;
+        }
+
+        @keyframes arenaShimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .arena-btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 8px 25px rgba(6, 182, 212, 0.4),
+                0 0 20px rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.6);
+        }
+
+        /* ===== TAB BUTTONS ===== */
+        .tab-btn-premium {
+            background: rgba(30, 30, 50, 0.8);
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn-premium:hover {
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+        }
+
+        .tab-btn-premium.active {
+            background: rgba(245, 158, 11, 0.2);
+            border-bottom-color: #f59e0b;
+            color: #fbbf24;
+        }
+
+        /* ===== VIDEO CARDS ===== */
+        .video-section-header {
+            position: relative;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-section-header .bg-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .video-section-header .bg-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .video-section-header span {
+            position: relative;
+            z-index: 1;
+            color: white;
+            font-weight: 800;
+            text-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .video-card-premium {
+            background: rgba(30, 30, 50, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .video-card-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card-premium:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .video-card-premium:hover::before {
+            opacity: 1;
+        }
+
+        .video-card-premium .title {
+            color: #06b6d4;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px;
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Play Button */
+        .play-btn-premium {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .play-btn-premium:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .play-btn-premium svg {
+            width: 64px;
+            height: 64px;
+            color: white;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn-premium:hover svg {
+            transform: scale(1.2);
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section-premium {
+            background: rgba(15, 15, 30, 0.95);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-section-premium h2,
+        .about-section-premium h3,
+        .about-section-premium h4 {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        .about-section-premium p {
+            color: #e5e5e5;
+            line-height: 1.8;
+        }
+
+        .about-section-premium .quote {
+            border-left: 4px solid #f59e0b;
+            padding-left: 20px;
+            margin: 16px 0;
+            font-style: italic;
+            color: #f5f5f5;
+            background: rgba(245, 158, 11, 0.15);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .about-section-premium ul {
+            color: #e5e5e5;
+        }
+
+        .about-section-premium li::marker {
+            color: #06b6d4;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-premium {
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+            border-top: 1px solid rgba(245, 158, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #06b6d4, #f59e0b, transparent);
+        }
+
+        .footer-premium .copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: floatBounce 2s ease-in-out infinite;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .scroll-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+        }
+
+        @keyframes floatBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ===== SWIPER ENHANCEMENTS ===== */
+        .swiper-premium .swiper-slide {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== ODDS SECTION ===== */
+        .odds-content-premium {
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .odds-footer-premium {
+            background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            padding: 16px;
+        }
+
+        /* ===== RESPONSIVE ADJUSTMENTS ===== */
+        @media (max-width: 768px) {
+            .channel-btn-premium {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .section-header-premium {
+                padding: 12px 16px;
+            }
+
+            .video-player-premium {
+                border-radius: 12px;
+            }
+
+            .video-player-premium::before {
+                padding: 2px;
+            }
+        }
+    </style>
+
 </head>
 <!-- bg-[url('/upload/body1.jpg')] bg-cover bg-center bg-no-repeat bg-fixed -->
 
-<body class="bg-stone-100 flex flex-col items-center min-h-screen relative">
-    <header
-        class="header-bg flex items-center justify-center bg-stone-50 w-full border-b-[1px] border-stone-200 py-3 lg:py-6 px-3 lg:px-0 shadow-md">
+<body class="premium-dark-bg flex flex-col items-center min-h-screen relative">
+
+    <header class="header-premium header-bg flex items-center justify-center w-full py-3 lg:py-6 px-3 lg:px-0">
         <style>
             .header-bg {
                 /* background-image: url('/upload/ae/ae_bg.gif'); */
@@ -130,7 +1049,7 @@
                 </script>
                 <img class=" w-full h-auto" src="/upload/domain.png" />
             </a>
-            <div class=" lg:hidden flex  w-full items-center">
+            <div class=" lg:hidden flex justify-center  w-full items-center">
                 <a href="/"
                     class=" min-w-[70px] max-w-[70px] flex flex-col justify-center items-center py-2 h-full gap-2">
                     <img id="logo1" class="spin w-full h-auto " src="/upload/logologo.png" />
@@ -146,7 +1065,8 @@
                     </script>
                     <img class=" w-full h-auto" src="/upload/domain.png" />
                 </a>
-                <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-200 uppercase text-center">
+                <h1
+                    class="main-title-premium block lg:hidden text-[18px] lg:text-[30px] font-bold uppercase text-center">
                     LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
                     <br>THOMO-GÀ DAO-GÀ THÁI
                 </h1>
@@ -259,10 +1179,13 @@
         </div>
     </header>
     <main
-        class="flex flex-col justify-center items-center gap-3 lg:gap-6 h-full w-full lg:w-[1200px] py-3 lg:py-8 px-3 lg:p-0">
-        <h1 class="hidden lg:block text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
-            LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI
-        </h1>
+        class="flex flex-col justify-center items-center gap-4 lg:gap-5 h-full w-full lg:w-[1200px] py-3 lg:py-6 px-3 lg:p-0">
+        <div class="title-container hidden lg:block mb-2">
+            <h1 class="main-title-premium hidden lg:block text-[22px] lg:text-[28px] font-bold uppercase text-center"
+                data-text="LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ THOMO-GÀ DAO-GÀ THÁI">
+                LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ<br>THOMO-GÀ DAO-GÀ THÁI
+            </h1>
+        </div>
         <!-- <h1 class="block lg:hidden text-[20px] lg:text-[30px] font-bold text-yellow-950 uppercase text-center">
       LIVE TỔNG HỢP CÁC GIẢI ĐẤU ARENA TRỰC TIẾP ĐÁ GÀ
       <br>THOMO-GÀ DAO-GÀ THÁI
@@ -301,6 +1224,7 @@
 		</a> -->
 
         <!-- ADS quang cao -->
+        {% if list_Ads %}
         <div class="w-full flex flex-col gap-2">
             {% for i in list_Ads %}
             {% if i.Script %}
@@ -314,79 +1238,88 @@
             {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
 
         <!-- Các nút chọn kênh -->
-        <div
-            class="hidden lg:grid w-full py-3 lg:py-3 grid-cols-4 lg:grid-cols-9 items-center gap-3 lg:gap-6 text-stone-50">
+        <div class="hidden lg:grid w-full py-2 grid-cols-4 lg:grid-cols-9 items-center gap-2 lg:gap-4 text-stone-50">
             <div data-src="{{list_Channel.0.Key}}"
                 data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.0.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.0.Name}}" data-streamtype="{{list_Channel.0.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.0.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
             </div>
             <div data-src="{{list_Channel.1.Key}}"
                 data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.1.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.1.Name}}" data-streamtype="{{list_Channel.1.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.1.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
             </div>
             <div data-src="{{list_Channel.2.Key}}"
                 data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.2.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.2.Name}}" data-streamtype="{{list_Channel.2.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.2.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
             </div>
             <div data-src="{{list_Channel.3.Key}}"
                 data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.3.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.3.Name}}" data-streamtype="{{list_Channel.3.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.3.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
             </div>
             <div data-src="{{list_Channel.4.Key}}"
                 data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.4.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.4.Name}}" data-streamtype="{{list_Channel.4.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.4.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
             </div>
             <div data-src="{{list_Channel.5.Key}}"
                 data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.5.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.5.Name}}" data-streamtype="{{list_Channel.5.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.5.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
             </div>
             <div data-src="{{list_Channel.6.Key}}"
                 data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.6.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.6.Name}}" data-streamtype="{{list_Channel.6.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.6.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
             </div>
             <div data-src="{{list_Channel.7.Key}}"
-                data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.7.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.7.Name}}" data-streamtype="{{list_Channel.7.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.7.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
             </div>
             <div data-src="{{list_Channel.8.Key}}"
                 data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.8.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.8.Name}}" data-streamtype="{{list_Channel.8.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.8.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
             </div>
@@ -395,8 +1328,9 @@
             <div data-src="{{list_Channel.9.Key}}"
                 data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.9.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.9.Name}}" data-streamtype="{{list_Channel.9.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.9.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
             </div>
@@ -404,7 +1338,9 @@
                 data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.10.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-streamtype="{{list_Channel.10.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.10.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
             </div>
@@ -412,7 +1348,9 @@
                 data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.11.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-streamtype="{{list_Channel.11.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.11.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
             </div>
@@ -423,80 +1361,90 @@
             <div data-src="{{list_Channel.0.Key}}"
                 data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.0.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.0.Name}}" data-streamtype="{{list_Channel.0.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.0.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
             </div>
             <div data-src="{{list_Channel.1.Key}}"
                 data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.1.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.1.Name}}" data-streamtype="{{list_Channel.1.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.1.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
             </div>
             <div data-src="{{list_Channel.2.Key}}"
                 data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.2.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.2.Name}}" data-streamtype="{{list_Channel.2.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.2.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
             </div>
             <div data-src="{{list_Channel.3.Key}}"
                 data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.3.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.3.Name}}" data-streamtype="{{list_Channel.3.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.3.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
             </div>
             <div data-src="{{list_Channel.4.Key}}"
                 data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.4.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.4.Name}}" data-streamtype="{{list_Channel.4.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.4.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
             </div>
             <div data-src="{{list_Channel.5.Key}}"
                 data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.5.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.5.Name}}" data-streamtype="{{list_Channel.5.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.5.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
             </div>
             <div data-src="{{list_Channel.6.Key}}"
                 data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.6.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.6.Name}}" data-streamtype="{{list_Channel.6.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.6.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
             </div>
             <div data-src="{{list_Channel.7.Key}}"
                 data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.7.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.7.Name}}" data-streamtype="{{list_Channel.7.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.7.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
             </div>
             <div data-src="{{list_Channel.8.Key}}"
                 data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.8.Name}}"
-                class="channel inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.8.Name}}" data-streamtype="{{list_Channel.8.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.8.Iframe|default:''}}"
+                class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
             </div>
             <div data-src="{{list_Channel.9.Key}}"
                 data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.9.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-namechannel="{{list_Channel.9.Name}}" data-streamtype="{{list_Channel.9.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.9.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
             </div>
@@ -504,7 +1452,9 @@
                 data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.10.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-streamtype="{{list_Channel.10.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.10.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
             </div>
@@ -512,7 +1462,9 @@
                 data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.11.Name}}"
-                class="channel w-full inline-flex items-center justify-center gap-2 px-2 py-2 rounded-full bg-gradient-to-r from-sky-600 hover:from-sky-700 to-sky-400 hover:to-sky-500 cursor-pointer shadow-md">
+                data-streamtype="{{list_Channel.11.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.11.Iframe|default:''}}"
+                class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
             </div>
@@ -520,15 +1472,25 @@
 
 
         <!-- Video & Chatbox -->
-        <div class="w-full  flex flex-col items-center justify-center gap-4">
+        <div class="w-full flex flex-col items-center justify-center gap-4">
             <!-- Player + Info -->
-            <div id="display_video" class="w-full bg-white rounded-2xl shadow ">
-                <div class="relative">
-                    <!-- Player -->
+            <div id="display_video" class="video-player-premium w-full">
+                <div class="video-inner relative">
+                    <!-- Video Player (for URL stream) -->
                     <video id="my-video"
-                        class="video-js vjs-big-play-centered  rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
+                        class="video-js vjs-big-play-centered rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
                         controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
                         poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
+
+                    <!-- IFrame Player (for iframe embed) -->
+                    <iframe id="iframe-player"
+                        class="w-full aspect-[16/9] rounded-xl lg:rounded-2xl"
+                        style="display: none;"
+                        src=""
+                        frameborder="0" 
+                        allowfullscreen 
+                        allow="autoplay; fullscreen; picture-in-picture; camera; microphone; encrypted-media"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
                     <style>
@@ -546,6 +1508,23 @@
                             width: 100% !important;
                             height: 100% !important;
                             object-fit: cover;
+                        }
+                        
+                        /* Fix hidden class cho video-js wrapper */
+                        .video-js.hidden,
+                        #my-video.hidden,
+                        #my-video_html5_api.hidden {
+                            display: none !important;
+                        }
+                        
+                        /* Iframe player styles */
+                        #iframe-player {
+                            border: none;
+                            background: #000;
+                        }
+                        
+                        #iframe-player.hidden {
+                            display: none !important;
                         }
                     </style>
 
@@ -574,21 +1553,35 @@
                             });
 
                             let errorBox = $("#video-error");
-
-                            // 👇 Set source mặc định ban đầu
-                            player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
-                            player.src({
-                                src: "{{list_Channel.0.Key}}",
-                                type: "application/x-mpegURL"
-                            });
-
-
-                            // 👇 Đảm bảo play khi vào trang
-                            player.ready(function () {
-                                player.play().catch(err => {
-                                    console.warn("Autoplay bị chặn:", err);
+                            
+                            // ===== XỬ LÝ TRẠNG THÁI KHỞI TẠO =====
+                            let firstChannelStreamType = "{{list_Channel.0.StreamType|default:'url'}}";
+                            let firstChannelIframe = "{{list_Channel.0.Iframe|default:''}}";
+                            
+                            if (firstChannelStreamType === "iframe" && firstChannelIframe) {
+                                // Kênh đầu tiên dùng iframe - ẩn video player
+                                $(".video-js").hide();
+                                $("#iframe-player").show().attr("src", firstChannelIframe);
+                            } else {
+                                // Kênh đầu tiên dùng URL - ẩn iframe
+                                $("#iframe-player").hide();
+                                $(".video-js").show();
+                                
+                                // 👇 Set source mặc định ban đầu
+                                player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
+                                player.src({
+                                    src: "{{list_Channel.0.Key}}",
+                                    type: "application/x-mpegURL"
                                 });
-                            });
+
+
+                                // 👇 Đảm bảo play khi vào trang
+                                player.ready(function () {
+                                    player.play().catch(err => {
+                                        console.warn("Autoplay bị chặn:", err);
+                                    });
+                                });
+                            }
 
                             $(".channel").click(async function () {
 
@@ -638,31 +1631,53 @@
                                 let src = $(this).data("src");
                                 let img = $(this).data("img");
                                 let ratio = $(this).data("ratio");
+                                let streamType = $(this).data("streamtype") || "url";
+                                let iframeSrc = $(this).data("iframe") || "";
                                 let isLG = window.matchMedia("(min-width: 768px)").matches;
 
                                 $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
                                 $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
 
                                 let video = $("#my-video");
+                                let iframePlayer = $("#iframe-player");
 
+                                // Reset aspect ratio classes
                                 video.removeClass("aspect-[16/9] aspect-[9/16]");
+                                iframePlayer.removeClass("aspect-[16/9] aspect-[9/16]");
 
                                 if (ratio === "9-16") {
                                     video.addClass("aspect-[9/16]");
+                                    iframePlayer.addClass("aspect-[9/16]");
                                     if (isLG) {
                                         $("#display_video").removeClass("w-full").addClass("w-[800px]");
                                     }
                                     $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
                                 } else {
                                     video.addClass("aspect-[16/9]");
+                                    iframePlayer.addClass("aspect-[16/9]");
                                     $("#display_video").removeClass("w-[800px]");
                                     $("#display_video").addClass("w-full");
                                     $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
                                 }
 
-                                player.poster(img);
-                                player.src({ src: src, type: "application/x-mpegURL" });
-                                player.play();
+                                // ======= CHUYỂN ĐỔI GIỮA VIDEO PLAYER VÀ IFRAME =======
+                                let videoWrapper = $(".video-js"); // VideoJS tạo wrapper div
+                                
+                                if (streamType === "iframe" && iframeSrc) {
+                                    // Sử dụng IFrame - ẩn video player
+                                    videoWrapper.hide();
+                                    player.pause();
+                                    iframePlayer.show();
+                                    iframePlayer.attr("src", iframeSrc);
+                                } else {
+                                    // Sử dụng Video Player (HLS) - ẩn iframe
+                                    iframePlayer.hide();
+                                    iframePlayer.attr("src", ""); // Clear iframe
+                                    videoWrapper.show();
+                                    player.poster(img);
+                                    player.src({ src: src, type: "application/x-mpegURL" });
+                                    player.play();
+                                }
 
                                 errorBox.addClass("hidden");
                             });
@@ -679,21 +1694,17 @@
                     </script>
 
                     <!-- LIVE badge -->
-                    <div id="icon_live"
-                        class="absolute top-3 left-3 bg-red-700 text-white text-xs px-2 py-1 rounded-lg animate-pulse font-bold">
-                        🔴 LIVE
+                    <div id="icon_live" class="live-badge-premium">
+                        LIVE
                     </div>
                 </div>
 
                 <!-- Video info -->
-                <div class="p-1 lg:p-3">
-                    <h2 class="text-lg font-semibold">Trực tiếp Đá Gà - Giải đấu hôm nay</h2>
-                    <!-- <p id="viewer-count" class="text-gray-600 text-sm mt-1">
-            👁️ <span id="count">3.0</span>k người đang xem
-          </p> -->
-                    <div class="flex items-center  text-gray-500 gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h- text-gray-500 mt-1" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="video-info-premium">
+                    <h2>Trực tiếp Đá Gà - Giải đấu hôm nay</h2>
+                    <div class="viewer-count">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -723,85 +1734,28 @@
             </div>
 
             <!-- Chat box -->
-            <div class="w-full bg-white rounded-2xl shadow flex flex-col">
-                <div id="toggleTab" class="flex items-center justify-between p-3  font-semibold">
+            <div class="chatbox-premium w-full flex flex-col">
+                <div id="toggleTab" class="chat-header-premium">
                     <span>Live Chat</span>
                     <div class="flex">
+                        <!-- SVG Gradient Definition -->
+                        <svg width="0" height="0" style="position:absolute;">
+                            <defs>
+                                <linearGradient id="chatArrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
                         <div id="open_livechat" class="">
-                            <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                y="0px" viewBox="0 0 386.257 386.257" style="enable-background:new 0 0 386.257 386.257;"
-                                xml:space="preserve">
-                                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
+                            <svg class="w-[20px] cursor-pointer chat-arrow-gradient" viewBox="0 0 386.257 386.257">
+                                <polygon points="0,96.879 193.129,289.379 386.257,96.879"></polygon>
                             </svg>
                         </div>
                         <div id="close_livechat" class="hidden">
-                            <svg class="w-[20px] cursor-pointer" version="1.1" id="Layer_1"
-                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                y="0px" viewBox="0 0 386.257 386.257" style="enable-background:new 0 0 386.257 386.257;"
-                                xml:space="preserve"
-                                transform="matrix(-1,1.2246467991473532e-16,-1.2246467991473532e-16,-1,0,0)">
-                                <polygon points="0,96.879 193.129,289.379 386.257,96.879 "></polygon>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
-                                <g>
-                                </g>
+                            <svg class="w-[20px] cursor-pointer chat-arrow-gradient" viewBox="0 0 386.257 386.257"
+                                style="transform: rotate(180deg);">
+                                <polygon points="0,96.879 193.129,289.379 386.257,96.879"></polygon>
                             </svg>
                         </div>
                     </div>
@@ -825,65 +1779,58 @@
 
         <!-- Danh mục các sân -->
         <div class="w-full flex flex-col items-center justify-center gap-3">
-            <span class="w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5">Danh mục các
-                sân đang
-                phát sóng GÀ THOMO—GÀ DAO — GàThái</span>
-            <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3  text-[14px] lg:text-[16px]">
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2 ">CPC1</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV1</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">DV2</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7a</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC2</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ1</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CJ2</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7b</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC3</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">NN2</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TH7c</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC4</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC1</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">PC2</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">CPC5</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">TONHON</a>
-                <a href="#"
-                    class="rounded-full font-bold w-full bg-[#446084] hover:bg-[#334862] text-stone-50 text-center p-2">Ta1</a>
+            <span
+                class="section-header-premium w-full text-center font-bold text-[17px] lg:text-[20px] uppercase py-2 lg:py-5"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-broadcast-tower mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                Danh mục các sân đang phát sóng GÀ THOMO—GÀ DAO — GàThái
+            </span>
+            <div class="w-full grid grid-cols-3 lg:grid-cols-9 gap-3 text-[14px] lg:text-[16px]">
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">DV1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">DV2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7a</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CJ1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CJ2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7b</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC3</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">NN</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">NN2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TH7c</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC4</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">PC1</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">PC2</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">CPC5</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">TONHON</a>
+                <a href="#" class="arena-btn-premium rounded-full font-bold w-full text-center p-2">Ta1</a>
             </div>
         </div>
 
         <!-- ADS click link -->
         <div class="w-full flex flex-col justify-center items-center gap-2 mt-3">
-            <span class="hidden md:block uppercase font-bold text-center text-sky-600 text-[18px] lg:text-[20px]">TRANG
-                XEM HỖ
-                TRỢ , TRANG GỐC ,TỶ LỆ CHUẨN , TRANG CHẠY NHANH TỐC ĐỘ</span>
-            <span class="md:hidden uppercase font-bold text-center text-sky-600 text-[18px] lg:text-[20px]">TRANG XEM HỖ
-                TRỢ ,
-                TRANG GỐC ,
-                <br>TỶ LỆ CHUẨN ,
-                <br>
-                TRANG CHẠY NHANH TỐC ĐỘ</span>
-            <div
-                class="flex justify-between w-full gap-0 overflow-x-auto mt-2  bg-stone-50 text-stone-950 font-bold shadow-sm">
+            <span class="hidden md:block uppercase font-bold text-center text-[18px] lg:text-[20px]"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-chart-line mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                TRANG XEM HỖ TRỢ, TRANG GỐC, TỶ LỆ CHUẨN, TRANG CHẠY NHANH TỐC ĐỘ
+            </span>
+            <span class="md:hidden uppercase font-bold text-center text-[18px] lg:text-[20px]"
+                style="color: #22d3ee; text-shadow: 0 0 15px rgba(34,211,238,0.8), 0 2px 4px rgba(0,0,0,0.5);">
+                <i class="fas fa-chart-line mr-3"
+                    style="color: #22d3ee; filter: drop-shadow(0 0 8px rgba(34,211,238,0.8));"></i>
+                TRANG XEM HỖ TRỢ, TRANG GỐC,
+                <br>TỶ LỆ CHUẨN,
+                <br>TRANG CHẠY NHANH TỐC ĐỘ
+            </span>
+            <div class="flex justify-between w-full gap-0 overflow-x-auto mt-2 rounded-xl overflow-hidden"
+                style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(34, 211, 238, 0.3);">
                 {% for i in list_Odds %}
-                <button data-target="#odds{{i.id}}"
-                    class="tab-btn w-full whitespace-nowrap my-button px-4 py-2 font-bold border-b-[1px] {% if  forloop.first %}border-sky-500 bg-sky-200{% endif %} border-stone-200 hover:border-b-[2px] hover:border-sky-500 hover:bg-sky-200">
+                <button data-target="#odds{{i.id}}" class="tab-btn w-full whitespace-nowrap px-4 py-3 font-bold transition-all duration-300
+          {% if forloop.first %}text-cyan-400{% else %}text-stone-400{% endif %}
+          hover:text-cyan-300 hover:bg-cyan-500/10"
+                    style="{% if forloop.first %}background: linear-gradient(180deg, rgba(34,211,238,0.15) 0%, transparent 100%); border-bottom: 2px solid #22d3ee;{% else %}border-bottom: 2px solid transparent;{% endif %}">
                     {{i.Category}}
                 </button>
                 {% endfor %}
@@ -908,19 +1855,27 @@
                     $(".tab-btn").on("click", function () {
                         let target = $(this).data("target");
 
-                        // reset nút
+                        // reset tất cả nút
                         $(".tab-btn")
-                            .removeClass("border-b-[2px] border-sky-500 bg-sky-200")
-                            .addClass("border-b-[1px] border-stone-200");
+                            .removeClass("text-cyan-400")
+                            .addClass("text-stone-400")
+                            .css({
+                                "background": "transparent",
+                                "border-bottom": "2px solid transparent"
+                            });
 
                         // kích hoạt nút đang chọn
                         $(this)
-                            .addClass("border-b-[2px] border-sky-500 bg-sky-200")
-                            .removeClass("border-b-[1px] border-stone-200");
+                            .removeClass("text-stone-400")
+                            .addClass("text-cyan-400")
+                            .css({
+                                "background": "linear-gradient(180deg, rgba(34,211,238,0.15) 0%, transparent 100%)",
+                                "border-bottom": "2px solid #22d3ee"
+                            });
 
                         // ẩn tab hiện tại bằng fadeOut rồi hiện tab mới bằng fadeIn
                         $(".tab-content:visible").fadeOut(200, function () {
-                            $(".tab-content").addClass("hidden"); // ẩn hẳn
+                            $(".tab-content").addClass("hidden");
                             $(target).removeClass("hidden").hide().fadeIn(200);
                         });
                     });
@@ -999,17 +1954,24 @@
 
 
         <!-- Video đá gà mới nhất hôm nay -->
-        <div class="flex flex-col w-full mt-3  gap-6">
-            <div class="relative flex items-center justify-center w-full h-[80px] rounded-lg overflow-hidden">
-                <div class="w-[50%] bg-red-600 h-full"></div>
-                <div class="w-[50%] bg-blue-600 h-full"></div>
-                <span
-                    class="lg:hidden absolute inset-0 flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video
-                    đá gà mới nhất
-                    <br>hôm nay</span>
-                <span
-                    class="hidden lg:flex absolute inset-0  items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video
-                    đá gà mới nhất hôm nay</span>
+        <div class="flex flex-col w-full mt-3 gap-6">
+            <div class="relative flex items-center justify-center w-full h-[70px] lg:h-[80px] rounded-xl overflow-hidden px-4 lg:px-6"
+                style="background: linear-gradient(135deg, #dc2626 0%, #7c3aed 50%, #2563eb 100%); box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);">
+                <!-- Glowing border effect -->
+                <div class="absolute inset-0 rounded-xl"
+                    style="background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(255,255,255,0.1) 100%); pointer-events: none;">
+                </div>
+                <!-- Icon -->
+                <div class="flex items-center justify-center w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-full mr-4 lg:mr-6 flex-shrink-0"
+                    style="background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 0 20px rgba(255,255,255,0.2);">
+                    <i class="fas fa-video text-xl lg:text-2xl text-white"
+                        style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));"></i>
+                </div>
+                <!-- Text -->
+                <span class="video-section-title uppercase text-[16px] lg:text-[24px] font-bold text-white"
+                    style="text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3);">
+                    Video đá gà mới nhất hôm nay
+                </span>
             </div>
             <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {% for i in list_Video_GaThuong %}
@@ -1027,24 +1989,32 @@
                             </svg>
                         </button>
                     </div>
-                    <span class="uppercase font-bold mt-2 text-blue-700 text-[13px] lg:text-[18px]">{{i.Title}}</span>
+                    <span class="uppercase font-bold mt-2 text-cyan-400 text-[13px] lg:text-[18px]"
+                        style="text-shadow: 0 0 10px rgba(34,211,238,0.5);">{{i.Title}}</span>
                 </div>
                 {% endfor %}
             </div>
         </div>
 
         <!-- Video đá gà dao mới nhất hôm nay -->
-        <div class="flex flex-col w-full mt-3  gap-6">
-            <div class="relative flex items-center justify-center w-full h-[80px] rounded-lg overflow-hidden">
-                <div class="w-[50%] bg-red-600 h-full"></div>
-                <div class="w-[50%] bg-blue-600 h-full"></div>
-                <span
-                    class="lg:hidden absolute inset-0 flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video
-                    đá gà Dao mới nhất
-                    <br>hôm nay</span>
-                <span
-                    class="hidden lg:flex absolute inset-0  items-center justify-center uppercase font-bold text-[20px] lg:text-[28px]   p-3 text-center text-stone-50 bg-transparent">Video
-                    đá gà Dao mới nhất hôm nay</span>
+        <div class="flex flex-col w-full mt-3 gap-6">
+            <div class="relative flex items-center justify-center w-full h-[70px] lg:h-[80px] rounded-xl overflow-hidden px-4 lg:px-6"
+                style="background: linear-gradient(135deg, #dc2626 0%, #7c3aed 50%, #2563eb 100%); box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);">
+                <!-- Glowing border effect -->
+                <div class="absolute inset-0 rounded-xl"
+                    style="background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(255,255,255,0.1) 100%); pointer-events: none;">
+                </div>
+                <!-- Icon -->
+                <div class="flex items-center justify-center w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-full mr-4 lg:mr-6 flex-shrink-0"
+                    style="background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.3); box-shadow: 0 0 20px rgba(255,255,255,0.2);">
+                    <i class="fas fa-shield-halved text-xl lg:text-2xl text-white"
+                        style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));"></i>
+                </div>
+                <!-- Text -->
+                <span class="video-section-title uppercase text-[16px] lg:text-[24px] font-bold text-white"
+                    style="text-shadow: 0 2px 10px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.3);">
+                    Video đá gà Dao mới nhất hôm nay
+                </span>
             </div>
             <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {% for i in list_Video_GaDao %}
@@ -1062,7 +2032,8 @@
                             </svg>
                         </button>
                     </div>
-                    <span class="uppercase font-bold mt-2 text-blue-700 text-[13px] lg:text-[18px]">{{i.Title}}</span>
+                    <span class="uppercase font-bold mt-2 text-cyan-400 text-[13px] lg:text-[18px]"
+                        style="text-shadow: 0 0 10px rgba(34,211,238,0.5);">{{i.Title}}</span>
                 </div>
                 {% endfor %}
             </div>
@@ -1080,11 +2051,15 @@
         </script>
 
         <!-- About us -->
-        <div class="flex flex-col w-full mt-3  gap-2">
+        <div class="flex flex-col w-full mt-3 gap-2">
             <span
-                class="flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px] bg-stone-200 rounded-lg p-3 text-center h-[60px] lg:h-[80px]">Bài
-                viết giới thiệu</span>
-            <div class="w-full flex flex-col items-center justify-center mt-5 text-[13px] lg:text-[16px]">
+                class="about-header-premium flex items-center justify-center uppercase font-bold text-[20px] lg:text-[28px] rounded-xl p-3 text-center h-[60px] lg:h-[80px]">
+                <i class="fas fa-info-circle section-icon"
+                    style="color: #a78bfa; filter: drop-shadow(0 0 8px rgba(167,139,250,0.8));"></i>
+                Bài viết giới thiệu
+            </span>
+            <div
+                class="about-section-premium w-full flex flex-col items-center justify-center mt-5 text-[13px] lg:text-[16px] p-4 lg:p-6 rounded-xl">
                 <div class="w-full flex flex-col  justify-center">
                     <h2 class="uppercase font-bold text-[18px] lg:text-[22px]">
                         XemLiveGa - Đỉnh Cao <span class="font-bold">đá gà trực tiếp</span> Tại Việt Nam
@@ -1404,13 +2379,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="flex flex-col items-center justify-center w-full  bg-stone-950">
-        <span
-            class=" py-6 text-stone-50 font-bold text-[17px] lg:text-[20px]  w-full text-center uppercase px-2 lg:px-0">
+    <footer class="footer-premium flex flex-col items-center justify-center w-full">
+        <span class="copyright py-6 font-bold text-[17px] lg:text-[20px] w-full text-center uppercase px-2 lg:px-0">
             © 2025 Xemlivega. All rights reserved.
         </span>
-        <img id="scrollTopImg" class="w-[100px] lg:w-[150px] h-auto mb-5 rounded-md lg:rounded-lg cursor-pointer"
-            src="/upload/domain.png" />
+        <img id="scrollTopImg" class="scroll-top-btn w-[100px] lg:w-[150px] h-auto mb-5" src="/upload/domain.png" />
 
         <script>
             function smoothScrollToTop(duration = 1000) {
