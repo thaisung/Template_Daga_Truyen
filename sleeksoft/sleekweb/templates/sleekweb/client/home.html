@@ -1245,7 +1245,8 @@
             <div data-src="{{list_Channel.0.Key}}"
                 data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.0.Name}}"
+                data-namechannel="{{list_Channel.0.Name}}" data-streamtype="{{list_Channel.0.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.0.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
@@ -1253,7 +1254,8 @@
             <div data-src="{{list_Channel.1.Key}}"
                 data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.1.Name}}"
+                data-namechannel="{{list_Channel.1.Name}}" data-streamtype="{{list_Channel.1.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.1.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
@@ -1261,7 +1263,8 @@
             <div data-src="{{list_Channel.2.Key}}"
                 data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.2.Name}}"
+                data-namechannel="{{list_Channel.2.Name}}" data-streamtype="{{list_Channel.2.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.2.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
@@ -1269,7 +1272,8 @@
             <div data-src="{{list_Channel.3.Key}}"
                 data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.3.Name}}"
+                data-namechannel="{{list_Channel.3.Name}}" data-streamtype="{{list_Channel.3.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.3.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
@@ -1277,7 +1281,8 @@
             <div data-src="{{list_Channel.4.Key}}"
                 data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.4.Name}}"
+                data-namechannel="{{list_Channel.4.Name}}" data-streamtype="{{list_Channel.4.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.4.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
@@ -1285,7 +1290,8 @@
             <div data-src="{{list_Channel.5.Key}}"
                 data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.5.Name}}"
+                data-namechannel="{{list_Channel.5.Name}}" data-streamtype="{{list_Channel.5.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.5.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
@@ -1293,15 +1299,17 @@
             <div data-src="{{list_Channel.6.Key}}"
                 data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.6.Name}}"
+                data-namechannel="{{list_Channel.6.Name}}" data-streamtype="{{list_Channel.6.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.6.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
             </div>
             <div data-src="{{list_Channel.7.Key}}"
-                data-img="{% if list_Channel.7Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
+                data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.7.Name}}"
+                data-namechannel="{{list_Channel.7.Name}}" data-streamtype="{{list_Channel.7.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.7.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
@@ -1309,7 +1317,8 @@
             <div data-src="{{list_Channel.8.Key}}"
                 data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.8.Name}}"
+                data-namechannel="{{list_Channel.8.Name}}" data-streamtype="{{list_Channel.8.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.8.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
@@ -1319,7 +1328,8 @@
             <div data-src="{{list_Channel.9.Key}}"
                 data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.9.Name}}"
+                data-namechannel="{{list_Channel.9.Name}}" data-streamtype="{{list_Channel.9.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.9.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
@@ -1328,6 +1338,8 @@
                 data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.10.Name}}"
+                data-streamtype="{{list_Channel.10.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.10.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
@@ -1336,6 +1348,8 @@
                 data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.11.Name}}"
+                data-streamtype="{{list_Channel.11.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.11.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
@@ -1347,7 +1361,8 @@
             <div data-src="{{list_Channel.0.Key}}"
                 data-img="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.0.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.0.Name}}"
+                data-namechannel="{{list_Channel.0.Name}}" data-streamtype="{{list_Channel.0.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.0.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-lime-500 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.0.Name}}</span>
@@ -1355,7 +1370,8 @@
             <div data-src="{{list_Channel.1.Key}}"
                 data-img="{% if list_Channel.1.Avatar %}{{list_Channel.1.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.1.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.1.Name}}"
+                data-namechannel="{{list_Channel.1.Name}}" data-streamtype="{{list_Channel.1.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.1.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.1.Name}}</span>
@@ -1363,7 +1379,8 @@
             <div data-src="{{list_Channel.2.Key}}"
                 data-img="{% if list_Channel.2.Avatar %}{{list_Channel.2.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.2.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.2.Name}}"
+                data-namechannel="{{list_Channel.2.Name}}" data-streamtype="{{list_Channel.2.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.2.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.2.Name}}</span>
@@ -1371,7 +1388,8 @@
             <div data-src="{{list_Channel.3.Key}}"
                 data-img="{% if list_Channel.3.Avatar %}{{list_Channel.3.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.3.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.3.Name}}"
+                data-namechannel="{{list_Channel.3.Name}}" data-streamtype="{{list_Channel.3.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.3.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.3.Name}}</span>
@@ -1379,7 +1397,8 @@
             <div data-src="{{list_Channel.4.Key}}"
                 data-img="{% if list_Channel.4.Avatar %}{{list_Channel.4.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.4.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.4.Name}}"
+                data-namechannel="{{list_Channel.4.Name}}" data-streamtype="{{list_Channel.4.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.4.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.4.Name}}</span>
@@ -1387,7 +1406,8 @@
             <div data-src="{{list_Channel.5.Key}}"
                 data-img="{% if list_Channel.5.Avatar %}{{list_Channel.5.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.5.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.5.Name}}"
+                data-namechannel="{{list_Channel.5.Name}}" data-streamtype="{{list_Channel.5.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.5.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.5.Name}}</span>
@@ -1395,7 +1415,8 @@
             <div data-src="{{list_Channel.6.Key}}"
                 data-img="{% if list_Channel.6.Avatar %}{{list_Channel.6.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.6.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.6.Name}}"
+                data-namechannel="{{list_Channel.6.Name}}" data-streamtype="{{list_Channel.6.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.6.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.6.Name}}</span>
@@ -1403,7 +1424,8 @@
             <div data-src="{{list_Channel.7.Key}}"
                 data-img="{% if list_Channel.7.Avatar %}{{list_Channel.7.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.7.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.7.Name}}"
+                data-namechannel="{{list_Channel.7.Name}}" data-streamtype="{{list_Channel.7.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.7.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.7.Name}}</span>
@@ -1411,7 +1433,8 @@
             <div data-src="{{list_Channel.8.Key}}"
                 data-img="{% if list_Channel.8.Avatar %}{{list_Channel.8.Avatar.url}}{% endif %}" data-ratio="16-9"
                 data-password="{% if list_Channel.8.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.8.Name}}"
+                data-namechannel="{{list_Channel.8.Name}}" data-streamtype="{{list_Channel.8.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.8.Iframe|default:''}}"
                 class="channel channel-btn-premium inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.8.Name}}</span>
@@ -1419,7 +1442,8 @@
             <div data-src="{{list_Channel.9.Key}}"
                 data-img="{% if list_Channel.9.Avatar %}{{list_Channel.9.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.9.Password %}1{% else %}0{% endif %}"
-                data-namechannel="{{list_Channel.9.Name}}"
+                data-namechannel="{{list_Channel.9.Name}}" data-streamtype="{{list_Channel.9.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.9.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.9.Name}}</span>
@@ -1428,6 +1452,8 @@
                 data-img="{% if list_Channel.10.Avatar %}{{list_Channel.10.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.10.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.10.Name}}"
+                data-streamtype="{{list_Channel.10.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.10.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.10.Name}}</span>
@@ -1436,6 +1462,8 @@
                 data-img="{% if list_Channel.11.Avatar %}{{list_Channel.11.Avatar.url}}{% endif %}" data-ratio="9-16"
                 data-password="{% if list_Channel.11.Password %}1{% else %}0{% endif %}"
                 data-namechannel="{{list_Channel.11.Name}}"
+                data-streamtype="{{list_Channel.11.StreamType|default:'url'}}"
+                data-iframe="{{list_Channel.11.Iframe|default:''}}"
                 class="channel channel-btn-premium w-full inline-flex items-center justify-center gap-2 cursor-pointer">
                 <span class="dot w-3 h-3 bg-red-600 rounded-full shadow-[0_0_6px_rgba(255,0,0,0.6)]"></span>
                 <span class="text-stone-50 font-semibold text-sm">{{list_Channel.11.Name}}</span>
@@ -1448,11 +1476,21 @@
             <!-- Player + Info -->
             <div id="display_video" class="video-player-premium w-full">
                 <div class="video-inner relative">
-                    <!-- Player -->
+                    <!-- Video Player (for URL stream) -->
                     <video id="my-video"
-                        class="video-js vjs-big-play-centered  rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
+                        class="video-js vjs-big-play-centered rounded-xl lg:rounded-2xl overflow-hidden w-full aspect-[16/9]"
                         controls autoplay muted playsinline preload="auto" src="{{list_Channel.0.Key}}"
                         poster="{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}"></video>
+
+                    <!-- IFrame Player (for iframe embed) -->
+                    <iframe id="iframe-player"
+                        class="w-full aspect-[16/9] rounded-xl lg:rounded-2xl"
+                        style="display: none;"
+                        src=""
+                        frameborder="0" 
+                        allowfullscreen 
+                        allow="autoplay; fullscreen; picture-in-picture; camera; microphone; encrypted-media"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
                     <style>
@@ -1470,6 +1508,23 @@
                             width: 100% !important;
                             height: 100% !important;
                             object-fit: cover;
+                        }
+                        
+                        /* Fix hidden class cho video-js wrapper */
+                        .video-js.hidden,
+                        #my-video.hidden,
+                        #my-video_html5_api.hidden {
+                            display: none !important;
+                        }
+                        
+                        /* Iframe player styles */
+                        #iframe-player {
+                            border: none;
+                            background: #000;
+                        }
+                        
+                        #iframe-player.hidden {
+                            display: none !important;
                         }
                     </style>
 
@@ -1498,21 +1553,35 @@
                             });
 
                             let errorBox = $("#video-error");
-
-                            // 👇 Set source mặc định ban đầu
-                            player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
-                            player.src({
-                                src: "{{list_Channel.0.Key}}",
-                                type: "application/x-mpegURL"
-                            });
-
-
-                            // 👇 Đảm bảo play khi vào trang
-                            player.ready(function () {
-                                player.play().catch(err => {
-                                    console.warn("Autoplay bị chặn:", err);
+                            
+                            // ===== XỬ LÝ TRẠNG THÁI KHỞI TẠO =====
+                            let firstChannelStreamType = "{{list_Channel.0.StreamType|default:'url'}}";
+                            let firstChannelIframe = "{{list_Channel.0.Iframe|default:''}}";
+                            
+                            if (firstChannelStreamType === "iframe" && firstChannelIframe) {
+                                // Kênh đầu tiên dùng iframe - ẩn video player
+                                $(".video-js").hide();
+                                $("#iframe-player").show().attr("src", firstChannelIframe);
+                            } else {
+                                // Kênh đầu tiên dùng URL - ẩn iframe
+                                $("#iframe-player").hide();
+                                $(".video-js").show();
+                                
+                                // 👇 Set source mặc định ban đầu
+                                player.poster('{% if list_Channel.0.Avatar %}{{list_Channel.0.Avatar.url}}{% endif %}');
+                                player.src({
+                                    src: "{{list_Channel.0.Key}}",
+                                    type: "application/x-mpegURL"
                                 });
-                            });
+
+
+                                // 👇 Đảm bảo play khi vào trang
+                                player.ready(function () {
+                                    player.play().catch(err => {
+                                        console.warn("Autoplay bị chặn:", err);
+                                    });
+                                });
+                            }
 
                             $(".channel").click(async function () {
 
@@ -1562,31 +1631,53 @@
                                 let src = $(this).data("src");
                                 let img = $(this).data("img");
                                 let ratio = $(this).data("ratio");
+                                let streamType = $(this).data("streamtype") || "url";
+                                let iframeSrc = $(this).data("iframe") || "";
                                 let isLG = window.matchMedia("(min-width: 768px)").matches;
 
                                 $(".channel .dot").removeClass("bg-lime-500").addClass("bg-red-600");
                                 $(this).find(".dot").removeClass("bg-red-600").addClass("bg-lime-500");
 
                                 let video = $("#my-video");
+                                let iframePlayer = $("#iframe-player");
 
+                                // Reset aspect ratio classes
                                 video.removeClass("aspect-[16/9] aspect-[9/16]");
+                                iframePlayer.removeClass("aspect-[16/9] aspect-[9/16]");
 
                                 if (ratio === "9-16") {
                                     video.addClass("aspect-[9/16]");
+                                    iframePlayer.addClass("aspect-[9/16]");
                                     if (isLG) {
                                         $("#display_video").removeClass("w-full").addClass("w-[800px]");
                                     }
                                     $("#icon_live").addClass("hidden"); // ✅ Ẩn LIVE nếu 9:16
                                 } else {
                                     video.addClass("aspect-[16/9]");
+                                    iframePlayer.addClass("aspect-[16/9]");
                                     $("#display_video").removeClass("w-[800px]");
                                     $("#display_video").addClass("w-full");
                                     $("#icon_live").removeClass("hidden"); // ✅ Hiện LIVE nếu 16:9
                                 }
 
-                                player.poster(img);
-                                player.src({ src: src, type: "application/x-mpegURL" });
-                                player.play();
+                                // ======= CHUYỂN ĐỔI GIỮA VIDEO PLAYER VÀ IFRAME =======
+                                let videoWrapper = $(".video-js"); // VideoJS tạo wrapper div
+                                
+                                if (streamType === "iframe" && iframeSrc) {
+                                    // Sử dụng IFrame - ẩn video player
+                                    videoWrapper.hide();
+                                    player.pause();
+                                    iframePlayer.show();
+                                    iframePlayer.attr("src", iframeSrc);
+                                } else {
+                                    // Sử dụng Video Player (HLS) - ẩn iframe
+                                    iframePlayer.hide();
+                                    iframePlayer.attr("src", ""); // Clear iframe
+                                    videoWrapper.show();
+                                    player.poster(img);
+                                    player.src({ src: src, type: "application/x-mpegURL" });
+                                    player.play();
+                                }
 
                                 errorBox.addClass("hidden");
                             });

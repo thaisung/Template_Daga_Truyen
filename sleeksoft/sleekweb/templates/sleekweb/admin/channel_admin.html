@@ -77,6 +77,29 @@
                 </div>
 
                 <div class="flex flex-col gap-1">
+                    <label class="text-xs text-amber-500 font-medium uppercase tracking-wider">Iframe</label>
+                    <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full">
+                        {% csrf_token %}
+                        <input placeholder="Iframe embed URL" name="Iframe" value="{{i.Iframe}}"
+                            onchange="this.form.submit()" class="admin-input rounded-lg w-full px-4 py-2" />
+                    </form>
+                </div>
+
+                <div class="flex flex-col gap-1">
+                    <label class="text-xs text-amber-500 font-medium uppercase tracking-wider">Loại phát</label>
+                    <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full">
+                        {% csrf_token %}
+                        <select name="StreamType" onchange="this.form.submit()"
+                            class="admin-input rounded-lg w-full px-4 py-2 cursor-pointer">
+                            <option value="url" {% if i.StreamType == 'url' or not i.StreamType %}selected{% endif %}>🎬
+                                URL phát (HLS/M3U8)</option>
+                            <option value="iframe" {% if i.StreamType == 'iframe' %}selected{% endif %}>📺 IFrame embed
+                            </option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="flex flex-col gap-1">
                     <label class="text-xs text-amber-500 font-medium uppercase tracking-wider">Thứ tự</label>
                     <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full">
                         {% csrf_token %}

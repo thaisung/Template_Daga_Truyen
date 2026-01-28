@@ -111,6 +111,27 @@ dể cấp chứng chỉ
 
 
 
+rtmp {
+    server {
+        listen 1935;
+        chunk_size 4096;
+
+        application live {
+            live on;
+            record off;
+
+            # HLS output
+            hls on;
+            hls_path /usr/share/nginx/html/hls;
+            hls_fragment 3;
+            hls_playlist_length 60;
+            allow publish all;
+            allow play all;
+        }
+    }
+}
+
+
 
 rtmp {
     server {

@@ -3,7 +3,6 @@
 
 
 160.191.51.71
-123abc
 @Sieutoc!RGb!ya397AS
 
 rtmp://160.191.51.71:1935/live

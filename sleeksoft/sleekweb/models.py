@@ -78,12 +78,19 @@ class Ads(models.Model):
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
 class Channel(models.Model):
+    STREAM_TYPE_CHOICES = [
+        ('url', 'URL phát (HLS/M3U8)'),
+        ('iframe', 'IFrame embed'),
+    ]
+    
     class Meta:
         ordering = ["id"]
         verbose_name_plural = "Kênh Live"
     
     Name = models.CharField('Tên kênh', max_length=100,blank=True, null=True)
     Key = models.CharField('Key live', max_length=500,blank=True, null=True)
+    Iframe = models.CharField('Iframe embed', max_length=2000,blank=True, null=True)
+    StreamType = models.CharField('Loại phát', max_length=10, choices=STREAM_TYPE_CHOICES, default='url', blank=True, null=True)
     Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
     Avatar = models.ImageField(upload_to='Channel_Daga', null=True,blank=True)
     Password = models.CharField('Mật khẩu', max_length=100,blank=True, null=True)
