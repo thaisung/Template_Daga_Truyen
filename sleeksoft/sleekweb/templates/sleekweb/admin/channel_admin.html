@@ -109,6 +109,15 @@
                 </div>
 
                 <div class="flex flex-col gap-1">
+                    <label class="text-xs text-amber-500 font-medium uppercase tracking-wider">Thời gian</label>
+                    <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full">
+                        {% csrf_token %}
+                        <input  placeholder="Thời gian" name="Time" value="{{i.Time|default:''}}"
+                            onchange="this.form.submit()" class="admin-input rounded-lg w-full px-4 py-2" />
+                    </form>
+                </div>
+
+                <div class="flex flex-col gap-1">
                     <label class="text-xs text-amber-500 font-medium uppercase tracking-wider">Mật khẩu</label>
                     <form method="post" action="{% url 'channel_edit_admin' pk=i.id %}" class="w-full">
                         {% csrf_token %}

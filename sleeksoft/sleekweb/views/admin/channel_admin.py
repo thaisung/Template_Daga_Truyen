@@ -88,6 +88,7 @@ def channel_add_admin(request):
             fields = {}
             fields['Name'] = request.POST.get('Name')
             fields['Key'] = request.POST.get('Key')
+            fields['Time'] = request.POST.get('Time')
             fields['Iframe'] = request.POST.get('Iframe')
             fields['Avatar'] = request.FILES.get('Avatar')
             obj = Channel.objects.create(**fields)
@@ -103,6 +104,7 @@ def channel_edit_admin(request,pk):
             fields = {}
             fields['Name'] = request.POST.get('Name')
             fields['Key'] = request.POST.get('Key')
+            fields['Time'] = request.POST.get('Time')
             fields['Iframe'] = request.POST.get('Iframe')
             fields['StreamType'] = request.POST.get('StreamType')
             fields['Count'] = request.POST.get('Count')
@@ -116,6 +118,8 @@ def channel_edit_admin(request,pk):
                 obj.Name = fields['Name']
             if fields['Key']:
                 obj.Key = fields['Key']
+            if fields['Time']:
+                obj.Time = fields['Time']
             if fields['Iframe']:
                 obj.Iframe = fields['Iframe']
             if fields['StreamType']:

@@ -94,6 +94,7 @@ class Channel(models.Model):
     Count = models.IntegerField('Thứ tự kênh',blank=True, null=True)
     Avatar = models.ImageField(upload_to='Channel_Daga', null=True,blank=True)
     Password = models.CharField('Mật khẩu', max_length=100,blank=True, null=True)
+    Time = models.CharField('Ngày', max_length=100,blank=True, null=True)
     Creation_time = models.DateTimeField('Thời gian tạo',auto_now_add=True)
     Update_time = models.DateTimeField('Thời gian cập nhật',auto_now=True)
 
